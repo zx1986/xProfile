@@ -7,17 +7,17 @@ set tabstop=4
 set shiftwidth=4
 set nobackup
 set hlsearch
-set history=500			" keep 500 lines of command line history
-set ruler			" show the cursor position all the time
-set showcmd			" display incomplete commands
-set incsearch			" do incremental searching
+set history=500					" keep 500 lines of command line history
+set ruler						" show the cursor position all the time
+set showcmd						" display incomplete commands
+set incsearch					" do incremental searching
 set number
 set foldmethod=syntax
 set bg=dark
 
 syntax on
 
-let mapleader=","
+let mapleader=","				" http://dailyvim.blogspot.com/2008/11/using-mapleader.html
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
