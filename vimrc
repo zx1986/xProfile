@@ -1,20 +1,3 @@
-
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -22,21 +5,19 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-"if has("vms")
-"  set nobackup		" do not keep a backup file, use versions instead
-"else
-"  set backup		" keep a backup file
-"endif
-
 set nobackup
-
-set history=500		" keep 50 lines of command line history
+set hlsearch
+set history=500		" keep 500 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set number
+set foldmethod=syntax
+set bg=dark
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+syntax on
+
+let mapleader=","
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -48,13 +29,6 @@ inoremap <C-U> <C-G>u<C-U>
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -98,11 +72,3 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-
-" by zx1986
-
-set number
-set foldmethod=syntax
-set bg=dark
-
-let mapleader=","
