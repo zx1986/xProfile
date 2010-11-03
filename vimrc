@@ -2,15 +2,15 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
+set backspace=indent,eol,start 	" allow backspacing over everything in insert mode
+set tabstop=4 
+set shiftwidth=4
 set nobackup
 set hlsearch
-set history=500		" keep 500 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=500			" keep 500 lines of command line history
+set ruler			" show the cursor position all the time
+set showcmd			" display incomplete commands
+set incsearch			" do incremental searching
 set number
 set foldmethod=syntax
 set bg=dark
