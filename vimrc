@@ -17,7 +17,11 @@ set bg=dark
 
 syntax on
 
-let mapleader=","				" http://dailyvim.blogspot.com/2008/11/using-mapleader.html
+" :map ,n :new 
+" ,n => :new
+let mapleader=","
+
+" filetype plugin indent on
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
