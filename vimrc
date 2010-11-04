@@ -1,27 +1,47 @@
-" Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set number
+
+set cindent
+set autoindent
+set smartindent
+
 set backspace=indent,eol,start 	" allow backspacing over everything in insert mode
-set tabstop=4 
-set shiftwidth=4
+
 set nobackup
+
 set hlsearch
+set incsearch					" do incremental searching
+
 set history=500					" keep 500 lines of command line history
+
 set ruler						" show the cursor position all the time
 set showcmd						" display incomplete commands
-set incsearch					" do incremental searching
-set number
+
 set foldmethod=syntax
+
 set bg=dark
 
-syntax on
+" \t 會以 4個空格代替
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
-" :map ,n :new 
-" ,n => :new
+" vim utf-8 編碼
+set fileencodings=utf-8
+set termencoding=utf-8
+set enc=utf-8
+set tenc=utf8
+
+" 先設定 :map ,n :new 然後就可以使用 ,n （相當於:new）
 let mapleader=","
 
-" filetype plugin indent on
+filetype plugin indent on
+syntax on
+
+" -----------------------------------------------------------------------------
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -62,10 +82,6 @@ if has("autocmd")
     \ endif
 
   augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
