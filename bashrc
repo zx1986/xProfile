@@ -81,6 +81,7 @@ alias ll='ls -lhF'
 alias la='ls -lhA'
 alias l='ls -hCF'
 alias update='sudo apt-get update && sudo apt-get upgrade'
+alias install='sudo apt-get install'
 alias rm='rm -i'
 
 # Add an "alert" alias for long running commands.  Use like so:
