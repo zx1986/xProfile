@@ -23,7 +23,7 @@ set foldmethod=syntax
 
 set bg=dark
 
-" \t 會以 4個空格代替
+" \t 會以 4 個空格代替
 set expandtab
 set shiftwidth=4
 set softtabstop=4
