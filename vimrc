@@ -3,9 +3,9 @@ set nocompatible
 
 set number
 
-set cindent
-set autoindent
-set smartindent
+"set cindent
+"set autoindent
+"set smartindent
 
 set backspace=indent,eol,start 	" allow backspacing over everything in insert mode
 
@@ -40,7 +40,8 @@ let mapleader=","
 
 syntax on
 
-filetype plugin indent on
+filetype plugin on
+"filetype indent on
 
 set completeopt=longest,menu
 
