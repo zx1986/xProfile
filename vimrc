@@ -3,9 +3,10 @@ set nocompatible
 
 set number
 
-"set cindent
-"set autoindent
-"set smartindent
+set cindent
+set autoindent
+set smartindent
+"set paste
 
 set backspace=indent,eol,start 	" allow backspacing over everything in insert mode
 
@@ -41,13 +42,16 @@ let mapleader=","
 syntax on
 
 filetype plugin on
-"filetype indent on
+filetype indent on
 
 set completeopt=longest,menu
 
 " AutoComplPop setting
 let g:acp_completeOption = '.,w,b,u,t,i,k'
 let g:acp_behaviorSnipmateLength=1
+
+" c9s simple comment
+let g:scomment_default_mapping = 1
 
 " -----------------------------------------------------------------------------
 
