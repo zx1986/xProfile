@@ -83,6 +83,8 @@ alias l='ls -hCF'
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias install='sudo apt-get install'
 alias rm='rm -i'
+alias c='clear'
+alias to='ssh root@$1'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
