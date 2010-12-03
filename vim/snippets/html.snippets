@@ -49,10 +49,10 @@ snippet escape
 	&#x238B;
 # Generic Doctype
 snippet doctype HTML 4.01 Strict
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 	"http://www.w3.org/TR/html4/strict.dtd">
 snippet doctype HTML 4.01 Transitional
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 	"http://www.w3.org/TR/html4/loose.dtd">
 snippet doctype HTML 5
 	<!DOCTYPE HTML>
@@ -70,11 +70,11 @@ snippet doctype XHTML 1.1
 	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 # HTML Doctype 4.01 Strict
 snippet docts
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 	"http://www.w3.org/TR/html4/strict.dtd">
 # HTML Doctype 4.01 Transitional
 snippet doct
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 	"http://www.w3.org/TR/html4/loose.dtd">
 # HTML Doctype 5
 snippet doct5
@@ -157,7 +157,6 @@ snippet form
 	<form action="${1:`Filename('$1_submit')`}" method="${2:get}" accept-charset="utf-8">
 		${3}
 
-
 	<p><input type="submit" value="Continue &rarr;"`Close()`></p>
 	</form>
 snippet h1
@@ -189,8 +188,7 @@ snippet textarea
 	<textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">${4}</textarea>${5}
 
 snippet zhtml
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""
-	"http://www.w3.org/TR/html4/strict.dtd">
+	<!DOCTYPE HTML>
 	<html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -198,22 +196,22 @@ snippet zhtml
 		
 		<!-- ********* CSS ********* -->
 		<!-- base css -->
-		<link href="./style.css" rel="stylesheet" type="text/css">
+		<link href="./css/style.css" rel="stylesheet" type="text/css">
 
 		<!-- page specific css -->
 		<link href="#" rel="stylesheet" type="text/css">
 		
 		<!-- ********* Javascript ********* -->
 		<!-- base javascript library -->
-		<script src="${2}.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/${2}" type="text/javascript" charset="utf-8"></script>
 
 		<!-- page specific javascript -->
-		<script src="#" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/${3}" type="text/javascript" charset="utf-8"></script>
 
 		<!-- extensions -->
 
 	</head>
 	<body>
-	${3}
+	${4}
 	</body>
 	</html>
