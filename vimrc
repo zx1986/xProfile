@@ -47,8 +47,8 @@ filetype indent on
 set completeopt=longest,menu
 
 " AutoComplPop setting
-let g:acp_completeOption = '.,w,b,u,t,i,k'
-let g:acp_behaviorSnipmateLength=1
+" let g:acp_completeOption = '.,w,b,u,t,i,k'
+" let g:acp_behaviorSnipmateLength=1
 
 " c9s simple comment
 let g:scomment_default_mapping = 1
