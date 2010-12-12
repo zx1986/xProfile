@@ -84,16 +84,16 @@ endif
 
 " --- 自動補齊括號 ---
 :inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(‘)’)<CR>
+:inoremap ) <c-r>=ClosePair(')')<CR>
 :inoremap { {}<ESC>i
-:inoremap } <c-r>=ClosePair(‘}’)<CR>
+:inoremap } <c-r>=ClosePair('}')<CR>
 :inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(‘]’)<CR>
+:inoremap ] <c-r>=ClosePair(']')<CR>
 :inoremap < <><ESC>i
-:inoremap > <c-r>=ClosePair(‘>’)<CR>
+:inoremap > <c-r>=ClosePair('>')<CR>
 
 function ClosePair(char)
-    if getline(‘.’)[col('.') - 1] == a:char
+    if getline('.')[col('.') - 1] == a:char
         return "\<Right>"
     else
         return a:char
