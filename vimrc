@@ -115,3 +115,15 @@ function! JavaScriptFold()
 endfunction
 au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
+
+" --- jQuery syntax ---
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+
+" --- MathML syntax ---
+au BufNewFile,BufRead *.mml setf mathml
+
+" --- SVG syntax ---
+au BufNewFile,BufRead *.svg setf svg 
+
+" --- HTML syntax ---
+au BufNewFile,BufRead *.xhtml,*.xht setf xhtml
