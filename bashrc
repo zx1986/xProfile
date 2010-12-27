@@ -86,7 +86,7 @@ alias install='sudo apt-get install'
 alias rm='rm -i'
 alias c='clear'
 alias to='ssh root@$1'
-alias gg='git add . ; git commit -a'
+alias gg='git pull origin master && git add . && git commit -a'
 alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
 
 # Add an "alert" alias for long running commands.  Use like so:
