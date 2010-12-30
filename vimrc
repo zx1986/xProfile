@@ -140,3 +140,9 @@ au BufNewFile,BufRead *.svg setf svg
 
 " --- HTML syntax ---
 au BufNewFile,BufRead *.xhtml,*.xht,*.html setf xhtml
+
+" --- for phpDocumentor ---
+source ~/.vim/plugin/php-doc.vim 
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-P> :call PhpDocSingle()<CR> 
+vnoremap <C-P> :call PhpDocRange()<CR> 
