@@ -37,7 +37,6 @@ set enc=utf-8
 set tenc=utf8
 
 " tab 分頁設定
-set tabstop=8 
 set softtabstop=8 
 set shiftwidth=8 
 set noexpandtab 
