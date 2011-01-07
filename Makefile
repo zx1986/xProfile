@@ -1,4 +1,4 @@
-deploy:
+init:
 	rm -rf $(HOME)/.bashrc
 	rm -rf $(HOME)/.vimrc
 	rm -rf $(HOME)/.vim

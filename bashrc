@@ -35,7 +35,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -86,6 +86,7 @@ alias install='sudo apt-get install'
 alias rm='rm -i'
 alias c='clear'
 alias to='ssh root@$1'
+alias cache='apt-cache search'
 alias gg='git pull origin master && git add . && git commit -a && git push'
 alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
 

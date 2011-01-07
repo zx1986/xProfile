@@ -35,6 +35,8 @@ set fileencodings=utf-8
 set termencoding=utf-8
 set enc=utf-8
 set tenc=utf8
+set ff=unix
+set ffs=unix
 
 " 先設定 :map ,n :new 然後就可以使用 ,n （相當於:new）
 let mapleader=","
@@ -44,7 +46,7 @@ syntax on
 filetype plugin on
 filetype indent on
 
-set completeopt=longest,menu
+" set completeopt=longest,menu
 
 " AutoComplPop setting
 " let g:acp_completeOption = '.,w,b,u,t,i,k'
@@ -52,8 +54,6 @@ set completeopt=longest,menu
 
 " c9s simple comment
 let g:scomment_default_mapping = 1
-
-" -----------------------------------------------------------------------------
 
 " Don't use Ex mode, use Q for formatting
 "map Q gq
