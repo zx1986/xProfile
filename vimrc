@@ -13,7 +13,7 @@
 " {
     filetype plugin indent on
     set backspace=indent,eol,start 	" 讓 Backspace 鍵可用
-    set mouse=a                     " 開啓滑鼠功能
+    "set mouse=a                    " 開啓滑鼠功能
     set noerrorbells                " 關閉警示音效
     set nobackup                    " 關閉自動備份
     set autochdir                   " 自動辨識到檔案所在目錄
