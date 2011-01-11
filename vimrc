@@ -12,17 +12,17 @@
 " General
 " {
     filetype plugin indent on
-    set backspace=indent,eol,start 	" 讓 Backspace 鍵可用
+    set backspace=indent,eol,start  " 讓 Backspace 鍵可用
     "set mouse=a                    " 開啓滑鼠功能
     set noerrorbells                " 關閉警示音效
     set nobackup                    " 關閉自動備份
     set autochdir                   " 自動辨識到檔案所在目錄
-    set fileformats=unix,dos,mac    " :e ++ff=dos [Edit file again, using dos file format, 'fileformats' is ignored]
+    set fileformats=unix            " :e ++ff=dos [Edit file again, using dos file format, 'fileformats' is ignored]
     set fileformat=unix
     set encoding=utf-8
     set fileencodings=utf-8
     set termencoding=utf-8
-    set history=500					" keep 500 lines of command line history
+    set history=500                 " keep 500 lines of command line history
 " }
 
 " UI
@@ -32,10 +32,10 @@
     "set cursorline                 " 高亮度顯示當前所在列
     "set cursorcolumn               " 高亮度顯示當前所在欄
     set hlsearch                    " highlight search
-    set incsearch					" do incremental searching
-    set ruler						" show the cursor position all the time
+    set incsearch                   " do incremental searching
+    set ruler                       " show the cursor position all the time
     set nostartofline               " leave the cursor where it was
-    set showcmd						" display incomplete commands
+    set showcmd                     " display incomplete commands
     set showmatch
     "colorscheme *                  " default, blue, darkblue, slate, delek ...
 " }
