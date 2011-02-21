@@ -12,7 +12,7 @@ alias c='clear'
 
 alias to='ssh root@$1'
 
-alias gg='git pull && git add . && git commit -a && git push'
+alias gg='git add . && git commit -a && git push'
 
 alias work='cd ~/Projects && tmux'
 
