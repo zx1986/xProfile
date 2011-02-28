@@ -156,3 +156,5 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 endif
+
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
