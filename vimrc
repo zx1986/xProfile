@@ -1,16 +1,16 @@
-" Vim:set foldmarker={,} foldlevel=0 spell
+" Vim:set foldmarker={{{,}}} foldlevel=0 spell
 
 " Basics
-" {
+" {{{
     set nocompatible                " 關閉 vi 相容模式
     set background=dark             " 設定背景爲黑色系
     set noexrc                      " 不使用 .exrc
     set cpoptions=aABceFsmq          
     syntax on                       " 開啓語法高亮度顯示
-" }
+" }}}
 
 " General
-" {
+" {{{
     filetype plugin indent on
     set backspace=indent,eol,start  " 讓 Backspace 鍵可用
     "set mouse=a                    " 開啓滑鼠功能
@@ -23,10 +23,10 @@
     set fileencodings=utf-8
     set termencoding=utf-8
     set history=500                 " keep 500 lines of command line history
-" }
+" }}}
 
 " UI
-" {
+" {{{
     set number                      " 顯示列（row）號
     set numberwidth=5               " 列號的位數
     "set cursorline                 " 高亮度顯示當前所在列
@@ -38,10 +38,10 @@
     set showcmd                     " display incomplete commands
     set showmatch
     "colorscheme *                  " default, blue, darkblue, slate, delek ...
-" }
+" }}}
 
 " Text Formatting 
-" {
+" {{{
     set expandtab                   " no real tabs
     set tabstop=4
     set shiftwidth=4                " auto-indent amount when using cindent, stuff like >> and <<
@@ -51,25 +51,25 @@
     set cindent
     set autoindent
     set smartindent
-" }
+" }}}
 
 " Folding
-" {
+" {{{
     set foldenable
     set foldmethod=syntax
-" }
+" }}}
 
 " Mapping
-" {
+" {{{
     " 讓 ,n 相當於使用 :new
     " :map ,n :new
     let mapleader=","
     map Q gq
     inoremap <C-U> <C-G>u<C-U>
-" }
+" }}}
 
 " 狀態列設定
-" {
+" {{{
     set laststatus=2
     set statusline=%4*%<\ %1*[%F]
     set statusline+=%4*\ %5*[%{&encoding},  " encoding
@@ -81,10 +81,10 @@
     highlight User4 term=underline cterm=underline ctermfg=white
     highlight User5 ctermfg=cyan
     highlight User6 ctermfg=white 
-" }
+" }}}
 
 " 自動補齊括號
-" {
+" {{{
     :inoremap ( ()<ESC>i
     :inoremap ) <c-r>=ClosePair(')')<CR>
     :inoremap { {}<ESC>i
@@ -102,10 +102,10 @@
             return a:char
         endif
     endf
-" }
+" }}}
 
 " Javascript Folding
-" {
+" {{{
     function! JavaScriptFold() 
         setl foldmethod=syntax
         setl foldlevelstart=1
@@ -117,23 +117,23 @@
     endfunction
     au FileType javascript call JavaScriptFold()
     au FileType javascript setl fen
-" }
+" }}}
 
 " Plugins Setting
-" {
+" {{{
     " c9s simple comment
-    " {
+    " {{{
         let g:scomment_default_mapping=1
-    " }
+    " }}}
 
     " vim for phpDocumentor
-    " {
+    " {{{
         source ~/.vim/plugin/php-doc.vim 
         inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
         nnoremap <C-P> :call PhpDocSingle()<CR> 
         vnoremap <C-P> :call PhpDocRange()<CR>
-    " }
-" }
+    " }}}
+" }}}
 
 " ------------------------------------------------------------------------- "
 
