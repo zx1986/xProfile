@@ -1,4 +1,4 @@
 #!/bin/bash
-sleep  3 ; gnome-do &
-sleep  5 ; docky &
+sleep  5 ; gnome-do &
+sleep  9 ; docky &
 #sleep 20 ; ubuntuone-launch &
