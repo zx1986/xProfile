@@ -1,1 +1,0 @@
-/home/zx1986/Projects/general_toolkit/dot_files/vim
