@@ -1,0 +1,9 @@
+[user]
+    name = 張旭
+    email = zx1986@gmail.com
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
