@@ -11,7 +11,6 @@ alias rm='rm -i'
 alias c='clear'
 alias gg='git add . && git commit -a'
 
-alias vpn='ssh 172.17.7.55 -p 22 -D 8888 -l zx1986 -X'
 alias work='cd ~/Projects && tmux'
 
 alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
