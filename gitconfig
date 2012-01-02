@@ -7,3 +7,11 @@
     status = auto
     branch = auto
     ui = auto
+
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 1003x511+108+86
+	history-view-vpane-position = 402
+	main-window-view = HistoryView
+	file-view-vpane-position = 282
+	file-view-hpane-position = 314
