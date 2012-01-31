@@ -1,5 +1,7 @@
 " Vim:set foldmarker={{{,}}} foldlevel=0 spell
 
+call pathogen#infect()
+
 " Basics
 " {{{
     set nocompatible                " 關閉 vi 相容模式
