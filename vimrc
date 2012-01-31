@@ -1,7 +1,5 @@
 " Vim:set foldmarker={{{,}}} foldlevel=0 spell
 
-call pathogen#infect()
-
 " Basics
 " {{{
     set nocompatible                " 關閉 vi 相容模式
@@ -73,17 +71,17 @@ call pathogen#infect()
 
 " 狀態列設定
 " {{{
-    set laststatus=2
-    set statusline=%4*%<\ %1*[%F]
-    set statusline+=%4*\ %5*[%{&encoding},  " encoding
-    set statusline+=%{&fileformat}]%m       " file format
-    set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
-    highlight User1 ctermfg=red
-    highlight User2 term=underline cterm=underline ctermfg=green
-    highlight User3 term=underline cterm=underline ctermfg=yellow
-    highlight User4 term=underline cterm=underline ctermfg=white
-    highlight User5 ctermfg=cyan
-    highlight User6 ctermfg=white 
+     set laststatus=2
+     set statusline=%4*%<\ %1*[%F]
+     set statusline+=%4*\ %5*[%{&encoding},  " encoding
+     set statusline+=%{&fileformat}]%m       " file format
+     set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
+     highlight User1 ctermfg=red
+     highlight User2 term=underline cterm=underline ctermfg=green
+     highlight User3 term=underline cterm=underline ctermfg=yellow
+     highlight User4 term=underline cterm=underline ctermfg=white
+     highlight User5 ctermfg=cyan
+     highlight User6 ctermfg=white 
 " }}}
 
 " 自動補齊括號
@@ -161,3 +159,6 @@ autocmd BufReadPost *
 endif
 
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+call pathogen#infect()
+let g:Powerline_symbols = 'fancy'
