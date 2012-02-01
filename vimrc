@@ -160,5 +160,6 @@ endif
 
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
+set t_Co=256
 call pathogen#infect()
 let g:Powerline_symbols = 'fancy'
