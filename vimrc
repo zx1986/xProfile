@@ -160,6 +160,22 @@ endif
 
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
-set t_Co=256
 call pathogen#infect()
+
+" Powerline-------------------------------------------------- "
+
+set t_Co=256
 let g:Powerline_symbols = 'fancy'
+
+"set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
+
+"set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+"let Powerline_symbols = 'compatible'
+
+"if has('gui_running')
+"  set guifont=Monaco:h12    " set fonts for gui vim
+"  set transparency=5        " set transparent window
+"  set guioptions=egmrt  " hide the gui menubar
+"endif
+
+" ---------------------------------------------------------- "
