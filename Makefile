@@ -15,3 +15,5 @@ init:
 	ln -s $(PWD)/fonts.conf $(HOME)/.fonts.conf
 	@touch $(HOME)/.zshrc && rm -i $(HOME)/.zshrc
 	ln -s $(PWD)/zshrc $(HOME)/.zshrc
+	@touch $(HOME)/.oh-my-zsh && rm -i $(HOME)/.oh-my-zsh
+	ln -s $(PWD)/oh-my-zsh $(HOME)/.oh-my-zsh
