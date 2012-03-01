@@ -162,7 +162,7 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 call pathogen#infect()
 
-" Powerline-------------------------------------------------- "
+" Powerline ------------------------------------------------- "
 
 set t_Co=256
 let g:Powerline_symbols = 'fancy'

@@ -1,4 +1,6 @@
 init:
+	git submodule init
+	git submodule update
 	@touch $(HOME)/.aliases && rm -i $(HOME)/.aliases
 	ln -s $(PWD)/aliases $(HOME)/.aliases
 	@touch $(HOME)/.bashrc && rm -i $(HOME)/.bashrc
