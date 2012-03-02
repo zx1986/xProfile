@@ -23,6 +23,7 @@
     set fileencodings=utf-8
     set termencoding=utf-8
     set history=500                 " keep 500 lines of command line history
+    set tabpagemax=50               " for vim -p *
 " }}}
 
 " UI
