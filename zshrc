@@ -32,6 +32,7 @@ ZSH_THEME="random"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git ruby rails)
 
+source /etc/profile
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
