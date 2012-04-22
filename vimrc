@@ -165,7 +165,7 @@ call pathogen#infect()
 
 " Powerline ------------------------------------------------- "
 
-set t_Co=256
+set t_Co=16
 let g:Powerline_symbols = 'fancy'
 
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14

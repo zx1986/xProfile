@@ -115,3 +115,6 @@ function git_since_last_commit {
 }
 
 #PS1="[\[\033[1;32m\]\w\[\033[0m] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]$ "
+
+source $HOME/nvm/nvm.sh
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
