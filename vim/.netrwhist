@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/zx1986'
-let g:netrw_dirhist_2='/var/www/framework/extjs'
-let g:netrw_dirhist_3='/home/zx1986/Dropbox/zx-projects/data-receiver/src'
-let g:netrw_dirhist_4='/home/zx1986/Dropbox/Projects/puppet/src/.git'
-let g:netrw_dirhist_5='/tmp/pulse-1pyHYq5pQ4zN'
-let g:netrw_dirhist_6='/etc/network'
-let g:netrw_dirhist_7='/home/zx1986/.ssh'
-let g:netrw_dirhist_8='/home/zx1986/.oh-my-zsh/custom/example'
-let g:netrw_dirhist_9='/home/zx1986/zx1986.ruhoh.com/_posts'
+let g:netrw_dirhist_cnt =0
