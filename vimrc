@@ -5,7 +5,7 @@
     set nocompatible                " 關閉 vi 相容模式
     set background=dark             " 設定背景爲黑色系
     set noexrc                      " 不使用 .exrc
-    set cpoptions=aABceFsmq          
+    set cpoptions=aABceFsmq
     syntax on                       " 開啓語法高亮度顯示
 " }}}
 
