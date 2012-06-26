@@ -15,3 +15,6 @@
 	main-window-view = HistoryView
 	file-view-vpane-position = 282
 	file-view-hpane-position = 314
+
+[http]
+	proxy = http://proxy.cwb.gov.tw:8888
