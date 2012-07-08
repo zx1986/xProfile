@@ -36,8 +36,8 @@
     Bundle 'vim-scripts/mayansmoke'
     Bundle 'vim-scripts/peaksea'
     Bundle 'vim-scripts/taglist.vim'
-    "Bundle 'vim-scripts/php-doc'
-    "Bundle 'c9s/simple-commenter.vim'
+    Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
+    Bundle 'c9s/simple-commenter.vim'
     """ vim-scripts repos
     Bundle 'L9'
     Bundle 'FuzzyFinder'
@@ -171,7 +171,7 @@
         let g:scomment_default_mapping=1
     " }}}
 
-    " php-doc
+    " PDV a.k.a. php-doc
     " {{{
         inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
         nnoremap <C-P> :call PhpDocSingle()<CR> 
