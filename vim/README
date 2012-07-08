@@ -1,0 +1,5 @@
+ftdetect: file type detect
+ftplugin: file type plugin
+bundle: Vimbundle a.k.a vbundle
+
+$VIMRUNTIME

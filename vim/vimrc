@@ -9,6 +9,42 @@
     syntax on                       " 開啓語法高亮度顯示
 " }}}
 
+" Vundle
+" {{{
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()    
+    Bundle 'gmarik/vundle'
+
+    """ original repos on github
+    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-rails.git'
+    Bundle 'tpope/vim-surround'
+    Bundle 'tpope/vim-markdown'
+    Bundle 'MarcWeber/vim-addon-mw-utils'
+    Bundle 'tomtom/tlib_vim'
+    Bundle 'snipmate-snippets'
+    Bundle 'garbas/vim-snipmate'
+    Bundle 'mattn/zencoding-vim'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'wgibbs/vim-irblack'
+    Bundle 'therubymug/vim-pyte'
+    Bundle 'vim-scripts/mayansmoke'
+    Bundle 'vim-scripts/peaksea'
+    Bundle 'vim-scripts/taglist.vim'
+    "Bundle 'vim-scripts/php-doc'
+    "Bundle 'c9s/simple-commenter.vim'
+    """ vim-scripts repos
+    Bundle 'L9'
+    Bundle 'FuzzyFinder'
+    """ non github repos
+    "Bundle 'git://git.wincent.com/command-t.git'
+" }}}
+
 " General
 " {{{
     filetype plugin indent on
@@ -108,36 +144,54 @@
 
 " Javascript Folding
 " {{{
-    function! JavaScriptFold() 
-        setl foldmethod=syntax
-        setl foldlevelstart=1
-        syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-        function! FoldText()
-            return substitute(getline(v:foldstart), '{.*', '{...}', '')
-        endfunction
-        setl foldtext=FoldText()
-    endfunction
-    au FileType javascript call JavaScriptFold()
-    au FileType javascript setl fen
+"   function! JavaScriptFold() 
+"       setl foldmethod=syntax
+"       setl foldlevelstart=1
+"       syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+"       function! FoldText()
+"           return substitute(getline(v:foldstart), '{.*', '{...}', '')
+"       endfunction
+"       setl foldtext=FoldText()
+"   endfunction
+"   au FileType javascript call JavaScriptFold()
+"   au FileType javascript setl fen
 " }}}
 
 " Plugins Setting
 " {{{
+
+    "colorscheme solarized
+    "colorscheme peaksea
+    "colorscheme ir_black
+    "colorscheme pyte
+    "colorscheme mayansmoke
+
     " c9s simple comment
     " {{{
         let g:scomment_default_mapping=1
     " }}}
 
-    " vim for phpDocumentor
+    " php-doc
     " {{{
-        source ~/.vim/plugin/php-doc.vim 
         inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
         nnoremap <C-P> :call PhpDocSingle()<CR> 
         vnoremap <C-P> :call PhpDocRange()<CR>
     " }}}
+    
+    " Powerline
+    " {{{
+        set t_Co=16
+        let g:Powerline_symbols = 'fancy'
+        "let Powerline_symbols = 'compatible'
+        "set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
+        "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+        "if has('gui_running')
+        "  set guifont=Monaco:h12    " set fonts for gui vim
+        "  set transparency=5        " set transparent window
+        "  set guioptions=egmrt  " hide the gui menubar
+        "endif
+    " }}}
 " }}}
-
-" ------------------------------------------------------------------------- "
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -159,24 +213,4 @@ autocmd BufReadPost *
   \ endif
 endif
 
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
-call pathogen#infect()
-
-" Powerline ------------------------------------------------- "
-
-set t_Co=16
-let g:Powerline_symbols = 'fancy'
-
-"set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
-
-"set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-"let Powerline_symbols = 'compatible'
-
-"if has('gui_running')
-"  set guifont=Monaco:h12    " set fonts for gui vim
-"  set transparency=5        " set transparent window
-"  set guioptions=egmrt  " hide the gui menubar
-"endif
-
-" ---------------------------------------------------------- "
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
