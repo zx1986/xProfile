@@ -87,15 +87,21 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-if [ -f ~/.git-completion ]; then
-    . ~/.git-completion
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
+fi
+
+### Git
+
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
+
+if [ -f ~/.git-flow-completion.bash ]; then
+    . ~/.git-flow-completion.bash
 fi
 
 function git_branch {
@@ -116,6 +122,11 @@ function git_since_last_commit {
 
 #PS1="[\[\033[1;32m\]\w\[\033[0m] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]$ "
 
+### NVM
+
 #source $HOME/nvm/nvm.sh
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
+
+### RVM
+
+#PATH=$PATH:$HOME/rvm/bin
+#[[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"

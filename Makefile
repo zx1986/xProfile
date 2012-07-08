@@ -1,21 +1,12 @@
 init:
 	git submodule init
 	git submodule update
-	@touch $(HOME)/.aliases && rm -i $(HOME)/.aliases
-	ln -s $(PWD)/aliases $(HOME)/.aliases
-	@touch $(HOME)/.bashrc && rm -i $(HOME)/.bashrc
-	ln -s $(PWD)/bashrc $(HOME)/.bashrc
-	@touch $(HOME)/.vimrc && rm -i $(HOME)/.vimrc
-	ln -s $(PWD)/vimrc $(HOME)/.vimrc
-	@touch $(HOME)/.vim && rm -i $(HOME)/.vim
-	ln -s $(PWD)/vim $(HOME)/.vim
-	@touch $(HOME)/.gitcompletion && rm -i $(HOME)/.gitcompletion
-	ln -s $(PWD)/gitcompletion $(HOME)/.gitcompletion
-	@touch $(HOME)/.gitconfig && rm -i $(HOME)/.gitconfig
-	ln -s $(PWD)/gitconfig $(HOME)/.gitconfig
-	@touch $(HOME)/.fonts.conf && rm -i $(HOME)/.fonts.conf
-	ln -s $(PWD)/fonts.conf $(HOME)/.fonts.conf
-	@touch $(HOME)/.zshrc && rm -i $(HOME)/.zshrc
-	ln -s $(PWD)/zshrc $(HOME)/.zshrc
-	@touch $(HOME)/.oh-my-zsh && rm -i $(HOME)/.oh-my-zsh
+	ln -s $(PWD)/ubuntu/fonts.conf $(HOME)/.fonts.conf
+	ln -s $(PWD)/ubuntu/aliases $(HOME)/.aliases
+	ln -s $(PWD)/ubunut/bashrc $(HOME)/.bashrc
+	ln -s $(PWD)/ubuntu/zshrc $(HOME)/.zshrc
 	ln -s $(PWD)/oh-my-zsh $(HOME)/.oh-my-zsh
+	ln -s $(PWD)/vim $(HOME)/.vim
+	ln -s $(PWD)/vim/vimrc $(HOME)/.vimrc
+	ln -s $(PWD)/git/git-config $(HOME)/.gitconfig
+	ln -s $(PWD)/git/git-flow-completion/git-flow-completion.bash $(HOME)/.git-flow-completion.bash
