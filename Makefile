@@ -3,7 +3,7 @@ init:
 	git submodule update
 	ln -s $(PWD)/ubuntu/fonts.conf $(HOME)/.fonts.conf
 	ln -s $(PWD)/ubuntu/aliases $(HOME)/.aliases
-	ln -s $(PWD)/ubunut/bashrc $(HOME)/.bashrc
+	ln -s $(PWD)/ubuntu/bashrc $(HOME)/.bashrc
 	ln -s $(PWD)/ubuntu/zshrc $(HOME)/.zshrc
 	ln -s $(PWD)/oh-my-zsh $(HOME)/.oh-my-zsh
 	ln -s $(PWD)/vim $(HOME)/.vim
