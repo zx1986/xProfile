@@ -2,3 +2,5 @@
 *.tmp
 *.o
 vim/bundle/*
+vim/.netrwhist
+vim/.VimballRecord

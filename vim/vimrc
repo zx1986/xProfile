@@ -23,6 +23,9 @@
     Bundle 'tpope/vim-rails.git'
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-markdown'
+    Bundle 'tpope/vim-haml'
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'rodjek/vim-puppet'
     Bundle 'MarcWeber/vim-addon-mw-utils'
     Bundle 'tomtom/tlib_vim'
     Bundle 'snipmate-snippets'
@@ -30,8 +33,10 @@
     Bundle 'mattn/zencoding-vim'
     Bundle 'kien/ctrlp.vim'
     Bundle 'scrooloose/nerdtree'
-    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'StanAngeloff/php.vim'
+    Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
     Bundle 'xenoterracide/html.vim.git'
+    Bundle 'nathanaelkane/vim-indent-guides'
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'wgibbs/vim-irblack'
     Bundle 'therubymug/vim-pyte'
@@ -168,10 +173,17 @@
 
 " Plugins Setting
 " {{{
-
     " c9s simple comment
     " {{{
-        let g:scomment_default_mapping=1
+    "   let g:scomment_default_mapping=1
+    " }}}
+
+    " vim-indent-guides
+    " {{{
+        hi IndentGuidesOdd  ctermbg=black
+        hi IndentGuidesEven ctermbg=darkgrey
+        let g:indent_guides_start_level=2
+        let g:indent_guides_guide_size=1
     " }}}
 
     " PDV a.k.a. php-doc
@@ -215,5 +227,3 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 endif
-
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
