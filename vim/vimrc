@@ -31,9 +31,11 @@
     Bundle 'kien/ctrlp.vim'
     Bundle 'scrooloose/nerdtree'
     Bundle 'kchmck/vim-coffee-script'
+    Bundle 'xenoterracide/html.vim.git'
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'wgibbs/vim-irblack'
     Bundle 'therubymug/vim-pyte'
+    Bundle 'vim-scripts/desert256.vim'
     Bundle 'vim-scripts/mayansmoke'
     Bundle 'vim-scripts/peaksea'
     Bundle 'vim-scripts/taglist.vim'
@@ -75,7 +77,13 @@
     set nostartofline               " leave the cursor where it was
     set showcmd                     " display incomplete commands
     set showmatch
-    "colorscheme *                  " default, blue, darkblue, slate, delek ...
+    "colorscheme default            " default, blue, darkblue, slate, delek ...
+    "colorscheme solarized
+    "colorscheme peaksea
+    "colorscheme ir_black
+    "colorscheme pyte
+    "colorscheme mayansmoke
+    "colorscheme desert256
 " }}}
 
 " Text Formatting 
@@ -160,12 +168,6 @@
 
 " Plugins Setting
 " {{{
-
-    "colorscheme solarized
-    "colorscheme peaksea
-    "colorscheme ir_black
-    "colorscheme pyte
-    "colorscheme mayansmoke
 
     " c9s simple comment
     " {{{
