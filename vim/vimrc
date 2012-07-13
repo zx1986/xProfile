@@ -45,7 +45,6 @@
     Bundle 'vim-scripts/peaksea'
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
-    Bundle 'c9s/simple-commenter.vim'
     """ vim-scripts repos
     Bundle 'L9'
     Bundle 'FuzzyFinder'
@@ -175,7 +174,7 @@
 " {{{
     " c9s simple comment
     " {{{
-    "   let g:scomment_default_mapping=1
+       let g:scomment_default_mapping=1
     " }}}
 
     " vim-indent-guides
