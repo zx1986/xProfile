@@ -124,10 +124,10 @@ function git_since_last_commit {
 
 ### NVM
 
-source $HOME/nvm/nvm.sh
+#source $HOME/nvm/nvm.sh
 
 ### RVM
 
 #PATH=$HOME/.rvm/bin:$PATH
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 #[[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
