@@ -42,6 +42,8 @@
     Bundle 'therubymug/vim-pyte'
     Bundle 'vim-scripts/Jinja'
     Bundle 'vim-scripts/desert256.vim'
+    Bundle 'vim-scripts/wombat256.vim'
+    Bundle 'vim-scripts/moria'
     Bundle 'vim-scripts/mayansmoke'
     Bundle 'vim-scripts/peaksea'
     Bundle 'vim-scripts/taglist.vim'
@@ -87,8 +89,10 @@
     "colorscheme peaksea
     "colorscheme ir_black
     "colorscheme pyte
+    "colorscheme moria
     "colorscheme mayansmoke
     "colorscheme desert256
+    "colorscheme wombat256mod
 " }}}
 
 " Text Formatting 
