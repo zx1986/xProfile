@@ -40,6 +40,7 @@
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'wgibbs/vim-irblack'
     Bundle 'therubymug/vim-pyte'
+    Bundle 'juvenn/mustache.vim'
     Bundle 'vim-scripts/Jinja'
     Bundle 'vim-scripts/desert256.vim'
     Bundle 'vim-scripts/wombat256.vim'
