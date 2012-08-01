@@ -37,5 +37,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 source $HOME/.aliases
-source $HOME/nvm/nvm.sh
-PATH=$PATH:$HOME/rvm/bin/
+#source $HOME/nvm/nvm.sh
+#PATH=$HOME/.rvm/bin:$PATH
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#[[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
