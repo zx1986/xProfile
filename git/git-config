@@ -8,10 +8,6 @@
     branch = auto
     ui = auto
 
-[giggle]
-	main-window-maximized = true
-	main-window-geometry = 0x0+0+0
-	history-view-vpane-position = 402
-	main-window-view = HistoryView
-	file-view-vpane-position = 282
-	file-view-hpane-position = 314
+[core]
+	autocrlf = input
+	safecrlf = true
