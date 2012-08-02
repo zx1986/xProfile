@@ -8,10 +8,6 @@
     branch = auto
     ui = auto
 
-[core]
-	autocrlf = input
-	safecrlf = true
-
 [alias]
     history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
