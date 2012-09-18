@@ -12,6 +12,7 @@
 " Vundle
 " {{{
     filetype off
+    set rtp+=$GOROOT/misc/vim
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()    
     Bundle 'gmarik/vundle'
@@ -232,3 +233,4 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 endif
+
