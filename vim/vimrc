@@ -20,11 +20,13 @@
     """ original repos on github
     Bundle 'Lokaltog/vim-powerline'
     Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'hail2u/vim-css3-syntax'
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-rails.git'
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-markdown'
     Bundle 'tpope/vim-haml'
+    " Bundle 'cakebaker/scss-syntax.vim'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'rodjek/vim-puppet'
     Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -35,7 +37,6 @@
     Bundle 'kien/ctrlp.vim'
     Bundle 'scrooloose/nerdtree'
     Bundle 'StanAngeloff/php.vim'
-    Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
     Bundle 'xenoterracide/html.vim.git'
     Bundle 'nathanaelkane/vim-indent-guides'
     Bundle 'altercation/vim-colors-solarized'
@@ -173,7 +174,7 @@
         endfunction
         setl foldtext=FoldText()
     endfunction
-    au FileType javascript call JavaScriptFold()
+    "au FileType javascript call JavaScriptFold()
     au FileType javascript setl fen
 " }}}
 
@@ -234,3 +235,7 @@ autocmd BufReadPost *
   \ endif
 endif
 
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
