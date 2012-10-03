@@ -26,7 +26,6 @@
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-markdown'
     Bundle 'tpope/vim-haml'
-    " Bundle 'cakebaker/scss-syntax.vim'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'rodjek/vim-puppet'
     Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -43,6 +42,7 @@
     Bundle 'wgibbs/vim-irblack'
     Bundle 'therubymug/vim-pyte'
     Bundle 'juvenn/mustache.vim'
+    Bundle 'vim-scripts/Align'
     Bundle 'vim-scripts/Jinja'
     Bundle 'vim-scripts/desert256.vim'
     Bundle 'vim-scripts/wombat256.vim'
@@ -52,8 +52,8 @@
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
     """ vim-scripts repos
-    Bundle 'L9'
-    Bundle 'FuzzyFinder'
+    "Bundle 'L9'
+    "Bundle 'FuzzyFinder'
     """ non github repos
     "Bundle 'git://git.wincent.com/command-t.git'
 " }}}
@@ -234,8 +234,3 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 endif
-
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
