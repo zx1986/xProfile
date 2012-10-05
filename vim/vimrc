@@ -30,7 +30,6 @@
     Bundle 'rodjek/vim-puppet'
     Bundle 'MarcWeber/vim-addon-mw-utils'
     Bundle 'tomtom/tlib_vim'
-    Bundle 'snipmate-snippets'
     Bundle 'garbas/vim-snipmate'
     Bundle 'mattn/zencoding-vim'
     Bundle 'kien/ctrlp.vim'
@@ -52,8 +51,8 @@
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
     """ vim-scripts repos
-    "Bundle 'L9'
-    "Bundle 'FuzzyFinder'
+    Bundle 'L9'
+    Bundle 'FuzzyFinder'
     """ non github repos
     "Bundle 'git://git.wincent.com/command-t.git'
 " }}}
