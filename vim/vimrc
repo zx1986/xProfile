@@ -41,6 +41,7 @@
     Bundle 'wgibbs/vim-irblack'
     Bundle 'therubymug/vim-pyte'
     Bundle 'juvenn/mustache.vim'
+    Bundle 'vim-scripts/phpfolding.vim'
     Bundle 'vim-scripts/Align'
     Bundle 'vim-scripts/Jinja'
     Bundle 'vim-scripts/desert256.vim'
@@ -139,6 +140,9 @@
      highlight User4 term=underline cterm=underline ctermfg=white
      highlight User5 ctermfg=cyan
      highlight User6 ctermfg=white 
+     highlight TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+     highlight TabLine ctermfg=DarkGray
+     highlight TabLineSel ctermfg=Yellow
 " }}}
 
 " 自動補齊括號
@@ -173,7 +177,7 @@
         endfunction
         setl foldtext=FoldText()
     endfunction
-    "au FileType javascript call JavaScriptFold()
+    au FileType javascript call JavaScriptFold()
     au FileType javascript setl fen
 " }}}
 
