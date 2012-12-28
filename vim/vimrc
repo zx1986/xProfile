@@ -28,6 +28,7 @@
     Bundle 'tpope/vim-haml'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'rodjek/vim-puppet'
+    Bundle 'bartekd/vim-dart'
     Bundle 'MarcWeber/vim-addon-mw-utils'
     Bundle 'tomtom/tlib_vim'
     Bundle 'garbas/vim-snipmate'
@@ -36,7 +37,7 @@
     Bundle 'scrooloose/nerdtree'
     Bundle 'StanAngeloff/php.vim'
     Bundle 'xenoterracide/html.vim.git'
-    Bundle 'nathanaelkane/vim-indent-guides'
+    " Bundle 'nathanaelkane/vim-indent-guides'
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'wgibbs/vim-irblack'
     Bundle 'therubymug/vim-pyte'
@@ -177,8 +178,8 @@
         endfunction
         setl foldtext=FoldText()
     endfunction
-    au FileType javascript call JavaScriptFold()
-    au FileType javascript setl fen
+"    au FileType javascript call JavaScriptFold()
+"    au FileType javascript setl fen
 " }}}
 
 " Plugins Setting
