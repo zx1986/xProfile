@@ -102,9 +102,9 @@
 " Text Formatting 
 " {{{
     set expandtab                   " no real tabs
-    set tabstop=4
-    set shiftwidth=4                " auto-indent amount when using cindent, stuff like >> and <<
-    set softtabstop=4               " when hitting tab or backspace, how many spaces should a tab be
+    set tabstop=2
+    set shiftwidth=2                " auto-indent amount when using cindent, stuff like >> and <<
+    set softtabstop=2               " when hitting tab or backspace, how many spaces should a tab be
     "set nowrap                     " do not wrap line
     "set paste
     set cindent
@@ -240,6 +240,7 @@ autocmd BufReadPost *
 endif
 
 " for coffee-toaster
-set nobackup       " no backup files
-set nowritebackup  " only in case you don't want a backup file while editing
-set noswapfile     " no swap files
+"autocmd BufRead,BufNewFile *.coffee setlocal backupcopy=yes
+"set nobackup       " no backup files
+"set nowritebackup  " only in case you don't want a backup file while editing
+"set noswapfile     " no swap files
