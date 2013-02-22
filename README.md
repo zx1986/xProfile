@@ -1,8 +1,6 @@
 @who http://about.me/zx1986   
 @usage make init   
 
-Directory "ubuntu" has some profile files for Ubuntu, works in Ubuntu 10 & Ubuntu 11
-
 ### Reference
 
 https://github.com/amix/vimrc   

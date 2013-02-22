@@ -10,3 +10,6 @@ init:
 	ln -s $(PWD)/vim/vimrc $(HOME)/.vimrc
 	ln -s $(PWD)/git/git-config $(HOME)/.gitconfig
 	ln -s $(PWD)/git/git-flow-completion/git-flow-completion.bash $(HOME)/.git-flow-completion.bash
+
+packages:
+	bash $(PWD)/ubuntu/packages.sh
