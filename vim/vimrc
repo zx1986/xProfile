@@ -37,7 +37,6 @@
     Bundle 'scrooloose/nerdtree'
     Bundle 'StanAngeloff/php.vim'
     Bundle 'xenoterracide/html.vim.git'
-    " Bundle 'nathanaelkane/vim-indent-guides'
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'wgibbs/vim-irblack'
     Bundle 'therubymug/vim-pyte'
@@ -101,10 +100,10 @@
 
 " Text Formatting 
 " {{{
+    set tabstop=4
+    set shiftwidth=4                " auto-indent amount when using cindent, stuff like >> and <<
+    set softtabstop=4               " when hitting tab or backspace, how many spaces should a tab be
     set expandtab                   " no real tabs
-    set tabstop=2
-    set shiftwidth=2                " auto-indent amount when using cindent, stuff like >> and <<
-    set softtabstop=2               " when hitting tab or backspace, how many spaces should a tab be
     "set nowrap                     " do not wrap line
     "set paste
     set cindent
@@ -122,9 +121,8 @@
 " Mapping
 " {{{
     " 讓 ,n 相當於使用 :new
-    " :map ,n :new
+    " map ,n :new
     let mapleader=","
-    map Q gq
     inoremap <C-U> <C-G>u<C-U>
 " }}}
 
