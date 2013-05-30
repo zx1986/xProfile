@@ -1,7 +1,6 @@
 init:
 	git submodule init
 	git submodule update
-	ln -s $(PWD)/ubuntu/fonts.conf $(HOME)/.fonts.conf
 	ln -s $(PWD)/ubuntu/aliases $(HOME)/.aliases
 	ln -s $(PWD)/ubuntu/bashrc $(HOME)/.bashrc
 	ln -s $(PWD)/ubuntu/zshrc $(HOME)/.zshrc
