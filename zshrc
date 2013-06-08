@@ -6,7 +6,8 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="random"
+#ZSH_THEME="random"
+ZSH_THEME="apple"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -38,8 +39,11 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 source $HOME/.aliases
 source $HOME/nvm/nvm.sh
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 export EDITOR='vim'
+
 unsetopt correct_all

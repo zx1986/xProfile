@@ -7,6 +7,3 @@
 [submodule "git/git-flow"]
 	path = git/git-flow
 	url = http://github.com/nvie/gitflow.git
-[submodule "vim/bundle/vundle"]
-	path = vim/bundle/vundle
-	url = http://github.com/gmarik/vundle.git
