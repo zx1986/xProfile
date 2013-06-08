@@ -1,7 +1,8 @@
-@who http://about.me/zx1986   
-@usage make init   
+### Usage
 
-My Linux Profile
+    make init
+    make git
+    make ubuntu
 
 ### Reference
 
