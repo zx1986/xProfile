@@ -36,6 +36,7 @@ plugins=(git ruby rails svn)
 
 source /etc/profile
 source $ZSH/oh-my-zsh.sh
+source $HOME/.git-flow-completion.zsh
 
 # Customize to your needs...
 source $HOME/.aliases

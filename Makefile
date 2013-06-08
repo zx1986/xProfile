@@ -10,6 +10,8 @@ g:
 	ln -s $(PWD)/git/git-config $(HOME)/.gitconfig
 	ln -s $(PWD)/git/git-flow $(HOME)/.git-flow
 	ln -s $(PWD)/git/git-flow-completion $(HOME)/.git-flow-completion
+	ln -s $(PWD)/git/git-flow-completion/git-flow-completion.zsh $(HOME)/.git-flow-completion.zsh
+	ln -s $(PWD)/git/git-flow-completion/git-flow-completion.bash $(HOME)/.git-flow-completion.bash
 
 u:
 	bash $(PWD)/ubuntu/packages.sh
