@@ -6,10 +6,10 @@ init:
 	ln -s $(PWD)/bashrc $(HOME)/.bashrc
 	ln -s $(PWD)/aliases $(HOME)/.aliases
 
-git:
+g:
 	ln -s $(PWD)/git/git-config $(HOME)/.gitconfig
 	ln -s $(PWD)/git/git-flow $(HOME)/.git-flow
 	ln -s $(PWD)/git/git-flow-completion $(HOME)/.git-flow-completion
 
-ubuntu:
+u:
 	bash $(PWD)/ubuntu/packages.sh

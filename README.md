@@ -1,8 +1,8 @@
 ### Usage
 
     make init
-    make git
-    make ubuntu
+    make g      # git
+    make u      # ubuntu
 
 ### Reference
 
