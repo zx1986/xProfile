@@ -1,6 +1,8 @@
 @who http://about.me/zx1986   
 @usage make init   
 
+My Linux Profile
+
 ### Reference
 
 https://github.com/amix/vimrc   
