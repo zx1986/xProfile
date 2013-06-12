@@ -6,9 +6,11 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
-# ZSH_THEME="robbyrussell"
 # ZSH_THEME="random"
-ZSH_THEME="cloud"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="cloud"
+# ZSH_THEME="apple"
+ZSH_THEME="ys"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
