@@ -5,6 +5,7 @@ init:
 	ln -s $(PWD)/zshrc $(HOME)/.zshrc
 	ln -s $(PWD)/bashrc $(HOME)/.bashrc
 	ln -s $(PWD)/aliases $(HOME)/.aliases
+	ln -s $(PWD)/tmuxinator $(HOME)/.tmuxinator
 
 g:
 	ln -s $(PWD)/git/git-config $(HOME)/.gitconfig
