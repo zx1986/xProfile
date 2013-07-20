@@ -10,7 +10,9 @@ ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="cloud"
 # ZSH_THEME="apple"
-ZSH_THEME="ys"
+# ZSH_THEME="ys"
+# ZSH_THEME="awesomepanda"
+ZSH_THEME="clean"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
