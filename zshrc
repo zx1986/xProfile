@@ -53,3 +53,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export EDITOR='vim'
 
 unsetopt correct_all
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
