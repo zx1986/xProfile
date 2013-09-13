@@ -1,6 +1,6 @@
 [user]
-	name = 張旭
-	email = zx1986@gmail.com
+    name = 張旭
+    email = zx1986@gmail.com
 
 [color]
     diff = auto
@@ -12,5 +12,6 @@
     history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
+
 [push]
 	default = matching

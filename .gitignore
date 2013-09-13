@@ -1,4 +1,7 @@
+.DS_Store
 *.swp
 *.tmp
 *.o
-.DS_Store
+*.pyc
+*.sql
+*.backup
