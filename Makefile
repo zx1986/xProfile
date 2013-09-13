@@ -6,6 +6,7 @@ init:
 	ln -s $(PWD)/bashrc $(HOME)/.bashrc
 	ln -s $(PWD)/aliases $(HOME)/.aliases
 	ln -s $(PWD)/tmuxinator $(HOME)/.tmuxinator
+	ln -s $(PWD)/editorconfig $(HOME)/.editorconfig
 	ln -s $(PWD)/gemrc $(HOME)/.gemrc
 
 g:
