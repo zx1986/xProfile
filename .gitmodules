@@ -7,3 +7,6 @@
 [submodule "git/git-flow"]
 	path = git/git-flow
 	url = http://github.com/nvie/gitflow.git
+[submodule "cheat"]
+	path = cheat
+	url = https://github.com/chrisallenlane/cheat.git
