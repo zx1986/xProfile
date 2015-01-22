@@ -38,21 +38,20 @@ ZSH_THEME="clean"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git ruby rails svn)
 
-source /etc/profile
-source $ZSH/oh-my-zsh.sh
-source $HOME/.git-flow-completion.zsh
-
 # Customize to your needs...
+source $ZSH/oh-my-zsh.sh
+source $HOME/.profile
 source $HOME/.aliases
-source $HOME/nvm/nvm.sh
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-export EDITOR='vim'
+source $HOME/.git-flow-completion.zsh
 
 unsetopt correct_all
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export EDITOR='vim'
+
+# The next line updates PATH for the Google Cloud SDK.
+source /Users/zx1986/google-cloud-sdk/path.zsh.inc
+
+# The next line enables bash completion for gcloud.
+source /Users/zx1986/google-cloud-sdk/completion.zsh.inc

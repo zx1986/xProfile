@@ -125,14 +125,11 @@ function git_since_last_commit {
 source $HOME/.git-flow-completion.bash
 
 ### NVM ###
-
 source $HOME/nvm/nvm.sh
 
 ### RVM ###
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
+PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 export EDITOR='vim'
