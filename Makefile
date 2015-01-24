@@ -18,3 +18,4 @@ g:
 
 u:
 	bash $(PWD)/ubuntu/packages.sh
+	sudo pip install cheat
