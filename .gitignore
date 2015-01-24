@@ -5,3 +5,4 @@
 *.pyc
 *.sql
 *.backup
+*.yml
