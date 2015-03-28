@@ -43,15 +43,11 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
 source $HOME/.aliases
 source $HOME/.git-flow-completion.zsh
+source $HOME/.rvm/scripts/rvm
+source $HOME/.nvm/nvm.sh
 
 unsetopt correct_all
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR='vim'
-
-# The next line updates PATH for the Google Cloud SDK.
-source /Users/zx1986/google-cloud-sdk/path.zsh.inc
-
-# The next line enables bash completion for gcloud.
-source /Users/zx1986/google-cloud-sdk/completion.zsh.inc
