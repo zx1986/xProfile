@@ -1,0 +1,30 @@
+[user]
+  name = 張旭
+  email = zx1986@gmail.com
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+
+[alias]
+  history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[push]
+  default = matching
+
+[diff]
+  tool = icdiff
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+  quotepath = false
+  fileMode = false
+
+[branch]
+  # autosetuprebase = always

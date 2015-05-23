@@ -1,0 +1,13 @@
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.netrwhist
+.DS_Store
+__MACOSX
+*.cache
+*.swp
+*.pyc
+*.tmp
+*.log
+*.o
+*~
