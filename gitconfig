@@ -24,7 +24,7 @@
   excludesfile = ~/.gitignore
   editor = vim
   quotepath = false
-  fileMode = false
+  filemode = false
 
 [branch]
   # autosetuprebase = always
