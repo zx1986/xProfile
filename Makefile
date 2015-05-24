@@ -1,11 +1,13 @@
 init:
 	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
-	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
 	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
 	ln -nsiF $(PWD)/tmux.conf $(HOME)/.tmux.conf
 	ln -nsiF $(PWD)/tmuxinator $(HOME)/.tmuxinator
 	ln -nsiF $(PWD)/editorconfig $(HOME)/.editorconfig
+	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
+	echo 'source ~/.aliases' >> ~/.bashrc
+	echo 'source ~/.aliases' >> ~/.zshrc
 	$(MAKE) tmux
 	$(MAKE) rbenv
 
