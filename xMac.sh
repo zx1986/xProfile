@@ -16,4 +16,3 @@ brew cask install firefox
 brew cask install google-chrome
 brew cask install virtualbox
 brew cask install vagrant
-brew cask install boot2docker
