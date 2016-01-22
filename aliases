@@ -9,6 +9,8 @@ alias grep='grep --color=always'
 
 # Fuck
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+alias json="python -mjson.tool"
+alias xml="xmllint --format -"
 
 # MySQL
 alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
@@ -18,16 +20,13 @@ alias git_fetch_all='find . -type d -depth 1 -exec git --git-dir={}/.git --work-
 alias git_pull_all='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull \;'
 
 # Docker
-alias docker_killer='docker stop `docker ps -a -q` && docker rm `docker ps -a -q`'
+alias docker_killer='docker stop `docker ps -a -q` && docker rm -v `docker ps -a -q`'
 alias docker_remover='docker rmi `docker images | grep "^<none>" | awk '"'"'{print $3}'"'"'`'
 
 # Ubuntu
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias install='sudo apt-get install'
 alias cache='apt-cache search'
-
-# CWB
-alias cwb='ssh 172.17.7.55 -l zx1986 -D 8888'
 
 # Larvata
 alias lar='cd ~/Projects/Larvata && ls -lh'
