@@ -4,7 +4,5 @@
 
 ### Reference
 
-https://github.com/amix/vimrc   
-https://github.com/vgod/vimrc   
-https://github.com/skwp/dotfiles   
-https://github.com/spf13/spf13-vim   
+https://skwp.github.io/dotfiles/
+https://github.com/vinta/HAL-9000
