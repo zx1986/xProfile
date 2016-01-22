@@ -9,13 +9,8 @@ init:
 	echo 'source ~/.aliases' >> ~/.bashrc
 	echo 'source ~/.aliases' >> ~/.zshrc
 	$(MAKE) tmux
-	$(MAKE) rbenv
 
 tmux:
 	mkdir -p ~/.tmux/plugins/
 	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
 	tmux source-file ~/.tmux.conf
-
-rbenv:
-	echo 'eval "$$(rbenv init -)"' >> ~/.bashrc
-	echo 'eval "$$(rbenv init -)"' >> ~/.zshrc
