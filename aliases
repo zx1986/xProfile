@@ -1,14 +1,12 @@
+alias ls='/usr/local/bin/gls --color -h --group-directories-first'
 alias ll='ls -lh'
 alias la='ls -AF'
-alias lt="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 alias grep='grep --color=always'
 
-# Fuck
-alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 alias json="python -mjson.tool"
 alias xml="xmllint --format -"
 
@@ -22,6 +20,7 @@ alias git_pull_all='find . -type d -depth 1 -exec git --git-dir={}/.git --work-t
 # Docker
 alias docker_killer='docker stop `docker ps -a -q` && docker rm -v `docker ps -a -q`'
 alias docker_remover='docker rmi `docker images | grep "^<none>" | awk '"'"'{print $3}'"'"'`'
+alias docker_cleaner='docker ps -a | grep Exit | cut -d " " -f 1 | xargs docker rm'
 
 # Ubuntu
 alias update='sudo apt-get update && sudo apt-get upgrade'
