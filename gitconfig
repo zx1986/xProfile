@@ -16,6 +16,11 @@
 
 [push]
   default = matching
+  followTags = true
+
+[pull]
+  default = matching
+  followTags = true
 
 [diff]
   tool = icdiff
@@ -24,7 +29,11 @@
   excludesfile = ~/.gitignore
   editor = vim
   quotepath = false
-  filemode = false
+  filemode = true
 
 [branch]
   # autosetuprebase = always
+
+[pager]
+  diff = diff-so-fancy | less --tabs=4 -RFX
+  show = diff-so-fancy | less --tabs=4 -RFX
