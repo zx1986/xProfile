@@ -1,6 +1,5 @@
 alias ll='ls -lh'
 alias la='ls -AF'
-
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
