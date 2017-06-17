@@ -7,9 +7,7 @@ init:
 	ln -nsiF $(PWD)/editorconfig $(HOME)/.editorconfig
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
-	echo 'source ~/.aliases' >> ~/.zshrc
-	curl -fLo ~/.zprezto/modules/completion/external/src/_docker \
-  https://raw.github.com/felixr/docker-zsh-completion/master/_docker
+	ln -nsiF $(PWD)/antigen.zshrc $(HOME)/.zshrc
 	$(MAKE) tmux
 
 tmux:
