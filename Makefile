@@ -5,9 +5,10 @@ init:
 	ln -nsiF $(PWD)/tmux.conf $(HOME)/.tmux.conf
 	ln -nsiF $(PWD)/tmuxinator $(HOME)/.tmuxinator
 	ln -nsiF $(PWD)/editorconfig $(HOME)/.editorconfig
+	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
-	echo 'source ~/.aliases' >> ~/.bashrc
 	echo 'source ~/.aliases' >> ~/.zshrc
+	curl -fLo ~/.zprezto/modules/completion/external/src/_docker https://raw.github.com/felixr/docker-zsh-completion/master/_docker
 	$(MAKE) tmux
 
 tmux:

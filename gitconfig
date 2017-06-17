@@ -7,6 +7,7 @@
   editor = vim
   quotepath = false
   filemode = true
+  autocrlf = false
 
 [color]
   diff = auto
@@ -19,7 +20,7 @@
   dump = cat-file -p
   history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   log = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  prune = fetch --prune
+  prune = fetch origin --prune
   undo = reset --soft HEAD^
   stash = stash save --include-untracked
 
