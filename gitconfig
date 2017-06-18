@@ -28,7 +28,7 @@
   # showUntrackedFiles = all
 
 [push]
-  default = simple
+  default = matching
   followTags = true
 
 [pull]
