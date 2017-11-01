@@ -35,3 +35,11 @@ alias cache='apt-cache search'
 
 # Larvata
 alias lar='cd ~/Projects/Larvata && ls -lh'
+
+# Rails
+alias zmigrate='RAILS=development bundle exec rake db:migrate && RAILS_ENV=test bundle exec rake db:migrate'
+alias zreset='RAILS_ENV=development bundle exec rake db:reset && RAILS_ENV=test bundle exec rake db:reset'
+alias zcreate='RAILS_ENV=development bundle exec rake db:create && RAILS_ENV=test bundle exec rake db:create'
+alias zdrop='RAILS_ENV=development bundle exec rake db:drop && RAILS_ENV=test bundle exec rake db:drop'
+alias zguard='RAILS_ENV=test bundle exec guard start'
+alias zserver='RAILS_ENV=development bundle exec rails server -b 0.0.0.0 -p 3000'
