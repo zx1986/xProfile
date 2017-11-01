@@ -11,3 +11,6 @@ __MACOSX
 *.log
 *.o
 *~
+
+.rvmrc
+.ruby-version
