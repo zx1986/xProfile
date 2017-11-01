@@ -11,13 +11,15 @@ indent_size = 2
 tab_width = 2
 
 [*.{html,html.erb}]
-indent_size = 4
+indent_size = 2
 
 [*.{css,scss,js}]
-indent_size = 4
+indent_size = 2
 
 [Makefile]
 indent_style = tab
+indent_size = 4
+tab_width = 4
 
 [*.md]
 trim_trailing_whitespace = false
