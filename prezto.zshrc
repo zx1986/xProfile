@@ -30,13 +30,10 @@ source ~/.aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-PATH=/Users/zx1986/.Pokemon-Terminal:/Users/zx1986/.rbenv/shims:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/zx1986/.fzf/bin
+eval $(thefuck --alias)
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/zx1986/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/zx1986/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/zx1986/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/zx1986/google-cloud-sdk/completion.zsh.inc'; fi
-
-export GOPATH="${HOME}/go"
-export PATH="${GOPATH}/bin:${PATH}"
