@@ -5,6 +5,8 @@ fi
 
 # Customize to your needs...
 
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
 ### Ruby
 eval "$(rbenv init -)"
 
