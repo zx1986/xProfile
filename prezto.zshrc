@@ -29,6 +29,7 @@ source ~/.aliases
 #setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
 
 eval $(thefuck --alias)
 
