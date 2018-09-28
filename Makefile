@@ -8,10 +8,13 @@ init:
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
-	echo 'source ~/.aliases' >> ~/.zshrc
+	$(MAKE) zshrc
 	$(MAKE) tmux
 
 tmux:
 	mkdir -p ~/.tmux/plugins/
 	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
 	tmux source-file ~/.tmux.conf
+
+zshrc:
+	cp -vf zsh/ohmyzsh.zshrc ~/.zshrc
