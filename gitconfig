@@ -1,6 +1,6 @@
 [user]
-	name = 張旭
-	email = zx1986@gmail.com
+  name = 張旭
+  email = zx1986@gmail.com
 
 [core]
   excludesfile = ~/.gitignore
@@ -10,7 +10,7 @@
   autocrlf = false
 
 [color]
-	ui = true
+  ui = true
 
 [alias]
   type = cat-file -t
@@ -22,7 +22,7 @@
   stash = stash save --include-untracked
 
 [status]
-  # showUntrackedFiles = all
+  showUntrackedFiles = all
 
 [push]
   default = matching
@@ -43,15 +43,15 @@
   show = diff-so-fancy | less --tabs=4 -RFX
 
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [color "diff"]
-	meta = 227
-	frag = magenta bold
-	commit = 227 bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = 227
+  frag = magenta bold
+  commit = 227 bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
