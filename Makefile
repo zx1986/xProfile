@@ -9,7 +9,6 @@ init:
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
 	echo 'source ~/.aliases' >> ~/.zshrc
-	curl -fLo ~/.zprezto/modules/completion/external/src/_docker https://raw.github.com/felixr/docker-zsh-completion/master/_docker
 	$(MAKE) tmux
 
 tmux:
