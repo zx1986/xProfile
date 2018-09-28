@@ -3,10 +3,8 @@ alias la='ls -AF'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
-alias cat='bat'
 alias grep='grep --color=always'
-alias history='history -i'
-alias ping='prettyping --nolegend'
+alias ncdu="ncdu --color dark -rr -x --exclude .git"
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias json="python -mjson.tool"
