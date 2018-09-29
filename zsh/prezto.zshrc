@@ -5,6 +5,8 @@ fi
 
 # Customize to your needs...
 
+set -a; source /Users/zx1986/.env
+
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 ### Ruby
@@ -42,5 +44,3 @@ if [ -f '/Users/zx1986/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/zx1
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/zx1986/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/zx1986/google-cloud-sdk/completion.zsh.inc'; fi
-
-set -a; source /Users/zx1986/.env
