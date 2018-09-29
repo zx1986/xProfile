@@ -1,4 +1,6 @@
 init:
+	cp -iv .env.sample .env
+	ln -nsiF $(PWD)/.env $(HOME)/.env
 	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
 	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
 	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
