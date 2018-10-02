@@ -46,3 +46,6 @@ alias vim='nvim'
 
 # Chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+# Prezto
+alias zprezto="cd $ZPREZTODIR; git pull && git submodule update --init --recursive"
