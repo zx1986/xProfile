@@ -28,6 +28,10 @@ alias git_pull_all='find . -type d -depth 1 -exec git --git-dir={}/.git --work-t
 alias docker_killer='docker stop `docker ps -a -q` && docker rm -v `docker ps -a -q`'
 alias docker_remover='docker rmi `docker images | grep "^<none>" | awk '"'"'{print $3}'"'"'`'
 alias docker_cleaner='docker ps -a | grep Exit | cut -d " " -f 1 | xargs docker rm'
+alias registry_ls="docker-ls repositories --registry $LARVATA_REGISTRY --user $LARVATA_USER --password $LARVATA_PASSWORD --basic-auth"
+alias registry_tags="docker-ls tags --registry $LARVATA_REGISTRY --user $LARVATA_USER --password $LARVATA_PASSWORD --basic-auth"
+alias registry_tag="docker-ls tag --registry $LARVATA_REGISTRY --user $LARVATA_USER --password $LARVATA_PASSWORD --basic-auth"
+alias registry_rm="docker-rm --registry $LARVATA_REGISTRY --user $LARVATA_USER --password $LARVATA_PASSWORD --basic-auth"
 
 # Ubuntu
 alias update='sudo apt-get update && sudo apt-get upgrade'

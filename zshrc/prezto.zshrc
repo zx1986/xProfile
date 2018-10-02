@@ -3,7 +3,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+set -a; source /Users/zx1986/.env
 
 # Git
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
