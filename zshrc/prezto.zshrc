@@ -5,17 +5,25 @@ fi
 
 # Customize to your needs...
 
+# Git
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
-### Ruby
+# Ruby
 eval "$(rbenv init -)"
 
-### iTerm
+# iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-### Custom
-source ~/.aliases
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# z
+[ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
+
+# Fuck
+eval $(thefuck --alias)
+
+# History
 #setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 #setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 #setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
@@ -30,15 +38,6 @@ source ~/.aliases
 #setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 #setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
+# Others
+source ~/.aliases
 fpath=(/usr/local/share/zsh-completions $fpath)
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
-
-eval $(thefuck --alias)
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/zx1986/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/zx1986/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/zx1986/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/zx1986/google-cloud-sdk/completion.zsh.inc'; fi
