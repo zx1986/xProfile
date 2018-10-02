@@ -8,7 +8,7 @@ init:
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
-	$(MAKE) zshrc
+	$(MAKE) zsh
 	$(MAKE) tmux
 
 tmux:
@@ -16,5 +16,5 @@ tmux:
 	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
 	tmux source-file ~/.tmux.conf
 
-zshrc:
-	cp -vf zsh/ohmyzsh.zshrc ~/.zshrc
+zsh:
+	git clone --recursive https://github.com/zx1986/prezto.git "$(HOME)/.zprezto"
