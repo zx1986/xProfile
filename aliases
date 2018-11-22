@@ -23,6 +23,7 @@ alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names)
 # Git
 alias git_fetch_all='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} fetch -a \;'
 alias git_pull_all='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull \;'
+alias gf='git-flow'
 
 # Docker
 alias docker_killer='docker stop `docker ps -a -q` && docker rm -v `docker ps -a -q`'
