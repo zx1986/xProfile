@@ -10,7 +10,7 @@ init:
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
-	$(MAKE) zsh
+	$(MAKE) fish
 	$(MAKE) tmux
 
 tmux:
@@ -20,3 +20,9 @@ tmux:
 
 zsh:
 	git clone --recursive https://github.com/zx1986/prezto.git "$(HOME)/.zprezto"
+
+fish:
+	curl -L https://get.oh-my.fish | fish
+	ln -nsiF $(PWD)/fishrc/init.fish $(OMF_CONFIG)/init.fish
+	ln -nsiF $(PWD)/fishrc/before.init.fish $(OMF_CONFIG)/before.init.fish
+	ln -nsiF $(PWD)/fishrc/key_bindings.fish $(OMF_CONFIG)/key_bindings.fish
