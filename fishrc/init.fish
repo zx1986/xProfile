@@ -8,15 +8,9 @@ set -xg GOPATH $HOME/go
 set -xg PYTHONDONTWRITEBYTECODE 1
 
 # Homebrew read Github
-set -xg HOMEBREW_GITHUB_API_TOKEN
+set -xg HOMEBREW_GITHUB_API_TOKEN super_secret_token
 
-# Ruby
-eval (rbenv init -)
-
-# Fuck
-eval (thefuck --alias)
-
-# Gitignore
+# gitignore.io
 function gi
 	curl -L -s https://www.gitignore.io/api/$argv
 end
