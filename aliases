@@ -11,46 +11,25 @@ alias json="python -mjson.tool"
 alias xml="xmllint --format -"
 
 ### transfer.sh
-transfer() {
-  if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
-  tmpfile=$( mktemp -t transferXXX );
-  if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile;
-}
+# transfer() {
+#   if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
+#   tmpfile=$( mktemp -t transferXXX );
+#   if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile;
+# }
+alias transfer='http https://transfer.sh/ -vv < '
 
-# MySQL
-alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
+### MySQL
+# alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
 
-# Git
-alias git_fetch_all='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} fetch -a \;'
-alias git_pull_all='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull \;'
+### Git
 alias gf='git-flow'
 
-# Docker
-alias docker_killer='docker stop `docker ps -a -q` && docker rm -v `docker ps -a -q`'
-alias docker_remover='docker rmi `docker images | grep "^<none>" | awk '"'"'{print $3}'"'"'`'
-alias docker_cleaner='docker ps -a | grep Exit | cut -d " " -f 1 | xargs docker rm'
-alias registry_ls="docker-ls repositories --registry $LARVATA_REGISTRY --user $LARVATA_USER --password $LARVATA_PASSWORD --basic-auth"
-alias registry_tags="docker-ls tags --registry $LARVATA_REGISTRY --user $LARVATA_USER --password $LARVATA_PASSWORD --basic-auth"
-alias registry_tag="docker-ls tag --registry $LARVATA_REGISTRY --user $LARVATA_USER --password $LARVATA_PASSWORD --basic-auth"
-alias registry_rm="docker-rm --registry $LARVATA_REGISTRY --user $LARVATA_USER --password $LARVATA_PASSWORD --basic-auth"
+### Larvata
+alias lar='cd ~/Projects/Larvata; ls -lh'
 
-# Ubuntu
-alias update='sudo apt-get update && sudo apt-get upgrade'
-alias install='sudo apt-get install'
-alias cache='apt-cache search'
-
-# Larvata
-alias lar='cd ~/Projects/Larvata && ls -lh'
-
-# Python
+### Python
 alias python='python3'
 alias pip='pip3'
 
-# Vim
+### Vim
 alias vim='nvim'
-
-# Chrome
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-
-# Prezto
-alias zprezto="cd $ZPREZTODIR; git pull && git submodule update --init --recursive"
