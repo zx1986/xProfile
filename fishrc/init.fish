@@ -20,6 +20,8 @@ set -gx PATH \
         /usr/local/opt/mysql-client/bin \
         /usr/local/opt/go/libexec/bin
 
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
 # gitignore.io
 function gi
 	curl -L -s https://www.gitignore.io/api/$argv
