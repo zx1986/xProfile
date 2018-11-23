@@ -8,7 +8,7 @@ set -xg GOPATH $HOME/go
 set -xg PYTHONDONTWRITEBYTECODE 1
 
 # Homebrew read Github
-set -xg HOMEBREW_GITHUB_API_TOKEN super_secret_token
+set -xg HOMEBREW_GITHUB_API_TOKEN 3d3923cdd4a8690e668dfd9369f9dfed95c66d6f
 
 # PATH
 set -gx PATH \
@@ -21,6 +21,11 @@ set -gx PATH \
         /usr/local/opt/go/libexec/bin
 
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+# Ruby
+set PATH $HOME/.rbenv/bin $PATH
+set PATH $HOME/.rbenv/shims $PATH
+rbenv rehash >/dev/null ^&1
 
 # gitignore.io
 function gi
