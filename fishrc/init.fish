@@ -22,6 +22,9 @@ set -gx PATH \
 
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
+# pj
+set -gx PROJECT_PATHS ~/Projects ~/Sites
+
 # Ruby
 set PATH $HOME/.rbenv/bin $PATH
 set PATH $HOME/.rbenv/shims $PATH
