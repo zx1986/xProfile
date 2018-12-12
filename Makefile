@@ -10,7 +10,7 @@ init:
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
-	$(MAKE) fish
+	$(MAKE) zsh
 	$(MAKE) tmux
 
 tmux:
