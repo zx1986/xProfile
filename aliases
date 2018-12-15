@@ -28,3 +28,6 @@ alias pip='pip3'
 
 ### Vim
 alias vim='nvim'
+
+### Misc
+eval $(thefuck --alias)
