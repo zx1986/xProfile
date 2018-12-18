@@ -18,6 +18,7 @@ plugins=(
   urltools
   osx
   pj
+  k
   z
   rails
   django

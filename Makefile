@@ -19,7 +19,13 @@ tmux:
 	tmux source-file ~/.tmux.conf
 
 zsh:
-	git clone --recursive https://github.com/zx1986/prezto.git "$(HOME)/.zprezto"
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	git clone https://github.com/bobthecow/git-flow-completion ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/git-flow-completion
+	git clone https://github.com/supercrabtree/k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/k
+	rm -iv ${HOME}/.zshrc
+	ln -nsiF $(PWD)/zshrc/ohmyzsh.zshrc ${HOME}/.zshrc
 
 fish:
 	curl -L https://get.oh-my.fish | fish
