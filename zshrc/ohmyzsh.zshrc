@@ -22,6 +22,7 @@ plugins=(
   z
   rails
   django
+  history-substring-search
 )
 
 ZSH_THEME="ys"
