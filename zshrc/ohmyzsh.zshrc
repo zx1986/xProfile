@@ -3,12 +3,15 @@ export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
 export LANG=en_US.UTF-8
 export ZSH="${HOME}/.oh-my-zsh"
 
+# Plugins
 plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completion
   git
   gitignore
+  git-extras
+  git-flow-avh
   git-flow-completion
   docker
   vi-mode
