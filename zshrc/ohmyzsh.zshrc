@@ -44,6 +44,8 @@ ZSH_THEME="agnoster"
 ZSH_THEME="robbyrussell"
 ZSH_THEME="spaceship"
 
+SPACESHIP_PROMPT_ADD_NEWLINE=true
+SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_VI_MODE_SHOW=false
 SPACESHIP_PROMPT_ORDER=(
   # time        # Time stamps section (Disabled)
