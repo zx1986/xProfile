@@ -64,5 +64,11 @@ else
   export EDITOR='nvim'
 fi
 
+# Ruby
+eval "$(rbenv init -)"
+
+# iTerm
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 # Alias
 source ~/.aliases
