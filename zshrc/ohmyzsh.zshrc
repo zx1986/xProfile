@@ -1,6 +1,7 @@
 # ENV
 export GOPATH=$HOME/go
 export LANG=en_US.UTF-8
+export FZF_BASE="/usr/local/bin/fzf"
 export ZSH="${HOME}/.oh-my-zsh"
 
 # PATH
@@ -29,6 +30,7 @@ plugins=(
   ssh-agent
   urltools
   osx
+  fzf
   pj
   k
   z
