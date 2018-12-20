@@ -15,9 +15,10 @@ export PATH=$PATH:$GOPATH/bin
 
 # Plugins
 plugins=(
-  zsh-syntax-highlighting
-  zsh-autosuggestions
   zsh-completion
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  history-substring-search
   git
   gitignore
   git-extras
@@ -36,17 +37,17 @@ plugins=(
   z
   rails
   django
-  history-substring-search
+  thefuck
 )
 
-ZSH_THEME="ys"
-ZSH_THEME="agnoster"
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="ys"
+# ZSH_THEME="agnoster"
+# ZSH_THEME="robbyrussell"
 ZSH_THEME="spaceship"
 
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_PROMPT_SEPARATE_LINE=true
-SPACESHIP_VI_MODE_SHOW=false
+SPACESHIP_VI_MODE_SHOW=true
 SPACESHIP_PROMPT_ORDER=(
   # time        # Time stamps section (Disabled)
   user          # Username section
@@ -77,7 +78,7 @@ SPACESHIP_PROMPT_ORDER=(
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
-  # vi_mode     # Vi-mode indicator (Disabled)
+  vi_mode       # Vi-mode indicator (Disabled)
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
