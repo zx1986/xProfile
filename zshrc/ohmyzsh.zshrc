@@ -39,7 +39,6 @@ plugins=(
   pj
   k
   z
-  rails
   django
   thefuck
 )
@@ -111,9 +110,6 @@ fi
 
 # Ruby
 eval "$(rbenv init -)"
-
-# Misc
-eval $(thefuck --alias)
 
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
