@@ -1,3 +1,4 @@
+alias ls='exa'
 alias ll='ls -lh'
 alias la='ls -AF'
 alias mv='mv -i'
@@ -17,10 +18,7 @@ alias transfer='http https://transfer.sh/ -vv < '
 # alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
 
 ### Git
-alias gf='git-flow'
-
-### Larvata
-alias lar='cd ~/Projects/Larvata; ls -lh'
+alias gflow='git-flow'
 
 ### Python
 alias python='python3'
@@ -28,6 +26,3 @@ alias pip='pip3'
 
 ### Vim
 alias vim='nvim'
-
-### Misc
-eval $(thefuck --alias)
