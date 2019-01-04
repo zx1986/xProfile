@@ -119,3 +119,8 @@ source ~/.aliases
 
 # Init oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# Using exa instead of ls
+alias ls='exa'
+alias ll='ls -lh'
+alias la='ls -AF'
