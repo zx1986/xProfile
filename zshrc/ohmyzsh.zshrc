@@ -13,6 +13,10 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$GOPATH/bin
 
+# Completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+
 # Plugins
 plugins=(
   zsh-completion
@@ -107,6 +111,9 @@ fi
 
 # Ruby
 eval "$(rbenv init -)"
+
+# Misc
+eval $(thefuck --alias)
 
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
