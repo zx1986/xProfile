@@ -14,9 +14,6 @@ alias transfer='http https://transfer.sh/ -vv < '
 ### MySQL
 # alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
 
-### Git
-alias gflow='git-flow'
-
 ### Python
 alias python='python3'
 alias pip='pip3'
