@@ -1,6 +1,8 @@
 # ENV
 export GOPATH=$HOME/go
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=UTF-8
 export FZF_BASE="/usr/local/bin/fzf"
 export ZSH="${HOME}/.oh-my-zsh"
 
@@ -96,7 +98,7 @@ HIST_STAMPS="yyyy-mm-dd"
 PROJECT_PATHS=(~/Sites ~/Projects/Larvata)
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities id_rsa id_github id_bitbucket
+zstyle :omz:plugins:ssh-agent identities id_rsa
 
 # zstyle -g existing_commands ':completion:*:*:git:*' user-commands
 # zstyle ':completion:*:*:git:*' user-commands $existing_commands flow:'provide high-level repository operations'
