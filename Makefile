@@ -10,7 +10,8 @@ init:
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
-	ln -nsiF $(PWD)/alacritty.yml $(HOME)/.alacritty.yml
+	touch $(HOME)/.config/alacritty/alacritty.yml && mv $(HOME)/.config/alacritty/alacritty.yml /tmp
+	ln -nsiF $(PWD)/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
 	$(MAKE) zsh
 	$(MAKE) tmux
 
