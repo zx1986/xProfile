@@ -12,6 +12,8 @@ init:
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
 	touch $(HOME)/.config/alacritty/alacritty.yml && mv $(HOME)/.config/alacritty/alacritty.yml /tmp
 	ln -nsiF $(PWD)/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
+	touch $(HOME)/.config/kitty/kitty.config && mv $(HOME)/.config/kitty/kitty.config /tmp
+	ln -nsiF $(PWD)/kitty.config $(HOME)/.config/kitty/kitty.config
 	$(MAKE) zsh
 	$(MAKE) tmux
 
