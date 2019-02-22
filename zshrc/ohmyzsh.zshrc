@@ -1,10 +1,11 @@
 # ENV
-export GOPATH=$HOME/go
+export VISUAL='nvim'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=UTF-8
-export FZF_BASE="/usr/local/bin/fzf"
+export GOPATH=$HOME/go
 export ZSH="${HOME}/.oh-my-zsh"
+export FZF_BASE="/usr/local/bin/fzf"
 
 # PATH
 export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
@@ -31,7 +32,7 @@ plugins=(
   git-flow-avh
   git-flow-completion
   docker
-  vi-mode
+  # vi-mode
   compleat
   colored-man-pages
   ssh-agent
