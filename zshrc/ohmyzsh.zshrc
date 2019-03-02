@@ -16,13 +16,9 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$GOPATH/bin
 
-# Completions
-fpath=(/usr/local/share/zsh-completions $fpath)
-fpath=(/usr/local/share/zsh/site-functions $fpath)
-
 # Plugins
 plugins=(
-  zsh-completion
+  zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
   history-substring-search
@@ -122,6 +118,11 @@ source ~/.aliases
 
 # Init oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# Completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+autoload -U compinit && compinit
 
 # Using exa instead of ls
 alias ls='exa'
