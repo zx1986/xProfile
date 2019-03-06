@@ -6,6 +6,7 @@ export LC_CTYPE=UTF-8
 export GOPATH=$HOME/go
 export ZSH="${HOME}/.oh-my-zsh"
 export FZF_BASE="/usr/local/bin/fzf"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 # PATH
 export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
@@ -128,3 +129,5 @@ autoload -U compinit && compinit
 alias ls='exa'
 alias ll='ls -lh'
 alias la='ls -AF'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
