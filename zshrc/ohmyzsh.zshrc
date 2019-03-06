@@ -6,7 +6,8 @@ export LC_CTYPE=UTF-8
 export GOPATH=$HOME/go
 export ZSH="${HOME}/.oh-my-zsh"
 export FZF_BASE="/usr/local/bin/fzf"
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -U -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # PATH
 export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
@@ -119,14 +120,12 @@ source ~/.aliases
 # Init oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# Completions
-fpath=(/usr/local/share/zsh-completions $fpath)
-fpath=(/usr/local/share/zsh/site-functions $fpath)
-autoload -U compinit && compinit
-
 # Using exa instead of ls
 alias ls='exa'
 alias ll='ls -lh'
 alias la='ls -AF'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+autoload -U compinit && compinit
