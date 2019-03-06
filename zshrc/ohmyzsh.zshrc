@@ -27,7 +27,6 @@ plugins=(
   gitignore
   git-extras
   git-flow-avh
-  git-flow-completion
   docker
   # vi-mode
   compleat
