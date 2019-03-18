@@ -128,4 +128,6 @@ alias la='ls -AF'
 # Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(/usr/local/share/zsh/site-functions $fpath)
-autoload -U compinit && compinit
+
+# Initialize the autocompletion
+autoload -Uz compinit && compinit -i
