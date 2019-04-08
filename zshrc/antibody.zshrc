@@ -130,7 +130,10 @@ antibody bundle supercrabtree/k
 antibody bundle denysdovhan/spaceship-prompt
 
 # Ruby
-eval "$(rbenv init -)"
+rbenv() {
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
 
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
