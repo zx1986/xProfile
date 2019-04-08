@@ -139,3 +139,5 @@ source ~/.aliases
 alias ls='exa'
 alias ll='ls -lh'
 alias la='ls -AF'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
