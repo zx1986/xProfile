@@ -20,7 +20,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # Plugins
 plugins=(
-  zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
   history-substring-search
