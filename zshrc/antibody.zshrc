@@ -1,5 +1,6 @@
 ### ENV
 
+export EDITOR='nvim'
 export VISUAL='nvim'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -60,6 +61,8 @@ zstyle ':completion:::::' completer _expand _complete _ignored _approximate # en
 
 ### Keybindings
 
+# bindkey -v # vi
+bindkey -e # emacs
 bindkey '^[[3~' delete-char
 bindkey '^[3;5~' delete-char
 
