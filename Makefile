@@ -12,7 +12,7 @@ init:
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
 	ln -nsiF $(PWD)/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
 	ln -nsiF $(PWD)/kitty.config $(HOME)/.config/kitty/kitty.config
-	$(MAKE) ohmyzsh
+	$(MAKE) zsh
 	$(MAKE) tmux
 
 tmux:
@@ -31,6 +31,10 @@ ohmyzsh:
 	git clone https://github.com/supercrabtree/k ${HOME}/.oh-my-zsh/custom/plugins/k
 	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
 	ln -s ${HOME}/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ${HOME}/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+
+zsh:
+	touch ${HOME}/.zshrc && rm -iv ${HOME}/.zshrc
+	ln -nsiF $(PWD)/zshrc/antibody.zshrc ${HOME}/.zshrc
 
 fish:
 	curl -L https://get.oh-my.fish | fish
