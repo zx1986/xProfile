@@ -37,6 +37,12 @@ kube:
 	$(MAKE) krew
 	kubectl krew install warp
 	kubectl krew install cssh
+	kubectl krew install rbac-view
+	kubectl krew install rbac-lookup
+	kubectl krew install pod-logs
+	kubectl krew install pod-shell
+	kubectl krew install view-secret
+	kubectl krew install view-utilization
 
 ohmyzsh:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
