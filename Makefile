@@ -20,6 +20,11 @@ tmux:
 	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
 	tmux source-file ~/.tmux.conf
 
+kube:
+	curl https://raw.githubusercontent.com/weibeld/kubectl-ctx/master/kubectl-ctx -o /usr/local/bin/kubectl-ctx
+	curl https://raw.githubusercontent.com/weibeld/kubectl-ns/master/kubectl-ns -o /usr/local/bin/kubectl-ns
+	chmod a+x /usr/local/bin/kubectl-*
+
 ohmyzsh:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	rm -iv ${HOME}/.zshrc
