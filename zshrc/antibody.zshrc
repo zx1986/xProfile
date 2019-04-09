@@ -10,7 +10,7 @@ export FZF_BASE="/usr/local/bin/fzf"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -U -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-### PATH
+## #PATH
 
 export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
 export PATH="/usr/local/opt/nss/bin:$PATH"
@@ -19,6 +19,7 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 ### Auto Completions
 

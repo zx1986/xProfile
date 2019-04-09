@@ -24,6 +24,11 @@ kube:
 	curl https://raw.githubusercontent.com/weibeld/kubectl-ctx/master/kubectl-ctx -o /usr/local/bin/kubectl-ctx
 	curl https://raw.githubusercontent.com/weibeld/kubectl-ns/master/kubectl-ns -o /usr/local/bin/kubectl-ns
 	chmod a+x /usr/local/bin/kubectl-*
+	set -x; cd "$(mktemp -d)" && \
+	curl -fsSLO "https://storage.googleapis.com/krew/v0.2.1/krew.{tar.gz,yaml}" && \
+	tar zxvf krew.tar.gz && \
+	./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" install \
+	--manifest=krew.yaml --archive=krew.tar.gz
 
 ohmyzsh:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
