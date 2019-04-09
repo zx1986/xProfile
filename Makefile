@@ -20,15 +20,23 @@ tmux:
 	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
 	tmux source-file ~/.tmux.conf
 
-kube:
-	curl https://raw.githubusercontent.com/weibeld/kubectl-ctx/master/kubectl-ctx -o /usr/local/bin/kubectl-ctx
-	curl https://raw.githubusercontent.com/weibeld/kubectl-ns/master/kubectl-ns -o /usr/local/bin/kubectl-ns
-	chmod a+x /usr/local/bin/kubectl-*
+krew:
 	set -x; cd "$(mktemp -d)" && \
 	curl -fsSLO "https://storage.googleapis.com/krew/v0.2.1/krew.{tar.gz,yaml}" && \
 	tar zxvf krew.tar.gz && \
 	./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" install \
 	--manifest=krew.yaml --archive=krew.tar.gz
+
+kube:
+	go get -u github.com/iovisor/kubectl-trace/cmd/kubectl-trace
+	curl https://raw.githubusercontent.com/weibeld/kubectl-ctx/master/kubectl-ctx -o /usr/local/bin/kubectl-ctx
+	curl https://raw.githubusercontent.com/weibeld/kubectl-ns/master/kubectl-ns -o /usr/local/bin/kubectl-ns
+	curl https://github.com/aylei/kubectl-debug/releases/download/0.0.2/kubectl-debug_0.0.2_macos-amd64 -o /usr/local/bin/kubectl-debug
+	curl https://github.com/guessi/kubectl-search/releases/download/v1.0.3/kubectl-search-`uname -s`-`uname -m` -o /usr/local/bin/kubectl-search
+	chmod a+x /usr/local/bin/kubectl-*
+	$(MAKE) krew
+	kubectl krew install warp
+	kubectl krew install cssh
 
 ohmyzsh:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
