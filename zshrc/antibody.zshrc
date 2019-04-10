@@ -103,11 +103,21 @@ fi
 # Load antibody plugin manager
 source <(antibody init)
 antibody bundle zsh-users/zsh-history-substring-search
+#antibody bundle zsh-users/zsh-syntax-highlighting
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle zsh-users/zsh-completions
 antibody bundle petervanderdoes/git-flow-completion
 antibody bundle zdharma/fast-syntax-highlighting
+antibody bundle rluders/laradock-workspace-zsh
+antibody bundle horosgrisa/mysql-colorize
+antibody bundle zlsun/solarized-man
+antibody bundle voronkovich/project.plugin.zsh
 antibody bundle supercrabtree/k
+antibody bundle zpm-zsh/ssh
+antibody bundle pbar1/zsh-terraform
+antibody bundle gantsign/zsh-plugins path:ctop
+antibody bundle gantsign/zsh-plugins path:bat
+antibody bundle docker/cli path:contrib/completion/zsh
 antibody bundle denysdovhan/spaceship-prompt
 
 ### Custom post-setup
