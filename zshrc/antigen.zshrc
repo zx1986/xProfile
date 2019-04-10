@@ -1,3 +1,9 @@
+### Custom pre-setup
+
+[ -f .z-pre-setup ] && source ~/.z-pre-setup
+
+###
+
 source /usr/local/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -54,6 +60,6 @@ antigen theme ys
 # Tell antigen that you're done.
 antigen apply
 
-source ~/.aliases
+### Custom post-setup
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f .z-post-setup ] && source ~/.z-post-setup

@@ -1,0 +1,28 @@
+# Ruby
+rbenv() {
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
+
+# Fuck
+thefuck() {
+  eval "$(command thefuck --alias)"
+}
+
+# iTerm
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Git
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+# iTerm
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# z
+[ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
+
+# Custom Alias
+[ -f ~/.aliases ] && source ~/.aliases

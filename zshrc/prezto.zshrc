@@ -1,27 +1,11 @@
+### Custom pre-setup
+
+[ -f .z-pre-setup ] && source ~/.z-pre-setup
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-set -a; source /Users/zx1986/.env
-
-# Git
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-
-# Ruby
-eval "$(rbenv init -)"
-
-# iTerm
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# z
-[ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
-
-# Fuck
-eval $(thefuck --alias)
 
 # History
 #setopt BANG_HIST                 # Treat the '!' character specially during expansion.
@@ -39,5 +23,8 @@ eval $(thefuck --alias)
 #setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 # Others
-source ~/.aliases
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+### Custom post-setup
+
+[ -f .z-post-setup ] && source ~/.z-post-setup

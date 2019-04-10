@@ -45,6 +45,7 @@ kube:
 	kubectl krew install view-utilization
 
 ohmyzsh:
+	$(MAKE) zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	rm -iv ${HOME}/.zshrc
 	ln -nsiF $(PWD)/zshrc/ohmyzsh.zshrc ${HOME}/.zshrc
@@ -59,6 +60,8 @@ ohmyzsh:
 zsh:
 	touch ${HOME}/.zshrc && rm -iv ${HOME}/.zshrc
 	ln -nsiF $(PWD)/zshrc/antibody.zshrc ${HOME}/.zshrc
+	ln -nsiF $(PWD)/zshrc/z-pre-setup $(HOME)/.z-pre-setup
+	ln -nsiF $(PWD)/zshrc/z-post-setup $(HOME)/.z-post-setup
 
 fish:
 	curl -L https://get.oh-my.fish | fish

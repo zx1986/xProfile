@@ -1,23 +1,6 @@
-# ENV
-export VISUAL='nvim'
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LC_CTYPE=UTF-8
-export GOPATH=$HOME/go
-export ZSH="${HOME}/.oh-my-zsh"
-export FZF_BASE="/usr/local/bin/fzf"
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -U -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+### Custom pre-setup
 
-# PATH
-export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
-export PATH="/usr/local/opt/nss/bin:$PATH"
-export PATH="/usr/local/opt/ncurses/bin:$PATH"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:$GOPATH/bin
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+[ -f .z-pre-setup ] && source ~/.z-pre-setup
 
 # Plugins
 plugins=(
@@ -108,26 +91,13 @@ else
   export EDITOR='nvim'
 fi
 
-# Ruby
-eval "$(rbenv init -)"
-
-# iTerm
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Alias
-source ~/.aliases
-
-# Init oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-# Using exa instead of ls
-alias ls='exa'
-alias ll='ls -lh'
-alias la='ls -AF'
-
 # Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
 # Initialize the autocompletion
 autoload -Uz compinit && compinit -i
+
+### Custom post-setup
+
+[ -f .z-post-setup ] && source ~/.z-post-setup

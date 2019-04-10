@@ -1,25 +1,6 @@
-### ENV
+### Custom pre-setup
 
-export EDITOR='nvim'
-export VISUAL='nvim'
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LC_CTYPE=UTF-8
-export GOPATH=$HOME/go
-export FZF_BASE="/usr/local/bin/fzf"
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -U -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-## #PATH
-
-export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}"
-export PATH="/usr/local/opt/nss/bin:$PATH"
-export PATH="/usr/local/opt/ncurses/bin:$PATH"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:$GOPATH/bin
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+[ -f .z-pre-setup ] && source ~/.z-pre-setup
 
 ### Auto Completions
 
@@ -129,21 +110,6 @@ antibody bundle zdharma/fast-syntax-highlighting
 antibody bundle supercrabtree/k
 antibody bundle denysdovhan/spaceship-prompt
 
-# Ruby
-rbenv() {
-  eval "$(command rbenv init -)"
-  rbenv "$@"
-}
+### Custom post-setup
 
-# iTerm
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Alias
-source ~/.aliases
-
-# Using exa instead of ls
-alias ls='exa'
-alias ll='ls -lh'
-alias la='ls -AF'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f .z-post-setup ] && source ~/.z-post-setup
