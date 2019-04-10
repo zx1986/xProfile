@@ -59,6 +59,7 @@ ohmyzsh:
 
 zsh:
 	touch ${HOME}/.zshrc && rm -iv ${HOME}/.zshrc
+	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker > /usr/local/share/zsh/site-functions/_docker
 	ln -nsiF $(PWD)/zshrc/antibody.zshrc ${HOME}/.zshrc
 	ln -nsiF $(PWD)/zshrc/z-pre-setup $(HOME)/.z-pre-setup
 	ln -nsiF $(PWD)/zshrc/z-post-setup $(HOME)/.z-post-setup
