@@ -1,6 +1,6 @@
 ### Custom pre-setup
 
-[ -f .z-pre-setup ] && source ~/.z-pre-setup
+[ -f ~/.z-pre-setup ] && source ~/.z-pre-setup
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -27,4 +27,4 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 ### Custom post-setup
 
-[ -f .z-post-setup ] && source ~/.z-post-setup
+[ -f ~/.z-post-setup ] && source ~/.z-post-setup

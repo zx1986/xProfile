@@ -1,6 +1,6 @@
 ### Custom pre-setup
 
-[ -f .z-pre-setup ] && source ~/.z-pre-setup
+[ -f ~/.z-pre-setup ] && source ~/.z-pre-setup
 
 ###
 
@@ -62,4 +62,4 @@ antigen apply
 
 ### Custom post-setup
 
-[ -f .z-post-setup ] && source ~/.z-post-setup
+[ -f ~/.z-post-setup ] && source ~/.z-post-setup
