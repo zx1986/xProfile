@@ -66,6 +66,8 @@ zsh:
 	ln -nsiF $(PWD)/zshrc/antibody.zshrc ${HOME}/.zshrc
 	ln -nsiF $(PWD)/zshrc/z-pre-setup $(HOME)/.z-pre-setup
 	ln -nsiF $(PWD)/zshrc/z-post-setup $(HOME)/.z-post-setup
+	zsh -l -c "autoload -U +X compinit && compinit"
+	zsh -l -c "autoload -U +X bashcompinit && bashcompinit"
 
 fish:
 	curl -L https://get.oh-my.fish | fish
