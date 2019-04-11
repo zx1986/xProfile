@@ -1,3 +1,5 @@
+ZSH_FUNC_DIR="/usr/local/share/zsh/site-functions/"
+
 init:
 	cp -iv .env.sample .env
 	ln -nsiF $(PWD)/.env $(HOME)/.env
@@ -59,7 +61,8 @@ ohmyzsh:
 
 zsh:
 	touch ${HOME}/.zshrc && rm -iv ${HOME}/.zshrc
-	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker > /usr/local/share/zsh/site-functions/_docker
+	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker > ${ZSH_FUNC_DIR}/_docker
+	curl -L https://raw.githubusercontent.com/ebekker/hashicorp-terraform/master/contrib/zsh-completion/_terraform > ${ZSH_FUNC_DIR}/_terraform
 	ln -nsiF $(PWD)/zshrc/antibody.zshrc ${HOME}/.zshrc
 	ln -nsiF $(PWD)/zshrc/z-pre-setup $(HOME)/.z-pre-setup
 	ln -nsiF $(PWD)/zshrc/z-post-setup $(HOME)/.z-post-setup
