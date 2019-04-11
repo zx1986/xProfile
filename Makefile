@@ -62,12 +62,12 @@ ohmyzsh:
 zsh:
 	touch ${HOME}/.zshrc && rm -iv ${HOME}/.zshrc
 	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker > ${ZSH_FUNC_DIR}/_docker
-	curl -L https://raw.githubusercontent.com/ebekker/hashicorp-terraform/master/contrib/zsh-completion/_terraform > ${ZSH_FUNC_DIR}/_terraform
+	curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/terraform/_terraform > ${ZSH_FUNC_DIR}/_terraform
 	ln -nsiF $(PWD)/zshrc/antibody.zshrc ${HOME}/.zshrc
 	ln -nsiF $(PWD)/zshrc/z-pre-setup $(HOME)/.z-pre-setup
 	ln -nsiF $(PWD)/zshrc/z-post-setup $(HOME)/.z-post-setup
-	zsh -l -c "autoload -U +X compinit && compinit"
 	zsh -l -c "autoload -U +X bashcompinit && bashcompinit"
+	zsh -l -c "autoload -U +X compinit && compinit"
 
 fish:
 	curl -L https://get.oh-my.fish | fish
