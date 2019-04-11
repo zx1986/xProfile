@@ -4,6 +4,7 @@ init:
 	cp -iv .env.sample .env
 	ln -nsiF $(PWD)/.env $(HOME)/.env
 	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
+	ln -nsiF $(PWD)/terraformrc $(HOME)/.terraformrc
 	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
 	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
 	ln -nsiF $(PWD)/tmux.conf $(HOME)/.tmux.conf
