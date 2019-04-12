@@ -50,22 +50,22 @@ kube:
 ohmyzsh:
 	$(MAKE) zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	rm -iv ${HOME}/.zshrc
-	ln -nsiF $(PWD)/zshrc/ohmyzsh.zshrc ${HOME}/.zshrc
-	git clone https://github.com/zsh-users/zsh-history-substring-search ${HOME}/.oh-my-zsh/custom/plugins/zsh-history-substring-search
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	git clone https://github.com/petervanderdoes/git-flow-completion ${HOME}/.oh-my-zsh/custom/plugins/git-flow-completion
-	git clone https://github.com/supercrabtree/k ${HOME}/.oh-my-zsh/custom/plugins/k
+	rm -iv $(HOME)/.zshrc
+	ln -nsiF $(PWD)/zshrc/ohmyzsh.zshrc $(HOME)/.zshrc
+	git clone https://github.com/zsh-users/zsh-history-substring-search $(HOME)/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	git clone https://github.com/petervanderdoes/git-flow-completion $(HOME)/.oh-my-zsh/custom/plugins/git-flow-completion
+	git clone https://github.com/supercrabtree/k $(HOME)/.oh-my-zsh/custom/plugins/k
 	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
-	ln -s ${HOME}/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ${HOME}/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+	ln -s $(HOME)/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme $(HOME)/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 
 zsh:
-	touch ${HOME}/.zshrc && rm -iv ${HOME}/.zshrc
-	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker > ${ZSH_FUNC_DIR}/_docker
-	curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/terraform/_terraform > ${ZSH_FUNC_DIR}/_terraform
-	curl -L https://raw.githubusercontent.com/hashicorp/packer/master/contrib/zsh-completion/_packer > ${ZSH_FUNC_DIR}/_packer
-	ln -nsiF $(PWD)/zshrc/antibody.zshrc ${HOME}/.zshrc
+	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
+	curl https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker -o $(ZSH_FUNC_DIR)/_docker
+	curl https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/terraform/_terraform -o $(ZSH_FUNC_DIR)/_terraform
+	curl https://raw.githubusercontent.com/hashicorp/packer/master/contrib/zsh-completion/_packer -o $(ZSH_FUNC_DIR)/_packer
+	ln -nsiF $(PWD)/zshrc/antibody.zshrc $(HOME)/.zshrc
 	ln -nsiF $(PWD)/zshrc/z-pre-setup $(HOME)/.z-pre-setup
 	ln -nsiF $(PWD)/zshrc/z-post-setup $(HOME)/.z-post-setup
 	zsh -l -c "autoload -U +X bashcompinit && bashcompinit"
