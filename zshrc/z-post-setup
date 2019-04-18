@@ -18,6 +18,9 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# awless
+[ -f ~/.awless.zsh ] && source ~/.awless.zsh
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
