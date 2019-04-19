@@ -123,10 +123,14 @@ antibody bundle zlsun/solarized-man
 antibody bundle voronkovich/project.plugin.zsh
 antibody bundle supercrabtree/k
 antibody bundle zpm-zsh/ssh
+antibody bundle twang817/zsh-ssh-agent
 antibody bundle pbar1/zsh-terraform
 antibody bundle denysdovhan/spaceship-prompt
 antibody bundle gantsign/zsh-plugins path:ctop kind:fpath
 antibody bundle gantsign/zsh-plugins path:bat kind:fpath
+
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+zstyle :omz:plugins:ssh-agent osx-use-launchd-ssh-agent yes
 
 ### Custom post-setup
 
