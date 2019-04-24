@@ -20,6 +20,7 @@
   prune = fetch origin --prune
   undo = reset --soft HEAD^
   stash = stash save --include-untracked
+	push-all = !git remote | xargs -L1 git push --all
 
 [status]
   showUntrackedFiles = all
