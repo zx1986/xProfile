@@ -9,6 +9,7 @@ export GOPATH=$HOME/go
 export FZF_BASE="/usr/local/bin/fzf"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -U -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 ### PATH
 
