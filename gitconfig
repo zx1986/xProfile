@@ -13,6 +13,7 @@
   ui = true
 
 [alias]
+  tagv = ! git tag | sort -V
   type = cat-file -t
   dump = cat-file -p
   history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -20,7 +21,7 @@
   prune = fetch origin --prune
   undo = reset --soft HEAD^
   stash = stash save --include-untracked
-	push-all = !git remote | xargs -L1 git push --all
+  push-all = !git remote | xargs -L1 git push --all
 
 [status]
   showUntrackedFiles = all
