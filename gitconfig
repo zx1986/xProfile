@@ -1,71 +1,71 @@
 [user]
-  name = 張旭
-  email = zx1986@gmail.com
+    name = 張旭
+    email = zx1986@gmail.com
 
 [core]
-  excludesfile = ~/.gitignore
-  editor = nvim
-  quotepath = false
-  filemode = true
-  autocrlf = false
+    excludesfile = ~/.gitignore
+    editor = nvim
+    quotepath = false
+    filemode = true
+    autocrlf = false
 
 [color]
-  ui = true
+    ui = true
 
 [alias]
-  vtag = ! git tag | sort -V
-  type = cat-file -t
-  dump = cat-file -p
-  history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  log = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  prune = fetch origin --prune
-  undo = reset --soft HEAD^
-  stash = stash save --include-untracked
-  push-all = !git remote | xargs -L1 git push --all
+    vtag = ! git tag | sort -V
+    type = cat-file -t
+    dump = cat-file -p
+    history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    log = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    prune = fetch origin --prune
+    undo = reset --soft HEAD^
+    stash = stash save --include-untracked
+    push-all = !git remote | xargs -L1 git push --all
 
 [status]
-  showUntrackedFiles = all
+    showUntrackedFiles = all
 
 [push]
-  default = matching
-  followTags = true
+    default = matching
+    followTags = true
 
 [pull]
-  default = matching
-  followTags = true
+    default = matching
+    followTags = true
 
 [merge]
-  ff = only
-  conflictstyle = diff3
+    ff = only
+    conflictstyle = diff3
 
 [diff]
 
 [pager]
-  diff = diff-so-fancy | less --tabs=2 -RFXi
-  show = diff-so-fancy | less --tabs=2 -RFXi
+    diff = diff-so-fancy | less --tabs=2 -RFXi
+    show = diff-so-fancy | less --tabs=2 -RFXi
 
 [color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 
 [color "diff"]
-  meta = 227
-  frag = magenta bold
-  commit = 227 bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
+    meta = 227
+    frag = magenta bold
+    commit = 227 bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 
 [gitflow "branch"]
-  master = master
-  develop = develop
+    master = master
+    develop = develop
 
 [gitflow "prefix"]
-  feature = feature/
-  bugfix = bugfix/
-  release = release/
-  hotfix = hotfix/
-  support = support/
-  versiontag = v
+    feature = feature/
+    bugfix = bugfix/
+    release = release/
+    hotfix = hotfix/
+    support = support/
+    versiontag = v
