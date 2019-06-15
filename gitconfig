@@ -13,7 +13,7 @@
   ui = true
 
 [alias]
-  tagv = ! git tag | sort -V
+  vtag = ! git tag | sort -V
   type = cat-file -t
   dump = cat-file -p
   history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
