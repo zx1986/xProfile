@@ -1,8 +1,5 @@
 # Ruby
-rbenv() {
-  eval "$(command rbenv init -)"
-  rbenv "$@"
-}
+eval "$(rbenv init -)"
 
 # Fuck
 thefuck() {
