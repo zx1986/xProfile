@@ -3,6 +3,9 @@
     email = zx1986@gmail.com
     username = zx1986
 
+[init]
+    templatedir = ~/.git_template
+
 [core]
     excludesfile = ~/.gitignore
     editor = nvim
@@ -73,6 +76,7 @@
 
 [alias]
     vtag = ! git tag | sort -V
+    ctags = !.git/hooks/ctags
     type = cat-file -t
     dump = cat-file -p
     history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
