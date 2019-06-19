@@ -115,7 +115,7 @@ fi
 # Load antibody plugin manager
 source <(antibody init)
 antibody bundle zsh-users/zsh-history-substring-search
-#antibody bundle zsh-users/zsh-syntax-highlighting
+antibody bundle zsh-users/zsh-syntax-highlighting
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle zsh-users/zsh-completions
 antibody bundle petervanderdoes/git-flow-completion

@@ -23,3 +23,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Custom Alias
 [ -f ~/.aliases ] && source ~/.aliases
+
+# Auto Completion
+autoload -U compinit && compinit
