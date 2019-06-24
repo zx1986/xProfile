@@ -132,9 +132,6 @@ antibody bundle denysdovhan/spaceship-prompt
 antibody bundle gantsign/zsh-plugins path:ctop kind:fpath
 antibody bundle gantsign/zsh-plugins path:bat kind:fpath
 
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent osx-use-launchd-ssh-agent yes
-
 ### Custom post-setup
 
 [ -f ~/.z-post-setup ] && source ~/.z-post-setup
