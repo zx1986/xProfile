@@ -75,7 +75,7 @@
     versiontag = v
 
 [alias]
-    vtag = ! git tag | sort -V
+    vtags = ! git tag | sort -V
     ctags = !.git/hooks/ctags
     type = cat-file -t
     dump = cat-file -p
