@@ -18,6 +18,9 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 # z
 [ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
 
+# Kubernetes
+kcdebug() { kubectl run -i --rm --tty debug --image=alpine --restart=Never -- sh }
+
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
