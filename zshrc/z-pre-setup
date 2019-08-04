@@ -8,7 +8,8 @@ export LC_ALL=en_US.UTF-8
 export LC_CTYPE=UTF-8
 export GOPATH=$HOME/go
 export FZF_BASE="/usr/local/bin/fzf"
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -U -g ""'
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --color=always'
+export FZF_DEFAULT_OPTS="--ansi"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
