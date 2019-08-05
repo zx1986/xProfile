@@ -48,6 +48,21 @@ kube:
 	kubectl krew install view-secret
 	kubectl krew install view-utilization
 
+helm:
+	-brew install kubernetes-helm
+	-helm plugin install https://github.com/technosophos/helm-template
+	-helm plugin install https://github.com/maorfr/helm-backup
+	-helm plugin install https://github.com/maorfr/helm-restore
+	-helm plugin install https://github.com/maorfr/helm-inject
+	-helm plugin install https://github.com/maorfr/helm-logs
+	-helm plugin install https://github.com/maorfr/helm-tiller-info
+	-helm plugin install https://github.com/mstrzele/helm-edit
+	-helm plugin install https://github.com/adamreese/helm-env
+	-helm plugin install https://github.com/adamreese/helm-last
+	-helm plugin install https://github.com/ContainerSolutions/helm-monitor
+	-helm plugin install https://github.com/databus23/helm-diff
+	-helm plugin install https://github.com/futuresimple/helm-secrets
+
 ohmyzsh:
 	$(MAKE) zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
