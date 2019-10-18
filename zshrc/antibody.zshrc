@@ -135,3 +135,6 @@ antibody bundle gantsign/zsh-plugins path:bat kind:fpath
 ### Custom post-setup
 
 [ -f ~/.z-post-setup ] && source ~/.z-post-setup
+
+[ -f ~/.env ] && set -a; source ~/.env
+
