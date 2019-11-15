@@ -55,7 +55,6 @@ helm:
 	-helm plugin install https://github.com/maorfr/helm-restore
 	-helm plugin install https://github.com/maorfr/helm-inject
 	-helm plugin install https://github.com/maorfr/helm-logs
-	-helm plugin install https://github.com/maorfr/helm-tiller-info
 	-helm plugin install https://github.com/mstrzele/helm-edit
 	-helm plugin install https://github.com/adamreese/helm-env
 	-helm plugin install https://github.com/adamreese/helm-last
