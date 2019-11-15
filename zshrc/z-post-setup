@@ -37,6 +37,11 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 # Kubernetes
 kcdebug() { kubectl run -i --rm --tty debug --image=alpine --restart=Never -- sh }
 
+# Helm
+if [ $commands[helm] ]; then
+  source <(helm completion zsh)
+fi
+
 # iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
