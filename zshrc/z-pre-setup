@@ -1,5 +1,6 @@
 ### ENV
 
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export WORDCHARS='*?[]~&;!#$%^(){}<>'
 export EDITOR='nvim'
 export VISUAL='nvim'
