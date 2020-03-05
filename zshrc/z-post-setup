@@ -1,5 +1,10 @@
 # Ruby
-eval "$(rbenv init -)"
+if which rbenv >/dev/null 2>&1; then
+  rbenv() {
+    eval "$(command rbenv init -)"
+    rbenv "$@"
+  }
+fi
 
 # Python
 eval "$(pipenv --completion)"
