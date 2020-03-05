@@ -87,7 +87,7 @@
     push-all = !git remote | xargs -L1 git push --all
 
 [diff "sopsdiffer"]
-	textconv = sops -d
+    textconv = sops -d
 
 [credential]
-	helper = store
+    helper = store
