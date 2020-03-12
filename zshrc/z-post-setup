@@ -7,7 +7,7 @@ if which rbenv >/dev/null 2>&1; then
 fi
 
 # Python
-eval "$(pipenv --completion)"
+# eval "$(pipenv --completion)"
 
 # Fuck
 thefuck() {
