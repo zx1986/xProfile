@@ -90,4 +90,4 @@
     textconv = sops -d
 
 [credential]
-    helper = store
+	helper = osxkeychain
