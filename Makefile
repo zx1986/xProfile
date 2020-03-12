@@ -1,4 +1,5 @@
 ZSH_FUNC_DIR="/usr/local/share/zsh/site-functions/"
+KREW=./krew-"`uname | tr '[:upper:]' '[:lower:]'`_amd64"
 KREW_VERSION=v0.3.4
 
 .PHONY: init
@@ -30,10 +31,19 @@ tmux: ## 配置 tmux
 .PHONY: krew
 krew: ## 配置 kubernetes kubectl 外掛管理器
 	set -x; cd "$(mktemp -d)" && \
-	curl -fsSLO "https://storage.googleapis.com/krew/$(KREW_VERSION)/krew.{tar.gz,yaml}" && \
+	curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}" && \
 	tar zxvf krew.tar.gz && \
-	./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" install \
-	--manifest=krew.yaml --archive=krew.tar.gz
+	"$(KREW)" install --manifest=krew.yaml --archive=krew.tar.gz && \
+	"$(KREW)" update
+	kubectl krew install warp
+	kubectl krew install cssh
+	kubectl krew install rbac-view
+	kubectl krew install rbac-lookup
+	kubectl krew install access-matrix
+	kubectl krew install pod-logs
+	kubectl krew install pod-shell
+	kubectl krew install view-secret
+	kubectl krew install view-utilization
 
 .PHONY: kube
 kube: ## 配置 kubernetes kuberctl
@@ -44,29 +54,21 @@ kube: ## 配置 kubernetes kuberctl
 	curl -L https://github.com/guessi/kubectl-search/releases/download/v1.0.3/kubectl-search-`uname -s`-`uname -m` -o /usr/local/bin/kubectl-search
 	chmod a+x /usr/local/bin/kubectl-*
 	$(MAKE) krew
-	kubectl krew install warp
-	kubectl krew install cssh
-	kubectl krew install rbac-view
-	kubectl krew install rbac-lookup
-	kubectl krew install pod-logs
-	kubectl krew install pod-shell
-	kubectl krew install view-secret
-	kubectl krew install view-utilization
 
 .PHONY: helm
 helm: ## 配置 kubernetes helm
-	-brew install kubernetes-helm
-	-helm plugin install https://github.com/technosophos/helm-template
-	-helm plugin install https://github.com/maorfr/helm-backup
-	-helm plugin install https://github.com/maorfr/helm-restore
-	-helm plugin install https://github.com/maorfr/helm-inject
-	-helm plugin install https://github.com/maorfr/helm-logs
-	-helm plugin install https://github.com/mstrzele/helm-edit
-	-helm plugin install https://github.com/adamreese/helm-env
-	-helm plugin install https://github.com/adamreese/helm-last
-	-helm plugin install https://github.com/ContainerSolutions/helm-monitor
-	-helm plugin install https://github.com/databus23/helm-diff
-	-helm plugin install https://github.com/futuresimple/helm-secrets
+	brew install kubernetes-helm
+	helm plugin install https://github.com/technosophos/helm-template
+	helm plugin install https://github.com/maorfr/helm-backup
+	helm plugin install https://github.com/maorfr/helm-restore
+	helm plugin install https://github.com/maorfr/helm-inject
+	helm plugin install https://github.com/maorfr/helm-logs
+	helm plugin install https://github.com/mstrzele/helm-edit
+	helm plugin install https://github.com/adamreese/helm-env
+	helm plugin install https://github.com/adamreese/helm-last
+	helm plugin install https://github.com/ContainerSolutions/helm-monitor
+	helm plugin install https://github.com/databus23/helm-diff
+	helm plugin install https://github.com/futuresimple/helm-secrets
 
 .PHONY: ohmyzsh
 ohmyzsh: ## 配置 oh-my-zsh
