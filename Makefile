@@ -1,6 +1,8 @@
 ZSH_FUNC_DIR="/usr/local/share/zsh/site-functions/"
+KREW_VERSION=v0.3.4
 
-init:
+.PHONY: init
+init: ## 初始化環境配置
 	cp -iv .env.sample .env
 	ln -nsiF $(PWD)/.env $(HOME)/.env
 	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
@@ -19,19 +21,22 @@ init:
 	$(MAKE) zsh
 	$(MAKE) tmux
 
-tmux:
+.PHONY: tmux
+tmux: ## 配置 tmux
 	mkdir -p ~/.tmux/plugins/
 	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
 	tmux source-file ~/.tmux.conf
 
-krew:
+.PHONY: krew
+krew: ## 配置 kubernetes kubectl 外掛管理器
 	set -x; cd "$(mktemp -d)" && \
-	curl -fsSLO "https://storage.googleapis.com/krew/v0.2.1/krew.{tar.gz,yaml}" && \
+	curl -fsSLO "https://storage.googleapis.com/krew/$(KREW_VERSION)/krew.{tar.gz,yaml}" && \
 	tar zxvf krew.tar.gz && \
 	./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" install \
 	--manifest=krew.yaml --archive=krew.tar.gz
 
-kube:
+.PHONY: kube
+kube: ## 配置 kubernetes kuberctl
 	go get -u github.com/iovisor/kubectl-trace/cmd/kubectl-trace
 	curl -L https://raw.githubusercontent.com/weibeld/kubectl-ctx/master/kubectl-ctx -o /usr/local/bin/kubectl-ctx
 	curl -L https://raw.githubusercontent.com/weibeld/kubectl-ns/master/kubectl-ns -o /usr/local/bin/kubectl-ns
@@ -48,7 +53,8 @@ kube:
 	kubectl krew install view-secret
 	kubectl krew install view-utilization
 
-helm:
+.PHONY: helm
+helm: ## 配置 kubernetes helm
 	-brew install kubernetes-helm
 	-helm plugin install https://github.com/technosophos/helm-template
 	-helm plugin install https://github.com/maorfr/helm-backup
@@ -62,7 +68,8 @@ helm:
 	-helm plugin install https://github.com/databus23/helm-diff
 	-helm plugin install https://github.com/futuresimple/helm-secrets
 
-ohmyzsh:
+.PHONY: ohmyzsh
+ohmyzsh: ## 配置 oh-my-zsh
 	$(MAKE) zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	rm -iv $(HOME)/.zshrc
@@ -75,7 +82,8 @@ ohmyzsh:
 	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
 	ln -s $(HOME)/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme $(HOME)/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 
-zsh:
+.PHONY: zsh
+zsh: ## 配置自定義的 zsh 環境
 	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
 	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker -o $(ZSH_FUNC_DIR)/_docker
@@ -86,8 +94,16 @@ zsh:
 	zsh -l -c "autoload -U +X bashcompinit && bashcompinit"
 	zsh -l -c "autoload -U +X compinit && compinit"
 
-fish:
+.PHONY: fish
+fish: ## 配置自定義 fish 環境
 	curl -L https://get.oh-my.fish | fish
 	ln -nsiF $(PWD)/fishrc/init.fish $(OMF_CONFIG)/init.fish
 	ln -nsiF $(PWD)/fishrc/before.init.fish $(OMF_CONFIG)/before.init.fish
 	ln -nsiF $(PWD)/fishrc/key_bindings.fish $(OMF_CONFIG)/key_bindings.fish
+
+# Absolutely awesome: http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
+.PHONY: help
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+.DEFAULT_GOAL := help
