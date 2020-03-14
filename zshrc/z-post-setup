@@ -31,7 +31,6 @@ explain () {
 }
 
 # Git
-[ -f ~/.git-flow-completion.zsh ] && source ~/.git-flow-completion.zsh
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # awless

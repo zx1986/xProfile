@@ -23,7 +23,6 @@ antigen bundle emoji
 antigen bundle emoji-clock
 antigen bundle gem
 antigen bundle git-extras
-antigen bundle git-flow-avh
 antigen bundle git-remote-branch
 antigen bundle gitignore
 antigen bundle history
@@ -48,9 +47,6 @@ antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 antigen bundle Seinh/git-prune
 antigen bundle unixorn/git-extra-commands
 antigen bundle voronkovich/gitignore.plugin.zsh
-
-# https://github.com/unixorn/awesome-zsh-plugins#even-more-completions
-antigen bundle bobthecow/git-flow-completion
 
 # Load the theme.
 # antigen theme robbyrussell/oh-my-zsh themes/apple

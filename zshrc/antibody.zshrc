@@ -118,7 +118,6 @@ antibody bundle zsh-users/zsh-history-substring-search
 antibody bundle zsh-users/zsh-syntax-highlighting
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle zsh-users/zsh-completions
-antibody bundle petervanderdoes/git-flow-completion
 antibody bundle zdharma/fast-syntax-highlighting
 antibody bundle rluders/laradock-workspace-zsh
 antibody bundle horosgrisa/mysql-colorize

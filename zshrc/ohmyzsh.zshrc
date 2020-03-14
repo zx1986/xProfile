@@ -10,7 +10,6 @@ plugins=(
   git
   gitignore
   git-extras
-  git-flow-avh
   docker
   # vi-mode
   compleat

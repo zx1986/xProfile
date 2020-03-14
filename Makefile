@@ -79,7 +79,6 @@ ohmyzsh: ## 配置 oh-my-zsh
 	git clone https://github.com/zsh-users/zsh-history-substring-search $(HOME)/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	git clone https://github.com/petervanderdoes/git-flow-completion $(HOME)/.oh-my-zsh/custom/plugins/git-flow-completion
 	git clone https://github.com/supercrabtree/k $(HOME)/.oh-my-zsh/custom/plugins/k
 	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
 	ln -s $(HOME)/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme $(HOME)/.oh-my-zsh/custom/themes/spaceship.zsh-theme
