@@ -89,9 +89,10 @@ zsh: ## 配置自定義的 zsh 環境
 	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker -o $(ZSH_FUNC_DIR)/_docker
 	curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/terraform/_terraform -o $(ZSH_FUNC_DIR)/_terraform
-	ln -nsiF $(PWD)/zshrc/antibody.zshrc $(HOME)/.zshrc
+	ln -nsiF $(PWD)/zshrc/zsh_plugins.txt $(HOME)/.zsh_plugins.txt
 	ln -nsiF $(PWD)/zshrc/z-pre-setup $(HOME)/.z-pre-setup
 	ln -nsiF $(PWD)/zshrc/z-post-setup $(HOME)/.z-post-setup
+	ln -nsiF $(PWD)/zshrc/antibody.zshrc $(HOME)/.zshrc
 	zsh -l -c "autoload -U +X bashcompinit && bashcompinit"
 	zsh -l -c "autoload -U +X compinit && compinit"
 

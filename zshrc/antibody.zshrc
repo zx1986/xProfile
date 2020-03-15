@@ -1,3 +1,5 @@
+[ -f ~/.env ] && set -a; source ~/.env
+
 ### Custom pre-setup
 
 [ -f ~/.z-pre-setup ] && source ~/.z-pre-setup
@@ -127,25 +129,8 @@ fi
 
 # Load antibody plugin manager
 source <(antibody init)
-antibody bundle zsh-users/zsh-history-substring-search
-antibody bundle zsh-users/zsh-syntax-highlighting
-antibody bundle zsh-users/zsh-autosuggestions
-antibody bundle zsh-users/zsh-completions
-antibody bundle zdharma/fast-syntax-highlighting
-antibody bundle rluders/laradock-workspace-zsh
-antibody bundle horosgrisa/mysql-colorize
-antibody bundle zlsun/solarized-man
-antibody bundle voronkovich/project.plugin.zsh
-antibody bundle supercrabtree/k
-antibody bundle zpm-zsh/ssh
-antibody bundle twang817/zsh-ssh-agent
-antibody bundle pbar1/zsh-terraform
-antibody bundle denysdovhan/spaceship-prompt
-antibody bundle gantsign/zsh-plugins path:ctop kind:fpath
-antibody bundle gantsign/zsh-plugins path:bat kind:fpath
+antibody bundle < ~/.zsh_plugins.txt
 
 ### Custom post-setup
 
 [ -f ~/.z-post-setup ] && source ~/.z-post-setup
-
-[ -f ~/.env ] && set -a; source ~/.env
