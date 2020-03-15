@@ -34,8 +34,7 @@ explain () {
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # awless
-[ -f ~/.awless.zsh ] && source ~/.awless.zsh
-source <(awless completion zsh)
+# source <(awless completion zsh)
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
