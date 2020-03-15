@@ -1,15 +1,21 @@
-zsh-users/zsh-history-substring-search
-zsh-users/zsh-syntax-highlighting
+denysdovhan/spaceship-prompt
+horosgrisa/mysql-colorize
+pbar1/zsh-terraform
+supercrabtree/k
+twang817/zsh-ssh-agent
+voronkovich/project.plugin.zsh
+zdharma/fast-syntax-highlighting
+zlsun/solarized-man
+zpm-zsh/ssh
+
+gantsign/zsh-plugins path:bat kind:fpath
+gantsign/zsh-plugins path:ctop kind:fpath
+
+# oh-my-zsh
+robbyrussell/oh-my-zsh path:plugins/aws
+
+# zsh-users
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
-zdharma/fast-syntax-highlighting
-horosgrisa/mysql-colorize
-zlsun/solarized-man
-voronkovich/project.plugin.zsh
-supercrabtree/k
-zpm-zsh/ssh
-twang817/zsh-ssh-agent
-pbar1/zsh-terraform
-denysdovhan/spaceship-prompt
-gantsign/zsh-plugins path:ctop kind:fpath
-gantsign/zsh-plugins path:bat kind:fpath
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting
