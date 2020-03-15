@@ -72,9 +72,10 @@ SPACESHIP_USER_SHOW=true
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_KUBECTL_SHOW=true
 SPACESHIP_KUBECTL_VERSION_SHOW=false
+SPACESHIP_TERRAFORM_SYMBOL="🛠️ ·"
 SPACESHIP_AWS_SHOW=true
 SPACESHIP_AWS_SYMBOL="☁️· "
-SHOW_AWS_PROMPT=false # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws#plugin-options
+SHOW_AWS_PROMPT=false
 
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
