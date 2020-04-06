@@ -14,7 +14,7 @@ export FZF_DEFAULT_OPTS="--ansi"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
-export KUBECONFIG=$(find ~/.kube -type f -name '*config' | tr '\n' ':' | sed 's/:$//')
+export KUBECONFIG=$(find ~/.kube -type f -name '*.config' | tr '\n' ':' | sed 's/:$//')
 
 ### PATH
 
