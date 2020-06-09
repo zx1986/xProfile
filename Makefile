@@ -4,7 +4,7 @@ KREW_VERSION=v0.3.4
 
 .PHONY: init
 init: ## 初始化環境配置
-	cp -iv .env.sample .env
+	-cp -iv .env.example .env
 	ln -nsiF $(PWD)/.env $(HOME)/.env
 	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
 	ln -nsiF $(PWD)/git_template $(HOME)/.git_template
@@ -17,8 +17,6 @@ init: ## 初始化環境配置
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
-	ln -nsiF $(PWD)/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
-	ln -nsiF $(PWD)/kitty.config $(HOME)/.config/kitty/kitty.config
 	$(MAKE) zsh
 	$(MAKE) tmux
 
