@@ -87,12 +87,7 @@ alias ncdu="ncdu --color dark -rr -x --exclude .git"
 
 # Using exa instead of ls
 alias ls='exa'
-alias ll='ls -lh'
-alias la='ls -AF'
-
-alias preview="fzf --preview 'bat --color \"always\" {}'"
-alias json="python -mjson.tool"
-alias xml="xmllint --format -"
+alias ll='ls -lhF'
 
 ### transfer.sh
 alias transfer='http https://transfer.sh/ -vv < '
