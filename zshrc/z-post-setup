@@ -26,7 +26,7 @@ explain () {
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # awless
-# source <(awless completion zsh)
+#source <(awless completion zsh)
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -36,6 +36,7 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # Kubernetes
 kcdebug() { kubectl run -i --rm --tty debug --image=alpine --restart=Never -- sh }
+#source <(kubectl completion zsh)
 
 # Helm
 if [ $commands[helm] ]; then
