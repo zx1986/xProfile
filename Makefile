@@ -22,6 +22,7 @@ init: ## 初始化環境配置
 
 .PHONY: go
 go: ## 配置 golang
+	asdf plugin add golang && asdf install golang latest
 	curl -L https://github.com/vmware/govmomi/releases/download/v0.23.0/govc_darwin_amd64.gz | gunzip > /usr/local/bin/govc
 	chmod +x /usr/local/bin/govc
 
