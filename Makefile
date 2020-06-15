@@ -37,11 +37,9 @@ kube: ## 配置 Kubernetes kubectl
 	asdf plugin add kubectl && asdf install kubectl latest
 	asdf plugin add kubectx && asdf install kubectx latest
 	curl -L https://github.com/aylei/kubectl-debug/releases/download/v0.1.1/kubectl-debug_0.1.1_darwin_amd64.tar.gz -o /tmp/kubectl-debug.tar.gz
-	tar -zxvf /tmp/kubectl-debug.tar.gz /tmp/kubectl-debug
-	mv /tmp/kubectl-debug /usr/local/bin/kubectl-debug
+	tar -zxvf /tmp/kubectl-debug.tar.gz && mv kubectl-debug /usr/local/bin/kubectl-debug
 	curl -L https://github.com/iovisor/kubectl-trace/releases/download/v0.1.0-rc.1/kubectl-trace_0.1.0-rc.1_darwin_amd64.tar.gz -o /tmp/kubectl-trace.tar.gz
-	tar -zxvf /tmp/kubectl-trace.tar.gz
-	mv /tmp/kubectl-trace /usr/local/bin/kubectl-trace
+	tar -zxvf /tmp/kubectl-trace.tar.gz && mv kubectl-trace /usr/local/bin/kubectl-trace
 	chmod a+x /usr/local/bin/kubectl-*
 	$(MAKE) krew
 
@@ -109,6 +107,10 @@ fish: ## 配置自定義 fish 環境
 	ln -nsiF $(PWD)/fishrc/init.fish $(OMF_CONFIG)/init.fish
 	ln -nsiF $(PWD)/fishrc/before.init.fish $(OMF_CONFIG)/before.init.fish
 	ln -nsiF $(PWD)/fishrc/key_bindings.fish $(OMF_CONFIG)/key_bindings.fish
+
+.PHONY: clean
+clean: ## 移除沒有 git 管理的檔案跟目錄
+	git clean -f -d
 
 # Absolutely awesome: http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .PHONY: help
