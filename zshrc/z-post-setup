@@ -1,10 +1,5 @@
-# Ruby
-if which rbenv >/dev/null 2>&1; then
-  rbenv() {
-    eval "$(command rbenv init -)"
-    rbenv "$@"
-  }
-fi
+# asdf
+. $(brew --prefix asdf)/asdf.sh
 
 # Fuck
 thefuck() {
