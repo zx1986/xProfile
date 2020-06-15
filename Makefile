@@ -20,6 +20,11 @@ init: ## 初始化環境配置
 	$(MAKE) zsh
 	$(MAKE) tmux
 
+.PHONY: go
+go: ## 配置 golang
+	curl -L https://github.com/vmware/govmomi/releases/download/v0.23.0/govc_darwin_amd64.gz | gunzip > /usr/local/bin/govc
+	chmod +x /usr/local/bin/govc
+
 .PHONY: tmux
 tmux: ## 配置 tmux
 	mkdir -p ~/.tmux/plugins/
