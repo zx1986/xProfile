@@ -49,19 +49,9 @@ krew: ## 配置 kubernetes kubectl 外掛管理器
 	kubectl krew install view-secret
 	kubectl krew install view-utilization
 
-.PHONY: kube
-kube: ## 配置 kubernetes kuberctl
-	go get -u github.com/iovisor/kubectl-trace/cmd/kubectl-trace
-	curl -L https://raw.githubusercontent.com/weibeld/kubectl-ctx/master/kubectl-ctx -o /usr/local/bin/kubectl-ctx
-	curl -L https://raw.githubusercontent.com/weibeld/kubectl-ns/master/kubectl-ns -o /usr/local/bin/kubectl-ns
-	curl -L https://github.com/aylei/kubectl-debug/releases/download/0.0.2/kubectl-debug_0.0.2_macos-amd64 -o /usr/local/bin/kubectl-debug
-	curl -L https://github.com/guessi/kubectl-search/releases/download/v1.0.3/kubectl-search-`uname -s`-`uname -m` -o /usr/local/bin/kubectl-search
-	chmod a+x /usr/local/bin/kubectl-*
-	$(MAKE) krew
-
 .PHONY: helm
 helm: ## 配置 kubernetes helm
-	brew install kubernetes-helm
+	asdf plugin add helm && asdf install helm latest
 	helm plugin install https://github.com/technosophos/helm-template
 	helm plugin install https://github.com/maorfr/helm-backup
 	helm plugin install https://github.com/maorfr/helm-restore
