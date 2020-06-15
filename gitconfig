@@ -1,81 +1,81 @@
 [user]
-    name = 張旭
-    email = zx1986@gmail.com
-    username = zx1986
+  name = 張旭
+  email = zx1986@gmail.com
+  username = zx1986
 
 [init]
-    templatedir = ~/.git_template
+  templatedir = ~/.git_template
 
 [core]
-    excludesfile = ~/.gitignore
-    editor = nvim
-    quotepath = false
-    filemode = true
-    autocrlf = false
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore
+  editor = nvim
+  quotepath = false
+  filemode = true
+  autocrlf = false
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [color]
-    ui = auto
+  ui = auto
 
 [color "branch"]
-    current = yellow bold
-    local = green bold
-    remote = cyan bold
+  current = yellow bold
+  local = green bold
+  remote = cyan bold
 
 [color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [color "diff"]
-    meta = 227
-    frag = magenta bold
-    commit = 227 bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
+  meta = 227
+  frag = magenta bold
+  commit = 227 bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 
 [status]
-    showUntrackedFiles = all
+  showUntrackedFiles = all
 
 [rerere]
-    enabled = 1
-    autoupdate = 1
+  enabled = 1
+  autoupdate = 1
 
 [push]
-    default = matching
-    followTags = true
+  default = matching
+  followTags = true
 
 [pull]
-    default = matching
-    followTags = true
+  default = matching
+  followTags = true
 
 [merge]
-    ff = only
-    conflictstyle = diff3
+  ff = only
+  conflictstyle = diff3
 
 [diff]
-    tool = vimdiff
+  tool = vimdiff
 
 [pager]
-    diff = diff-so-fancy | less --tabs=2 -RFXi
-    show = diff-so-fancy | less --tabs=2 -RFXi
+  diff = diff-so-fancy | less --tabs=2 -RFXi
+  show = diff-so-fancy | less --tabs=2 -RFXi
 
 [alias]
-    vtags = ! git tag | sort -V
-    ctags = !.git/hooks/ctags
-    type = cat-file -t
-    dump = cat-file -p
-    history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    log = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    prune = fetch origin --prune
-    undo = reset --soft HEAD^
-    stash = stash save --include-untracked
-    push-all = !git remote | xargs -L1 git push --all
+  vtags = ! git tag | sort -V
+  ctags = !.git/hooks/ctags
+  type = cat-file -t
+  dump = cat-file -p
+  history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  log = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  prune = fetch origin --prune
+  undo = reset --soft HEAD^
+  stash = stash save --include-untracked
+  push-all = !git remote | xargs -L1 git push --all
 
 [diff "sopsdiffer"]
-    textconv = sops -d
+  textconv = sops -d
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
