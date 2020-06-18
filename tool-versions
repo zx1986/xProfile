@@ -1,0 +1,6 @@
+terraform 0.12.26
+ruby 2.7.1
+golang 1.14.4
+kubectl 1.18.3
+helm 2.16.0
+kubectx 0.9.0

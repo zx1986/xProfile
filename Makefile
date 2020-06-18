@@ -32,15 +32,13 @@ git: ## 配置 Git
 
 .PHONY: go
 go: ## 配置 Golang
-	asdf plugin add golang
-	asdf install golang latest
+	asdf plugin add golang && asdf install golang latest
 	curl -L https://github.com/vmware/govmomi/releases/download/v0.23.0/govc_darwin_amd64.gz | gunzip > /usr/local/bin/govc
 	chmod +x /usr/local/bin/govc
 
 .PHONY: ruby
 ruby: ## 配置 Ruby
-	asdf plugin add ruby
-	asdf install ruby latest
+	asdf plugin add ruby && asdf install ruby latest
 	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 
