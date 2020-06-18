@@ -1,9 +1,3 @@
-[ -f ~/.env ] && set -a; source ~/.env
-
-### Custom pre-setup
-
-[ -f ~/.z-pre-setup ] && source ~/.z-pre-setup
-
 ### Auto Completions
 
 autoload -Uz compinit
@@ -18,16 +12,6 @@ fi
 zmodload -i zsh/complist
 
 ### Options
-
-# ENABLE_CORRECTION="true"
-# CASE_SENSITIVE="true"
-HYPHEN_INSENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-HIST_STAMPS="yyyy-mm-dd"
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=100000
-SAVEHIST=$HISTSIZE
 
 setopt hist_ignore_all_dups # remove older duplicate entries from history
 setopt hist_reduce_blanks # remove superfluous blanks from history items
@@ -61,63 +45,6 @@ bindkey -e # emacs
 bindkey '^[[3~' delete-char
 bindkey '^[3;5~' delete-char
 
-### Spaceship Theme
-
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-SPACESHIP_PROMPT_SEPARATE_LINE=true
-# SPACESHIP_CHAR_SYMBOL="❯"
-# SPACESHIP_CHAR_SUFFIX=" "
-SPACESHIP_VI_MODE_SHOW=true
-SPACESHIP_USER_SHOW=true
-SPACESHIP_TIME_SHOW=true
-SPACESHIP_KUBECTL_SHOW=true
-SPACESHIP_KUBECTL_VERSION_SHOW=false
-SPACESHIP_AWS_SHOW=true
-SHOW_AWS_PROMPT=false
-
-SPACESHIP_PROMPT_ORDER=(
-  time          # Time stamps section
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  # hg          # Mercurial section (hg_branch  + hg_status)
-  package       # Package version
-  node          # Node.js section
-  ruby          # Ruby section
-  # elixir      # Elixir section
-  # xcode       # Xcode section
-  # swift       # Swift section
-  golang        # Go section
-  php           # PHP section
-  # rust        # Rust section
-  # haskell     # Haskell Stack section
-  # julia       # Julia section
-  docker        # Docker section
-  aws           # Amazon Web Services section
-  # venv        # virtualenv section
-  # conda       # conda virtualenv section
-  pyenv         # Pyenv section
-  # dotnet      # .NET section
-  # ember       # Ember.js section
-  kubectl       # Kubectl context section
-  terraform     # Terraform workspace section
-  exec_time     # Execution time
-  line_sep      # Line break
-  # battery     # Battery level and status
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
-
-# Simplify prompt if we're using Hyper
-if [[ "$TERM_PROGRAM" == "Hyper" ]]; then
-  SPACESHIP_PROMPT_SEPARATE_LINE=false
-  SPACESHIP_DIR_SHOW=false
-  SPACESHIP_GIT_BRANCH_SHOW=false
-fi
-
 ### Plugins
 
 # Load antibody plugin manager
@@ -126,4 +53,4 @@ antibody bundle < ~/.zsh_plugins.txt
 
 ### Custom post-setup
 
-[ -f ~/.z-post-setup ] && source ~/.z-post-setup
+[ -f ~/.zx-setup ] && source ~/.zx-setup
