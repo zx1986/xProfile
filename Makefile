@@ -4,30 +4,50 @@ KREW_VERSION=v0.3.4
 
 .PHONY: init
 init: ## 初始化環境配置
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	-cp -iv .env.example .env
 	ln -nsiF $(PWD)/.env $(HOME)/.env
-	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
-	ln -nsiF $(PWD)/git_template $(HOME)/.git_template
 	ln -nsiF $(PWD)/terraformrc $(HOME)/.terraformrc
-	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
-	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
-	ln -nsiF $(PWD)/tmux.conf $(HOME)/.tmux.conf
-	ln -nsiF $(PWD)/tmuxinator $(HOME)/.tmuxinator
 	ln -nsiF $(PWD)/editorconfig $(HOME)/.editorconfig
-	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
-	$(MAKE) zsh
+	$(MAKE) asdf
+	$(MAKE) git
+	$(MAKE) go
+	$(MAKE) ruby
 	$(MAKE) tmux
+	$(MAKE) zsh
+
+.PHONY: asdf
+asdf: ## 配置 asdf
+	brew install coreutils curl git asdf
+	ln -nsiF $(PWD)/tool-versions $(HOME)/.tool-versions
+
+.PHONY: git
+git: ## 配置 Git
+	brew install git
+	ln -nsiF $(PWD)/git_template $(HOME)/.git_template
+	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
+	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
 
 .PHONY: go
-go: ## 配置 golang
-	asdf plugin add golang && asdf install golang latest
+go: ## 配置 Golang
+	asdf plugin add golang
+	asdf install golang latest
 	curl -L https://github.com/vmware/govmomi/releases/download/v0.23.0/govc_darwin_amd64.gz | gunzip > /usr/local/bin/govc
 	chmod +x /usr/local/bin/govc
 
+.PHONY: ruby
+ruby: ## 配置 Ruby
+	asdf plugin add ruby
+	asdf install ruby latest
+	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
+	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
+
 .PHONY: tmux
 tmux: ## 配置 tmux
+	ln -nsiF $(PWD)/tmux.conf $(HOME)/.tmux.conf
+	ln -nsiF $(PWD)/tmuxinator $(HOME)/.tmuxinator
 	mkdir -p ~/.tmux/plugins/
 	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
 	tmux source-file ~/.tmux.conf
