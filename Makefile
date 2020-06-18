@@ -116,7 +116,7 @@ ohmyzsh: ## 配置 oh-my-zsh
 zim: ## 配置 zim
 	rm -rf ~/.zim* ~/.zshrc* ~/.zshenv* ~/.zlogin*
 	curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-	echo 'zmodule romkatv/powerlevel10k' >> $(HOME)/.zimrc
+	echo 'zmodule denysdovhan/spaceship-prompt --name spaceship' >> $(HOME)/.zimrc
 	zsh ~/.zim/zimfw.zsh install
 	$(MAKE) xsh
 
