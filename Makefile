@@ -9,7 +9,6 @@ init: ## 初始化環境配置
 	ln -nsiF $(PWD)/.env $(HOME)/.env
 	ln -nsiF $(PWD)/terraformrc $(HOME)/.terraformrc
 	ln -nsiF $(PWD)/editorconfig $(HOME)/.editorconfig
-	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
 	$(MAKE) asdf
 	$(MAKE) git
@@ -92,6 +91,15 @@ helm: ## 配置 kubernetes helm
 	helm plugin install https://github.com/databus23/helm-diff
 	helm plugin install https://github.com/futuresimple/helm-secrets
 
+.PHONY: antibody
+antibody: ## 配置自定義的 antibody zsh 環境
+	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
+	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker -o $(ZSH_FUNC_DIR)/_docker
+	curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/terraform/_terraform -o $(ZSH_FUNC_DIR)/_terraform
+	ln -nsiF $(PWD)/zshrc/zsh_plugins.txt $(HOME)/.zsh_plugins.txt
+	ln -nsiF $(PWD)/zshrc/antibody.zshrc $(HOME)/.zshrc
+	$(MAKE) zsh
+
 .PHONY: ohmyzsh
 ohmyzsh: ## 配置 oh-my-zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -103,25 +111,21 @@ ohmyzsh: ## 配置 oh-my-zsh
 	git clone https://github.com/supercrabtree/k $(HOME)/.oh-my-zsh/custom/plugins/k
 	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
 	ln -s $(HOME)/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme $(HOME)/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+	$(MAKE) zsh
 
 .PHONY: zim
 zim: ## 配置 zim
 	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
 	curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 	echo 'zmodule romkatv/powerlevel10k' >> $(HOME)/.zshrc
-	zsh $(HOME)/.zim/zimfw.zsh install
-	ln -nsiF $(PWD)/zshrc/zx-setup $(HOME)/.zx-setup
-	echo '[[ ! -f ~/.zx-setup ]] || source ~/.zx-setup' >> $(HOME)/.zshrc
+	$(MAKE) zsh
 
-.PHONY: antibody
-antibody: ## 配置自定義的 antibody zsh 環境
-	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
+.PHONY: zsh
+zsh: ## 配置 zsh
 	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
-	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker -o $(ZSH_FUNC_DIR)/_docker
-	curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/terraform/_terraform -o $(ZSH_FUNC_DIR)/_terraform
-	ln -nsiF $(PWD)/zshrc/zsh_plugins.txt $(HOME)/.zsh_plugins.txt
+	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/zshrc/zx-setup $(HOME)/.zx-setup
-	ln -nsiF $(PWD)/zshrc/antibody.zshrc $(HOME)/.zshrc
+	echo '[ -f ~/.zx-setup ] && source ~/.zx-setup' >> $(HOME)/.zshrc
 	zsh -l -c "autoload -U +X bashcompinit && bashcompinit"
 	zsh -l -c "autoload -U +X compinit && compinit"
 
