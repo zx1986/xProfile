@@ -16,7 +16,6 @@ init: ## 初始化環境配置
 	$(MAKE) go
 	$(MAKE) ruby
 	$(MAKE) tmux
-	$(MAKE) zsh
 
 .PHONY: asdf
 asdf: ## 配置 asdf
@@ -95,9 +94,8 @@ helm: ## 配置 kubernetes helm
 
 .PHONY: ohmyzsh
 ohmyzsh: ## 配置 oh-my-zsh
-	$(MAKE) zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	rm -iv $(HOME)/.zshrc
+	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
 	ln -nsiF $(PWD)/zshrc/ohmyzsh.zshrc $(HOME)/.zshrc
 	git clone https://github.com/zsh-users/zsh-history-substring-search $(HOME)/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -106,8 +104,17 @@ ohmyzsh: ## 配置 oh-my-zsh
 	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
 	ln -s $(HOME)/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme $(HOME)/.oh-my-zsh/custom/themes/spaceship.zsh-theme
 
-.PHONY: zsh
-zsh: ## 配置自定義的 zsh 環境
+.PHONY: zim
+zim: ## 配置 zim
+	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
+	curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+	echo 'zmodule romkatv/powerlevel10k' >> $(HOME)/.zshrc
+	zsh $(HOME)/.zim/zimfw.zsh install
+	ln -nsiF $(PWD)/zshrc/z-post-setup $(HOME)/.z-post-setup
+	echo '[[ ! -f ~/.z-post-setup ]] || source ~/.z-post-setup' >> $(HOME)/.zshrc
+
+.PHONY: antibody
+antibody: ## 配置自定義的 antibody zsh 環境
 	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
 	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker -o $(ZSH_FUNC_DIR)/_docker
