@@ -121,13 +121,6 @@ zsh: ## 配置自定義的 zsh 環境
 	zsh -l -c "autoload -U +X bashcompinit && bashcompinit"
 	zsh -l -c "autoload -U +X compinit && compinit"
 
-.PHONY: fish
-fish: ## 配置自定義 fish 環境
-	curl -L https://get.oh-my.fish | fish
-	ln -nsiF $(PWD)/fishrc/init.fish $(OMF_CONFIG)/init.fish
-	ln -nsiF $(PWD)/fishrc/before.init.fish $(OMF_CONFIG)/before.init.fish
-	ln -nsiF $(PWD)/fishrc/key_bindings.fish $(OMF_CONFIG)/key_bindings.fish
-
 .PHONY: clean
 clean: ## 移除沒有 git 管理的檔案跟目錄
 	git clean -f -d
