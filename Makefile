@@ -115,7 +115,7 @@ ohmyzsh: ## 配置 oh-my-zsh
 
 .PHONY: zim
 zim: ## 配置 zim
-	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
+	rm -rvf ~/.zim* ~/.zshrc* ~/.zshenv* ~/.zlogin*
 	curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 	echo 'zmodule romkatv/powerlevel10k' >> $(HOME)/.zshrc
 	$(MAKE) zsh
