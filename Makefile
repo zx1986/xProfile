@@ -124,8 +124,10 @@ zim: ## 配置 zim
 xsh: ## 配置 Shell
 	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
-	ln -nsiF $(PWD)/zshrc/zx-setup $(HOME)/.zx-setup
-	echo '[ -f ~/.zx-setup ] && source ~/.zx-setup' >> $(HOME)/.zshrc
+	ln -nsiF $(PWD)/zshrc/zsh_pre_setup $(HOME)/.zsh_pre_setup
+	ln -nsiF $(PWD)/zshrc/zsh_post_setup $(HOME)/.zsh_post_setup
+	(echo '[ -f ~/.zsh_pre_setup ] && source ~/.zsh_pre_setup' && cat $(HOME)/.zshrc) > /tmp/zshrc && mv /tmp/zshrc $(HOME)/.zshrc
+	echo '[ -f ~/.zsh_post_setup ] && source ~/.zsh_post_setup' >> $(HOME)/.zshrc
 	zsh -l -c "autoload -U +X bashcompinit && bashcompinit"
 	zsh -l -c "autoload -U +X compinit && compinit"
 
