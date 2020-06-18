@@ -1,5 +1,8 @@
+# Custom environment variables
+[ -f ~/.env ] && source ~/.env
+
 # asdf
-. $(brew --prefix asdf)/asdf.sh
+source $(brew --prefix asdf)/asdf.sh
 
 # Fuck
 thefuck() {
@@ -26,7 +29,7 @@ explain () {
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # awless
-#source <(awless completion zsh)
+source <(awless completion zsh)
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -36,7 +39,7 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # Kubernetes
 kcdebug() { kubectl run -i --rm --tty debug --image=alpine --restart=Never -- sh }
-#source <(kubectl completion zsh)
+source <(kubectl completion zsh)
 
 # Helm
 if [ $commands[helm] ]; then
@@ -44,7 +47,7 @@ if [ $commands[helm] ]; then
 fi
 
 # iTerm
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 # Custom Alias
 [ -f ~/.aliases ] && source ~/.aliases
