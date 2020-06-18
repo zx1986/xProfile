@@ -1,6 +1,5 @@
 ZSH_FUNC_DIR="/usr/local/share/zsh/site-functions/"
 KREW=./krew-"`uname | tr '[:upper:]' '[:lower:]'`_amd64"
-KREW_VERSION=v0.3.4
 
 .PHONY: init
 init: ## 初始化環境配置
