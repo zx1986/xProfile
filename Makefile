@@ -91,7 +91,7 @@ helm: ## 配置 kubernetes helm
 	helm plugin install https://github.com/futuresimple/helm-secrets
 
 .PHONY: antibody
-antibody: ## 配置自定義的 antibody zsh 環境
+antibody: ## 配置 Zsh - antibody
 	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
 	curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/zsh/_docker -o $(ZSH_FUNC_DIR)/_docker
 	curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/terraform/_terraform -o $(ZSH_FUNC_DIR)/_terraform
@@ -100,7 +100,7 @@ antibody: ## 配置自定義的 antibody zsh 環境
 	$(MAKE) xsh
 
 .PHONY: ohmyzsh
-ohmyzsh: ## 配置 oh-my-zsh
+ohmyzsh: ## 配置 Zsh - oh-my-zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
 	ln -nsiF $(PWD)/zshrc/ohmyzsh.zshrc $(HOME)/.zshrc
@@ -113,7 +113,7 @@ ohmyzsh: ## 配置 oh-my-zsh
 	$(MAKE) xsh
 
 .PHONY: zim
-zim: ## 配置 zim
+zim: ## 配置 Zsh - zim
 	rm -rf ~/.zim* ~/.zshrc* ~/.zshenv* ~/.zlogin*
 	curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 	echo 'zmodule denysdovhan/spaceship-prompt --name spaceship' >> $(HOME)/.zimrc
@@ -132,7 +132,7 @@ xsh: ## 配置 Shell
 	zsh -l -c "autoload -U +X compinit && compinit"
 
 .PHONY: clean
-clean: ## 移除沒有 git 管理的檔案跟目錄
+clean: ## 移除 git 沒有管理的檔案跟目錄
 	git clean -f -d
 
 # Absolutely awesome: http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
