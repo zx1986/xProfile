@@ -2,7 +2,13 @@
 [ -f ~/.env ] && source ~/.env
 
 # asdf
-#source $(brew --prefix asdf)/asdf.sh
+if [ $commands[asdf] ]; then
+  asdf() {
+    unfunction "$0"
+    source $(brew --prefix asdf)/asdf.sh
+    $0 "$@"
+  }
+fi
 
 # Fuck
 thefuck() {
