@@ -50,6 +50,8 @@
 [pull]
   default = matching
   followTags = true
+	rebase = false
+	ff = only
 
 [merge]
   ff = only
