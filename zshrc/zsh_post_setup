@@ -29,7 +29,13 @@ explain () {
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # awless
-#source <(awless completion zsh)
+if [ $commands[awless] ]; then
+  awless() {
+    unfunction "$0"
+    source <(awless completion zsh)
+    $0 "$@"
+  }
+fi
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -40,21 +46,20 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 # Kubernetes
 kcdebug() { kubectl run -i --rm --tty debug --image=alpine --restart=Never -- sh }
 if [ $commands[kubectl] ]; then
-  # Placeholder 'kubectl' shell function:
-  # Will only be executed on the first call to 'kubectl'
   kubectl() {
-    # Remove this function, subsequent calls will execute 'kubectl' directly
     unfunction "$0"
-    # Load auto-completion
     source <(kubectl completion zsh)
-    # Execute 'kubectl' binary
     $0 "$@"
   }
 fi
 
 # Helm
 if [ $commands[helm] ]; then
-  source <(helm completion zsh)
+  helm() {
+    unfunction "$0"
+    source <(helm completion zsh)
+    $0 "$@"
+  }
 fi
 
 # iTerm
