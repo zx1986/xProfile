@@ -50,7 +50,6 @@ tmux: ## 配置 tmux
 .PHONY: kube
 kube: ## 配置 Kubernetes kubectl
 	asdf plugin add kubectl && asdf install kubectl latest
-	asdf plugin add kubectx && asdf install kubectx latest
 	curl -L https://github.com/aylei/kubectl-debug/releases/download/v0.1.1/kubectl-debug_0.1.1_darwin_amd64.tar.gz -o /tmp/kubectl-debug.tar.gz
 	tar -zxvf /tmp/kubectl-debug.tar.gz && mv kubectl-debug /usr/local/bin/kubectl-debug
 	curl -L https://github.com/iovisor/kubectl-trace/releases/download/v0.1.0-rc.1/kubectl-trace_0.1.0-rc.1_darwin_amd64.tar.gz -o /tmp/kubectl-trace.tar.gz
