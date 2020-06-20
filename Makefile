@@ -121,7 +121,6 @@ zim: ## 配置 Zsh - zim
 
 .PHONY: xsh
 xsh: ## 配置 Shell
-	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/zshrc/zsh_pre_setup $(HOME)/.zsh_pre_setup
 	ln -nsiF $(PWD)/zshrc/zsh_post_setup $(HOME)/.zsh_post_setup
@@ -129,6 +128,13 @@ xsh: ## 配置 Shell
 	echo '[ -f ~/.zsh_post_setup ] && source ~/.zsh_post_setup' >> $(HOME)/.zshrc
 	zsh -l -c "autoload -U +X bashcompinit && bashcompinit"
 	zsh -l -c "autoload -U +X compinit && compinit"
+
+.PHONY: iterm
+iterm: ## 配置 iTerm
+	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
+	curl -L https://iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
+	curl -L https://iterm2.com/utilities/imgls -o /usr/local/bin/imgls
+	chmod a+x /usr/local/bin/*
 
 .PHONY: clean
 clean: ## 移除 git 沒有管理的檔案跟目錄
