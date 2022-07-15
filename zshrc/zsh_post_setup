@@ -103,6 +103,9 @@ if [ $commands[helm] ]; then
   }
 fi
 
+# KIND
+source <(kind completion zsh)
+
 # iTerm
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
