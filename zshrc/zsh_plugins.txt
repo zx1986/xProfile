@@ -1,4 +1,5 @@
 denysdovhan/spaceship-prompt
+ellie/atuin
 horosgrisa/mysql-colorize
 pbar1/zsh-terraform
 supercrabtree/k
