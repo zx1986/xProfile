@@ -118,10 +118,10 @@ alias ncdu="ncdu --color dark -rr -x --exclude .git"
 
 # Using exa instead of ls
 alias ls='exa'
-alias ll='ls -lhF'
+alias ll='ls -lhaF'
 
 ### transfer.sh
-alias transfer='http https://transfer.sh/ -vv < '
+transfer(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}
 
 ### MySQL
 # alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
@@ -164,4 +164,4 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias json="python -mjson.tool"
 alias xml="xmllint --format -"
 alias dns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-alias rt="route -n flush; route -n flush; route -n flush; netstat -nr"
+alias rt="sudo route -n flush; sudo route -n flush; sudo route -n flush; netstat -nr"
