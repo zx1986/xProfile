@@ -132,7 +132,7 @@ fi
 source <(kind completion zsh)
 
 # iTerm
-[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
+# [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 # Custom Alias
 [ -f ~/.aliases ] && source ~/.aliases

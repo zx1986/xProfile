@@ -12,6 +12,7 @@ SAVEHIST=$HISTSIZE
 
 # Spaceship theme configuration
 
+SPACESHIP_PROMPT_ADD_NEWLINE="false"
 SPACESHIP_PROMPT_ORDER=(
   time           # Time stamps section
   user           # Username section
