@@ -10,6 +10,9 @@ if [ $commands[asdf] ]; then
   }
 fi
 
+# Atuin
+eval "$(atuin init zsh)"
+
 # Fuck
 thefuck() {
   eval "$(command thefuck --alias)"
@@ -133,3 +136,10 @@ source <(kind completion zsh)
 
 # Custom Alias
 [ -f ~/.aliases ] && source ~/.aliases
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/mc mc
+complete -o nospace -C /usr/local/bin/bitcomplete bit
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/node@16/bin:$PATH"
