@@ -131,15 +131,15 @@ fi
 # KIND
 source <(kind completion zsh)
 
-# iTerm
-# [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
-
-# Custom Alias
-[ -f ~/.aliases ] && source ~/.aliases
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/mc mc
-complete -o nospace -C /usr/local/bin/bitcomplete bit
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /usr/local/bin/mc mc
+# complete -o nospace -C /usr/local/bin/bitcomplete bit
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/node@16/bin:$PATH"
+
+# iTerm
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
+
+# Custom Alias
+[ -f ~/.aliases ] && source ~/.aliases
