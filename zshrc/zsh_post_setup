@@ -11,7 +11,7 @@ if [ $commands[asdf] ]; then
 fi
 
 # Atuin
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
 
 # Fuck
 thefuck() {
