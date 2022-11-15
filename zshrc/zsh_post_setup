@@ -139,7 +139,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/node@16/bin:$PATH"
 
 # iTerm
-[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
+# [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 # Custom Alias
 [ -f ~/.aliases ] && source ~/.aliases
