@@ -1,5 +1,4 @@
-golang 1.14.4
-helm 2.16.0
-kubectl 1.18.3
-ruby 2.7.1
-terraform 0.12.26
+helm 2.17.0
+ruby 3.1.0
+terraform 0.13.5
+terragurnt 0.29.2
