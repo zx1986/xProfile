@@ -1,5 +1,5 @@
 # Custom environment variables
-[ -f ~/.env ] && set -a; source ~/.env
+[ -f ~/.env ] && source ~/.env
 
 # asdf
 if [ $commands[asdf] ]; then
