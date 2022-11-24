@@ -1,5 +1,36 @@
+OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+WORDCHARS='*?[]~&;!#$%^(){}<>'
+
+LANG='en_US.UTF-8'
+LC_ALL='en_US.UTF-8'
+LC_CTYPE='UTF-8'
+
+PATH="/usr/local/opt/node@16/bin:/usr/local/sbin:$PATH"
+
+EDITOR='nvim'
+VISUAL='nvim'
+
+# Kubernetes
+
+KUBECONFIG_PATH=~/.kube
+KUBECONFIG=~/.kube/config
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# Golang
+
+GOPATH=$HOME/go
+PATH="$GOPATH/bin:$PATH"
+
+# fzf
+
+FZF_BASE="/usr/local/bin/fzf"
+FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --color=always'
+FZF_DEFAULT_OPTS="--ansi"
+FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # Zsh runtime configuration
 
+ZSH_FUNC_DIR="/usr/local/share/zsh/site-functions/"
 #ENABLE_CORRECTION="true"
 #CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"

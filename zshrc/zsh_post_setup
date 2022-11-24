@@ -11,7 +11,7 @@ if [ $commands[asdf] ]; then
 fi
 
 # Atuin
-# eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
 
 # Fuck
 thefuck() {
@@ -34,6 +34,7 @@ explain () {
   fi
 }
 
+# https://transfer.sh
 transfer () {
   if [ $# -eq 0 ]; then
     echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;
@@ -131,15 +132,11 @@ fi
 # KIND
 source <(kind completion zsh)
 
-# autoload -U +X bashcompinit && bashcompinit
-# complete -o nospace -C /usr/local/bin/mc mc
-# complete -o nospace -C /usr/local/bin/bitcomplete bit
-
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/node@16/bin:$PATH"
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
 
 # iTerm
-# [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 # Custom Alias
 [ -f ~/.aliases ] && source ~/.aliases
