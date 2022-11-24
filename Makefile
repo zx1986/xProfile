@@ -14,7 +14,7 @@ init: ## 初始化環境配置
 
 .PHONY: git
 git: ## 配置 Git
-	brew install git tig git-bit
+	brew install git tig bit-git
 	ln -nsiF $(PWD)/gittemplate $(HOME)/.gittemplate
 	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
 	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
