@@ -85,9 +85,11 @@ helm: ## 配置 kubernetes helm
 
 .PHONY: zsh
 zsh: ## 配置 Zsh
-	brew install zsh coreutils 
+	brew install zsh coreutils
 	curl -o /tmp/ohmyzsh.install.sh -L "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 	sh /tmp/ohmyzsh.install.sh
+	git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	git clone https://github.com/supercrabtree/k $(HOME)/.oh-my-zsh/custom/plugins/k
 	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
 	ln -s $(HOME)/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme $(HOME)/.oh-my-zsh/custom/themes/spaceship.zsh-theme

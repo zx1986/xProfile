@@ -73,25 +73,31 @@ ZSH_THEME="spaceship"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  asdf
+  aws
+  colored-man-pages
+  colorize
+  compleat
+  docker
+  fd
+  fzf
+  git
+  git-extras
+  gitignore
+  golang
+  helm
+  history-substring-search
+  k
+  kubectl
+  kubectx
+  macos
+  pj
+  ssh-agent
+  thefuck
+  urltools
+  z
   zsh-autosuggestions
   zsh-syntax-highlighting
-  history-substring-search
-  git
-  gitignore
-  git-extras
-  docker
-  # vi-mode
-  compleat
-  colored-man-pages
-  ssh-agent
-  urltools
-  osx
-  fzf
-  pj
-  k
-  z
-  django
-  thefuck
 )
 
 source $ZSH/oh-my-zsh.sh
