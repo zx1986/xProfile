@@ -3,7 +3,7 @@ KREW=./krew-"`uname | tr '[:upper:]' '[:lower:]'`_amd64"
 .PHONY: init
 init: ## 初始化環境配置
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-	cp -iv .env.example .env
+	cp -iv env.example .env
 	ln -nsiF $(PWD)/.env $(HOME)/.env
 	ln -nsiF $(PWD)/terraformrc $(HOME)/.terraformrc
 	ln -nsiF $(PWD)/editorconfig $(HOME)/.editorconfig
