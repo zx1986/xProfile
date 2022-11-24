@@ -3,7 +3,7 @@ KREW=./krew-"`uname | tr '[:upper:]' '[:lower:]'`_amd64"
 .PHONY: init
 init: ## 初始化環境配置
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-	cp -iv env.example .env
+	-cp -iv env.example .env
 	ln -nsiF $(PWD)/.env $(HOME)/.env
 	ln -nsiF $(PWD)/terraformrc $(HOME)/.terraformrc
 	ln -nsiF $(PWD)/editorconfig $(HOME)/.editorconfig
@@ -19,18 +19,18 @@ git: ## 配置 Git
 	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
 	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
 	bit complete
-	bit
+	-bit
 
 .PHONY: tmux
 tmux: ## 配置 tmux
 	ln -nsiF $(PWD)/tmux.conf $(HOME)/.tmux.conf
 	mkdir -p ~/.tmux/plugins/
 	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
-	tmux source-file ~/.tmux.conf
+	-tmux source-file ~/.tmux.conf
 
 .PHONY: asdf
 asdf: ## 配置 asdf
-	brew install coreutils curl git asdf
+	brew install curl git asdf
 	ln -nsiF $(PWD)/tool-versions $(HOME)/.tool-versions
 
 .PHONY: golang
@@ -85,6 +85,7 @@ helm: ## 配置 kubernetes helm
 
 .PHONY: zsh
 zsh: ## 配置 Zsh
+	brew install zsh coreutils 
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	git clone https://github.com/supercrabtree/k $(HOME)/.oh-my-zsh/custom/plugins/k
 	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
