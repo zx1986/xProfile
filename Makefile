@@ -4,33 +4,38 @@ KREW=./krew-"`uname | tr '[:upper:]' '[:lower:]'`_amd64"
 .PHONY: init
 init: ## 初始化環境配置
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-	-cp -iv .env.example .env
+	cp -iv .env.example .env
 	ln -nsiF $(PWD)/.env $(HOME)/.env
 	ln -nsiF $(PWD)/terraformrc $(HOME)/.terraformrc
 	ln -nsiF $(PWD)/editorconfig $(HOME)/.editorconfig
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
-	$(MAKE) asdf
 	$(MAKE) git
-	$(MAKE) go
-	$(MAKE) ruby
 	$(MAKE) tmux
+	$(MAKE) asdf
+
+.PHONY: git
+git: ## 配置 Git
+	brew install git
+	ln -nsiF $(PWD)/gittemplate $(HOME)/.gittemplate
+	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
+	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
+
+.PHONY: tmux
+tmux: ## 配置 tmux
+	ln -nsiF $(PWD)/tmux.conf $(HOME)/.tmux.conf
+	mkdir -p ~/.tmux/plugins/
+	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
+	tmux source-file ~/.tmux.conf
 
 .PHONY: asdf
 asdf: ## 配置 asdf
 	brew install coreutils curl git asdf
 	ln -nsiF $(PWD)/tool-versions $(HOME)/.tool-versions
 
-.PHONY: git
-git: ## 配置 Git
-	brew install git
-	ln -nsiF $(PWD)/git_template $(HOME)/.git_template
-	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
-	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
-
-.PHONY: go
-go: ## 配置 Golang
+.PHONY: golang
+golang: ## 配置 Golang
 	asdf plugin add golang && asdf install golang latest
-	curl -L https://github.com/vmware/govmomi/releases/download/v0.23.0/govc_darwin_amd64.gz | gunzip > /usr/local/bin/govc
+	curl -L https://github.com/vmware/govmomi/releases/download/v0.29.0/govc_darwin_amd64.gz | gunzip > /usr/local/bin/govc
 	chmod +x /usr/local/bin/govc
 
 .PHONY: ruby
@@ -39,22 +44,9 @@ ruby: ## 配置 Ruby
 	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 
-.PHONY: tmux
-tmux: ## 配置 tmux
-	ln -nsiF $(PWD)/tmux.conf $(HOME)/.tmux.conf
-	ln -nsiF $(PWD)/tmuxinator $(HOME)/.tmuxinator
-	mkdir -p ~/.tmux/plugins/
-	cd ~/.tmux/plugins/ && git clone https://github.com/tmux-plugins/tpm.git
-	tmux source-file ~/.tmux.conf
-
 .PHONY: kube
 kube: ## 配置 Kubernetes kubectl
 	asdf plugin add kubectl && asdf install kubectl latest
-	curl -L https://github.com/aylei/kubectl-debug/releases/download/v0.1.1/kubectl-debug_0.1.1_darwin_amd64.tar.gz -o /tmp/kubectl-debug.tar.gz
-	tar -zxvf /tmp/kubectl-debug.tar.gz && mv kubectl-debug /usr/local/bin/kubectl-debug
-	curl -L https://github.com/iovisor/kubectl-trace/releases/download/v0.1.0-rc.1/kubectl-trace_0.1.0-rc.1_darwin_amd64.tar.gz -o /tmp/kubectl-trace.tar.gz
-	tar -zxvf /tmp/kubectl-trace.tar.gz && mv kubectl-trace /usr/local/bin/kubectl-trace
-	chmod a+x /usr/local/bin/kubectl-*
 	$(MAKE) krew
 
 .PHONY: krew
@@ -64,15 +56,16 @@ krew: ## 配置 Kubernetes kubectl 外掛管理器
 	tar zxvf krew.tar.gz && \
 	"$(KREW)" install --manifest=krew.yaml --archive=krew.tar.gz && \
 	"$(KREW)" update
-	kubectl krew install warp
-	kubectl krew install cssh
-	kubectl krew install rbac-view
-	kubectl krew install rbac-lookup
 	kubectl krew install access-matrix
+	kubectl krew install cssh
 	kubectl krew install pod-logs
 	kubectl krew install pod-shell
+	kubectl krew install rbac-lookup
+	kubectl krew install rbac-view
+	kubectl krew install trace
 	kubectl krew install view-secret
 	kubectl krew install view-utilization
+	kubectl krew install warp
 
 .PHONY: helm
 helm: ## 配置 kubernetes helm
