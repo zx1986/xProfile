@@ -1,4 +1,4 @@
-[ -f ~/.z-pre-setup ] && source ~/.z-pre-setup
+[ -f ~/.zsh_pre_setup ] && source ~/.zsh_pre_setup
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -122,4 +122,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -f ~/.z-post-setup ] && source ~/.z-post-setup
+[ -f ~/.zsh_post_setup ] && source ~/.zsh_post_setup
