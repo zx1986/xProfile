@@ -5,8 +5,6 @@ LANG='en_US.UTF-8'
 LC_ALL='en_US.UTF-8'
 LC_CTYPE='UTF-8'
 
-PATH="/usr/local/opt/node@16/bin:/usr/local/sbin:$PATH"
-
 EDITOR='nvim'
 VISUAL='nvim'
 
@@ -15,11 +13,6 @@ VISUAL='nvim'
 KUBECONFIG_PATH=~/.kube
 KUBECONFIG=~/.kube/config
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-# Golang
-
-GOPATH=$HOME/go
-PATH="$GOPATH/bin:$PATH"
 
 # fzf
 
