@@ -11,10 +11,14 @@ init: ## 初始化環境配置
 	$(MAKE) git
 	$(MAKE) tmux
 	$(MAKE) asdf
+	$(MAKE) golang
+	$(MAKE) ruby
+	$(MAKE) python
+	$(MAKE) nodejs
 
 .PHONY: git
 git: ## 配置 Git
-	brew install git tig bit-git
+	brew install git tig bit-git curl
 	ln -nsiF $(PWD)/gittemplate $(HOME)/.gittemplate
 	ln -nsiF $(PWD)/gitignore $(HOME)/.gitignore
 	ln -nsiF $(PWD)/gitconfig $(HOME)/.gitconfig
@@ -30,24 +34,37 @@ tmux: ## 配置 tmux
 
 .PHONY: asdf
 asdf: ## 配置 asdf
-	brew install curl git asdf
+	brew install asdf
 	ln -nsiF $(PWD)/tool-versions $(HOME)/.tool-versions
 
 .PHONY: golang
 golang: ## 配置 Golang
-	asdf plugin add golang && asdf install golang latest
-	curl -L https://github.com/vmware/govmomi/releases/download/v0.29.0/govc_darwin_amd64.gz | gunzip > /usr/local/bin/govc
+	-asdf plugin add golang
+	asdf install golang latest
+	curl -L https://github.com/vmware/govmomi/releases/download/v0.29.0/govc_Darwin_x86_64.tar.gz | gunzip > /usr/local/bin/govc
 	chmod +x /usr/local/bin/govc
 
 .PHONY: ruby
 ruby: ## 配置 Ruby
-	asdf plugin add ruby && asdf install ruby latest
+	-asdf plugin add ruby
+	asdf install ruby latest
 	ln -nsiF $(PWD)/gemrc $(HOME)/.gemrc
 	ln -nsiF $(PWD)/rubocop.yml $(HOME)/.rubocop.yml
 
+.PHONY: python
+python: ## 配置 Python
+	-asdf plugin add python
+	asdf install python latest
+
+.PHONY: nodejs
+nodejs: ## 配置 NodeJS
+	-asdf plugin add nodejs
+	asdf install nodejs latest
+
 .PHONY: kube
 kube: ## 配置 Kubernetes kubectl
-	asdf plugin add kubectl && asdf install kubectl latest
+	-asdf plugin add kubectl
+	asdf install kubectl latest
 	$(MAKE) krew
 
 .PHONY: krew
