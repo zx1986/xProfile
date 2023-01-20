@@ -12,7 +12,7 @@ VISUAL='nvim'
 
 KUBECONFIG_PATH=~/.kube
 KUBECONFIG=~/.kube/config
-PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:/usr/local/sbin:$PATH"
 
 # fzf
 
