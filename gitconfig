@@ -50,8 +50,8 @@
 [pull]
   default = matching
   followTags = true
-	rebase = false
-	ff = only
+  rebase = false
+  ff = only
 
 [merge]
   ff = only
@@ -61,6 +61,7 @@
   tool = vimdiff
 
 [pager]
+  branch = false
   diff = diff-so-fancy | less --tabs=2 -RFXi
   show = diff-so-fancy | less --tabs=2 -RFXi
 
@@ -86,7 +87,7 @@
   template = ~/.git_commit_message
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
