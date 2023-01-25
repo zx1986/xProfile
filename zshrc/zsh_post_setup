@@ -1,5 +1,5 @@
 # Custom environment variables
-[ -f ~/.env ] && source ~/.env
+[ -f ~/.env ] && export $(grep -v '^#' .env | xargs)
 
 # asdf
 if [ $commands[asdf] ]; then
