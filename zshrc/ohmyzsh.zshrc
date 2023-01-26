@@ -88,6 +88,7 @@ plugins=(
   helm
   history-substring-search
   k
+  kube-ps1
   kubectl
   kubectx
   macos
