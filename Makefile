@@ -11,10 +11,6 @@ init: ## 初始化環境配置
 	$(MAKE) git
 	$(MAKE) tmux
 	$(MAKE) asdf
-	$(MAKE) golang
-	$(MAKE) ruby
-	$(MAKE) python
-	$(MAKE) nodejs
 
 .PHONY: git
 git: ## 配置 Git
