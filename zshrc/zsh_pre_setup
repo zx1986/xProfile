@@ -16,7 +16,7 @@ PATH="${KREW_ROOT:-$HOME/.krew}/bin:/usr/local/sbin:$PATH"
 
 # fzf
 
-FZF_BASE="/usr/local/bin/fzf"
+FZF_BASE="/opt/homebrew/bin/fzf"
 FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --color=always'
 FZF_DEFAULT_OPTS="--ansi"
 FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
