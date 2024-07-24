@@ -1,18 +1,25 @@
+# https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/common-aliases/common-aliases.plugin.zsh
+#
 # Advanced Aliases.
 # Use with caution
-# https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/common-aliases/common-aliases.plugin.zsh
+
+unalias ls
+alias ls='eza'
 
 # ls, the common ones I use a lot shortened for rapid fire usage
-alias l='ls -lh'     #size,show type,human readable
-alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
-alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
-alias ll='ls -l'      #long list
+alias l='ls -lFh'     # size,show type,human readable
+alias la='ls -lAFh'   # long list,show almost all,show type,human readable
+alias lr='ls -tRFh'   # sorted by date,recursive,show type,human readable
+alias lt='ls -ltFh'   # long list,sorted by date,show type,human readable
+alias ll='ls -l'      # long list
 alias ldot='ls -ld .*'
 alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
+alias lsr='ls -lARFh' # Recursive list of files and directories
+alias lsn='ls -1'     # A column contains name of files and directories
 
-alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
+alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
@@ -103,28 +110,9 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 
-function d () {
-  if [[ -n $1 ]]; then
-    dirs "$@"
-  else
-    dirs -v | head -10
-  fi
-}
-compdef _dirs d
-
 ###
 
 alias ncdu="ncdu --color dark -rr -x --exclude .git"
-
-# Using eza instead of ls
-alias ls='eza'
-alias ll='ls -lhaF'
-
-### transfer.sh
-transfer(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}
-
-### MySQL
-# alias mysql_backup='for I in $(mysql -e "show databases" -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done'
 
 ### Python
 alias python='python3'
