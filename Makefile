@@ -5,9 +5,11 @@ init: ## 初始化環境配置
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	-cp -iv env.example .env
 	ln -nsiF $(PWD)/.env $(HOME)/.env
+	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
 	ln -nsiF $(PWD)/terraformrc $(HOME)/.terraformrc
 	ln -nsiF $(PWD)/editorconfig $(HOME)/.editorconfig
 	ln -nsiF $(PWD)/ctags $(HOME)/.ctags
+	$(MAKE) zsh
 	$(MAKE) git
 	$(MAKE) tmux
 	$(MAKE) asdf
@@ -99,18 +101,8 @@ helm: ## 配置 kubernetes helm
 .PHONY: zsh
 zsh: ## 配置 Zsh
 	brew install zsh coreutils
-	curl -o /tmp/ohmyzsh.install.sh -L "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
-	sh /tmp/ohmyzsh.install.sh
-	git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-	git clone https://github.com/supercrabtree/k $(HOME)/.oh-my-zsh/custom/plugins/k
-	git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
-	ln -s $(HOME)/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme $(HOME)/.oh-my-zsh/custom/themes/spaceship.zsh-theme
-	touch $(HOME)/.zshrc && rm -iv $(HOME)/.zshrc
-	ln -nsiF $(PWD)/zshrc/ohmyzsh.zshrc $(HOME)/.zshrc
-	ln -nsiF $(PWD)/zshrc/zsh_pre_setup $(HOME)/.zsh_pre_setup
-	ln -nsiF $(PWD)/zshrc/zsh_post_setup $(HOME)/.zsh_post_setup
-	ln -nsiF $(PWD)/aliases $(HOME)/.aliases
+	$(PWD)/zshrc/prezto.sh
+	ln -nsiF $(PWD)/zshrc/zpreztorc $(HOME)/.zpreztorc
 
 .PHONY: iterm
 iterm: ## 配置 iTerm
