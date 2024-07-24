@@ -16,6 +16,8 @@ autoload -U +X compinit && compinit
 source $(PWD)/zshrc/zsh_pre_setup
 source $(PWD)/zshrc/omz-git.zsh
 source $(PWD)/zshrc/omz-git.plugin.zsh
+source $(PWD)/zshrc/omz-kube-ps1.plugin.zsh
+source $(PWD)/zshrc/omz-kubectl.plugin.zsh
 source $(PWD)/zshrc/zsh_post_setup
 EOF
 
