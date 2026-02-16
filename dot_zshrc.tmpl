@@ -1,0 +1,38 @@
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# User Customizations (Adapted from original Makefile/prezto.sh logic)
+
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+
+# Pre-setup
+{{ include "dot_zshrc_parts/zsh_pre_setup" }}
+
+# Manually sourced OMZ plugins (Migrated from original repo)
+# Using include to embed them directly or source them if they are big.
+# For cleanliness, we'll assume they are available in the chezmoi source dir or installed to a location.
+# But since we moved them to dot_zshrc_parts, we can include them or source them if we consider them 'config'.
+# Since they are static scripts, let's just source them from the ~/.config/zsh_parts if we deploy them there,
+# OR we can just embed them. Embedding big files in .zshrc is ugly.
+# Better strategy: Deploy these files to ~/.local/share/xProfile/zsh_parts or similar.
+# For now, let's embed the smaller ones or important structure.
+# Actually, the user's original script sourced them from $(PWD)/zshrc/...
+# We should probably deploy these files to `~/.config/zsh/plugins` or similar.
+
+# Let's assume we will deploy dot_zshrc_parts contents to ~/.config/zsh/parts
+# But chezmoi flattens 'dot_' directories.
+# If I make a directory `dot_config/zsh/parts`, it will be `~/.config/zsh/parts`.
+
+# For this template, I will use `source {{ .chezmoi.homeDir }}/.config/zsh/parts/...`
+# This requires me to move dot_zshrc_parts to dot_config/zsh/parts in the next step.
+
+source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-git.zsh
+source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-git.plugin.zsh
+source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-kube-ps1.plugin.zsh
+source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-kubectl.plugin.zsh
+
+# Post-setup
+{{ include "dot_zshrc_parts/zsh_post_setup" }}

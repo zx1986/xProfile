@@ -1,0 +1,36 @@
+#!/bin/sh
+set -e
+
+# macOS Homebrew Install
+{{ if eq .chezmoi.os "darwin" -}}
+if ! command -v brew >/dev/null; then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+
+echo "Installing Brew Packages..."
+brew install git tig bit-git curl asdf zsh coreutils
+{{ end -}}
+
+# ASDF Setup
+# We assume asdf is installed and sourced in shell, but for this script we might need to source it.
+# On macOS brew installs it to a specific prefix.
+if [ -d "$(brew --prefix asdf)/asdf.sh" ]; then
+    . "$(brew --prefix asdf)/asdf.sh"
+fi
+
+# Plugins from Makefile
+# golang, ruby, python, nodejs, kubectl, helm
+asdf plugin add golang || true
+asdf plugin add ruby || true
+asdf plugin add python || true
+asdf plugin add nodejs || true
+asdf plugin add kubectl || true
+asdf plugin add helm || true
+
+# Install versions defined in .tool-versions (which chezmoi deploys to ~)
+# We can run asdf install to install what's in .tool-versions
+if [ -f "$HOME/.tool-versions" ]; then
+    echo "Installing ASDF versions..."
+    asdf install
+fi
