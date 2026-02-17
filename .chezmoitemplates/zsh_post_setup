@@ -2,6 +2,7 @@
 [ -f ~/.env ] && export $(grep -v '^#' ~/.env | xargs)
 
 # asdf
+{{ if eq .chezmoi.os "darwin" -}}
 if [ $commands[asdf] ]; then
   asdf() {
     unfunction "$0"
@@ -9,6 +10,12 @@ if [ $commands[asdf] ]; then
     $0 "$@"
   }
 fi
+{{ else -}}
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+  . "$HOME/.asdf/asdf.sh"
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi
+{{ end -}}
 
 # Atuin
 # eval "$(atuin init zsh)"
@@ -110,7 +117,6 @@ function _aws_profiles() {
 compctl -K _aws_profiles asp
 
 # fzf
-# $(brew --prefix)/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # z
@@ -135,8 +141,10 @@ if [ $commands[helm] ]; then
   }
 fi
 
+{{ if eq .chezmoi.os "darwin" -}}
 # iTerm
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
+{{ end -}}
 
 # Custom Alias
 [ -f ~/.aliases ] && source ~/.aliases

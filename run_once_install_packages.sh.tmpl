@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-# macOS Homebrew Install
 {{ if eq .chezmoi.os "darwin" -}}
+# === macOS: Install via Homebrew ===
 if ! command -v brew >/dev/null; then
   echo "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -10,17 +10,12 @@ fi
 
 echo "Installing Brew Packages..."
 brew install git tig bit-git curl asdf zsh coreutils
-{{ end -}}
 
-# ASDF Setup
-# We assume asdf is installed and sourced in shell, but for this script we might need to source it.
-# On macOS brew installs it to a specific prefix.
-if [ -d "$(brew --prefix asdf)/asdf.sh" ]; then
+# ASDF Setup (macOS)
+if [ -f "$(brew --prefix asdf)/asdf.sh" ]; then
     . "$(brew --prefix asdf)/asdf.sh"
 fi
 
-# Plugins from Makefile
-# golang, ruby, python, nodejs, kubectl, helm
 asdf plugin add golang || true
 asdf plugin add ruby || true
 asdf plugin add python || true
@@ -28,9 +23,38 @@ asdf plugin add nodejs || true
 asdf plugin add kubectl || true
 asdf plugin add helm || true
 
-# Install versions defined in .tool-versions (which chezmoi deploys to ~)
-# We can run asdf install to install what's in .tool-versions
 if [ -f "$HOME/.tool-versions" ]; then
     echo "Installing ASDF versions..."
     asdf install
 fi
+
+{{ else -}}
+# === Linux: Offline-capable Install ===
+# This script assumes packages are pre-bundled in $HOME/.local/share/offline-packages
+# by the prepare_offline_bundle.sh script (run on a machine with internet).
+
+OFFLINE_DIR="$HOME/.local/share/offline-packages"
+
+if [ -d "$OFFLINE_DIR/debs" ]; then
+    echo "Installing offline .deb packages..."
+    sudo dpkg -i "$OFFLINE_DIR/debs/"*.deb 2>/dev/null || true
+    sudo apt-get install -f -y 2>/dev/null || true
+fi
+
+# Install chezmoi binary if not already available
+if ! command -v chezmoi >/dev/null; then
+    if [ -f "$OFFLINE_DIR/bin/chezmoi" ]; then
+        echo "Installing chezmoi from offline bundle..."
+        sudo install -m 755 "$OFFLINE_DIR/bin/chezmoi" /usr/local/bin/chezmoi
+    fi
+fi
+
+# Install additional binaries from offline bundle
+for bin in tig fd fzf eza bat; do
+    if ! command -v "$bin" >/dev/null && [ -f "$OFFLINE_DIR/bin/$bin" ]; then
+        echo "Installing $bin from offline bundle..."
+        sudo install -m 755 "$OFFLINE_DIR/bin/$bin" /usr/local/bin/"$bin"
+    fi
+done
+
+{{ end -}}

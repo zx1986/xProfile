@@ -80,8 +80,10 @@
 [diff "sopsdiffer"]
   textconv = sops -d
 
+{{ if eq .chezmoi.os "darwin" -}}
 [credential]
   helper = osxkeychain
+{{ end -}}
 
 [commit]
   template = ~/.git_commit_message

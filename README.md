@@ -1,10 +1,36 @@
 # Setup
 
-    # Install Chezmoi (if not already installed)
-    brew install chezmoi
+## macOS
 
-    # Initialize and Apply
+    brew install chezmoi
     chezmoi init --apply --source .
+
+## Ubuntu (Online)
+
+    curl -fsLS get.chezmoi.io | sh
+    ~/bin/chezmoi init --apply --source ~/xProfile
+
+## Ubuntu (Offline)
+
+On a machine with internet:
+
+    ./scripts/prepare_offline_bundle.sh
+
+Copy `offline-packages/` and `xProfile/` to the target machine, then:
+
+    # Copy bundle to target
+    scp -r offline-packages/ user@host:~/.local/share/offline-packages
+    scp -r xProfile/ user@host:~/xProfile
+
+    # On the target machine
+    chezmoi init --apply --source ~/xProfile
+
+## Docker Verification
+
+    cd docker/ubuntu
+    docker compose up -d --build
+    docker exec -it dotfiles_ubuntu_verify bash
+    ~/bin/chezmoi init --apply --source ~/xProfile
 
 # Reference
 

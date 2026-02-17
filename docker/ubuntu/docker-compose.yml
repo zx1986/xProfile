@@ -1,0 +1,11 @@
+services:
+  ubuntu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/arm64
+    volumes:
+      - ../../:/home/zx1986/xProfile:ro
+    container_name: dotfiles_ubuntu_verify
+    working_dir: /home/zx1986
+    command: tail -f /dev/null
