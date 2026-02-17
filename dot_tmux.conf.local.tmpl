@@ -1,0 +1,146 @@
+# : << EOF
+# https://github.com/gpakosz/.tmux
+# (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,
+#         without any warranty.
+#         Copyright 2012— Gregory Pakosz (@gpakosz).
+
+
+# -- user customization --------------------------------------------------------
+# this is the place to override or undo settings
+
+# -- general -------------------------------------------------------------------
+
+# increase history size
+set -g history-limit 10000
+
+# start with mouse mode disabled
+set -g mouse off
+
+# force Vi mode (really you should export VISUAL or EDITOR environment variable, see manual)
+set -g status-keys vi
+set -g mode-keys vi
+
+# replace C-b by C-a instead of using both prefixes
+set -gu prefix2
+unbind C-a
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+# -- tpm -----------------------------------------------------------------------
+# https://github.com/tmux-plugins/tpm
+
+set -g @plugin 'tmux-plugins/tpm'
+
+# Existing plugins from xProfile
+set -g @plugin 'arcticicestudio/nord-tmux'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'tmux-plugins/tmux-sidebar'
+set -g @plugin 'tmux-plugins/tmux-pain-control'
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# Plugin configuration
+set -g @continuum-restore 'on'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+
+# Fixes iterm2 integration. Should go after "run '~/.tmux/plugins/tpm/tpm'"
+{{ if eq .chezmoi.os "darwin" -}}
+setw -g aggressive-resize off
+{{ end -}}
+
+# EOF
+#
+# # exit the script if any statement returns a non-true return value
+# set -e
+#
+# unset GREP_OPTIONS
+# export LC_NUMERIC=C
+# # shellcheck disable=SC2034
+# if [ -z "$TMUX_VERSION" ]; then
+#   TMUX_VERSION=$(tmux -V | awk '{gsub(/[^0-9.]/, "", $2); print ($2+0)}')
+# fi
+#
+# _is_true() {
+#   [ x"$1" = x"true" ] || [ x"$1" = x"yes" ] || [ x"$1" = x"1" ]
+# }
+#
+# _is_enabled() {
+#   [ x"$1" = x"enabled" ]
+# }
+#
+# _is_disabled() {
+#   [ x"$1" = x"disabled" ]
+# }
+#
+# _circled() {
+#   circled_digits='⓪①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳'
+#   if [ "$1" -lt 20 ] 2>/dev/null; then
+#     printf '%s' "${circled_digits:$1:1}"
+#   else
+#     printf '%s' "$1"
+#   fi
+# }
+#
+# _decode_unicode_escapes() {
+#   printf '%s' "$*" | perl -CS -pe 's/(\\u([0-9A-Fa-f]{1,4})|\\U([0-9A-Fa-f]{1,8}))/chr(hex($2.$3))/eg' 2>/dev/null
+# }
+#
+# if command -v pkill > /dev/null 2>&1; then
+#   _pkillf() {
+#     pkill -f "$@" || true
+#   }
+# else
+#   case "$OSTYPE" in
+#     *linux*)
+#       _pkillf() {
+#         ps -ef | grep -E "$@" | grep -v grep | awk '{print $2}' | xargs kill || true
+#       }
+#       ;;
+#     *)
+#       _pkillf() {
+#         ps -o pid,command | grep -E "$@" | grep -v grep | awk '{print $1}' | xargs kill || true
+#       }
+#       ;;
+#   esac
+# fi
+#
+# _maximize_pane() {
+#   current_session=${1:-$(tmux display -p '#{session_name}')}
+#   current_pane=${2:-$(tmux display -p '#{pane_id}')}
+#
+#   dead_panes=$(tmux list-panes -s -t "$current_session" -F '#{pane_dead} #{pane_id}' | grep '^1' | cut -d ' ' -f2 || true)
+#   restore=$(tmux show -t "$current_session" -qv '@maximize_restore' || true)
+#
+#   if [ -z "$dead_panes" ] && [ -z "$restore" ]; then
+#     new_pane=$(tmux new-window -t "$current_session:" -a -P "cut -c3- '$TMUX_CONF' | sh -s _maximize_pane_do '$current_session' '$current_pane'")
+#     tmux set -pt "$current_session" '@maximize_restore' "killp -t $new_pane; selectp -t $current_pane; selectw -t @" 2> /dev/null || true
+#   elif [ -n "$dead_panes" ]; then
+#     tmux respawnp -t "$current_pane" "$SHELL" \; selectp -t "$current_pane"
+#   elif [ -n "$restore" ]; then
+#     tmux set -pu "@maximize_restore"
+#     eval "$restore" 2> /dev/null || true
+#   fi
+# }
+#
+# _maximize_pane_do() {
+#   current_session=${1:-$(tmux display -p '#{session_name}')}
+#   current_pane=${2:-$(tmux display -p '#{pane_id}')}
+#
+#   tmux \
+#     setw -t "$current_session" monitor-activity off \;\
+#     setw -t "$current_session" automatic-rename off \;\
+#     renamew '@' \;\
+#     selectp -t "$current_pane" \;\
+#     breakp -d \;\
+#     run-shell 'sleep 0.01' \;\
+#     selectw -t '@' 2> /dev/null || true
+#
+#   tmux setw -t "$current_session" allow-rename off 2> /dev/null || true
+# }
+#
+# "$@"

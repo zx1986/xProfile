@@ -111,6 +111,14 @@ git clone --depth 1 https://github.com/tmux-plugins/tpm.git "$TPM_TEMP/tpm"
 tar czf "$BUNDLE_DIR/tpm.tar.gz" -C "$TPM_TEMP" tpm
 rm -rf "$TPM_TEMP"
 
+# --- Download Oh My Tmux ---
+echo ""
+echo "--- Downloading Oh My Tmux ---"
+OMT_TEMP=$(mktemp -d)
+git clone --depth 1 https://github.com/gpakosz/.tmux.git "$OMT_TEMP/oh-my-tmux"
+tar czf "$BUNDLE_DIR/oh-my-tmux.tar.gz" -C "$OMT_TEMP" oh-my-tmux
+rm -rf "$OMT_TEMP"
+
 echo ""
 echo "=== Bundle complete ==="
 echo "Contents of $BUNDLE_DIR:"
