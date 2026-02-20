@@ -130,8 +130,9 @@ fi
 echo ""
 echo "--- Downloading asdf ---"
 ASDF_V=$(_latest_tag asdf-vm/asdf)
-curl -fsSL "https://github.com/asdf-vm/asdf/releases/download/v${ASDF_V}/asdf_${ASDF_V}_linux_${BIN_ARCH}.tar.gz" \
-  -o "$BUNDLE_DIR/asdf/asdf_${ASDF_V}_linux_${BIN_ARCH}.tar.gz" 2>/dev/null \
+# Go version binary naming: asdf-v0.16.0-linux-amd64.tar.gz
+curl -fsSL "https://github.com/asdf-vm/asdf/releases/download/v${ASDF_V}/asdf-v${ASDF_V}-linux-${BIN_ARCH}.tar.gz" \
+  -o "$BUNDLE_DIR/asdf/asdf-v${ASDF_V}-linux-${BIN_ARCH}.tar.gz" 2>/dev/null \
   || curl -fsSL "https://github.com/asdf-vm/asdf/archive/refs/tags/v${ASDF_V}.tar.gz" \
   -o "$BUNDLE_DIR/asdf/asdf-${ASDF_V}.tar.gz"
 

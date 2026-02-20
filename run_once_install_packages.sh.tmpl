@@ -60,8 +60,22 @@ if ! command -v asdf >/dev/null; then
   ASDF_TGZ=$(ls "$OFFLINE_DIR/asdf/"*.tar.gz 2>/dev/null | head -1 || true)
   if [ -n "$ASDF_TGZ" ]; then
     echo "Installing asdf from offline bundle..."
-    tar xzf "$ASDF_TGZ" -C "$HOME/.local/bin/" asdf 2>/dev/null \
-      || tar xzf "$ASDF_TGZ" -C /tmp && sudo install -m 755 /tmp/asdf /usr/local/bin/asdf
+    ASDF_TMP=$(mktemp -d)
+    tar xzf "$ASDF_TGZ" -C "$ASDF_TMP"
+    if [ -f "$ASDF_TMP/asdf" ]; then
+      # Binary release (Go version) extracts a single binary
+      mkdir -p "$HOME/.local/bin"
+      mv "$ASDF_TMP/asdf" "$HOME/.local/bin/asdf"
+      chmod 755 "$HOME/.local/bin/asdf"
+    else
+      # Source release extracts to a directory (e.g. asdf-0.18.0)
+      ASDF_DIR=$(find "$ASDF_TMP" -mindepth 1 -maxdepth 1 -type d | head -1)
+      if [ -n "$ASDF_DIR" ] && [ -f "$ASDF_DIR/bin/asdf" ]; then
+        rm -rf "$HOME/.asdf"
+        mv "$ASDF_DIR" "$HOME/.asdf"
+      fi
+    fi
+    rm -rf "$ASDF_TMP"
   elif command -v git >/dev/null; then
     echo "Installing asdf from GitHub..."
     ASDF_VERSION=$(curl -fsS https://api.github.com/repos/asdf-vm/asdf/releases/latest \
