@@ -20,8 +20,11 @@ source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-kube-ps1.plugin.zsh
 source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-kubectl.plugin.zsh
 
 # k — colorized kubectl output (supercrabtree/k)
-[[ -f {{ .chezmoi.homeDir }}/.config/zsh/parts/k.plugin.zsh ]] && \
+# Prezto utility module sets a 'k' alias; remove it so k() function can be defined
+[[ -f {{ .chezmoi.homeDir }}/.config/zsh/parts/k.plugin.zsh ]] && {
+  (( $+aliases[k] )) && unalias k
   source {{ .chezmoi.homeDir }}/.config/zsh/parts/k.plugin.zsh
+}
 
 # AWS (OMZ aws plugin)
 [[ -f {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-aws.plugin.zsh ]] && \
