@@ -16,6 +16,9 @@
 #   - false (default)
 tmux_conf_preserve_stock_bindings=false
 
+bind -N 'select previous window' -r p previous-window
+bind -N 'select next window' -r n next-window
+
 
 # -- session creation ----------------------------------------------------------
 
@@ -392,7 +395,7 @@ set -g history-limit 10000
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 set -g status-keys vi
-#set -g mode-keys vi
+set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
 set -gu prefix2
