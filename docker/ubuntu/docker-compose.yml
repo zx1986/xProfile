@@ -1,0 +1,18 @@
+services:
+  dotfiles-verify:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: xprofile-ubuntu-verify:latest
+    container_name: dotfiles_ubuntu_verify
+    platform: linux/arm64
+    hostname: ubuntu-verify
+    volumes:
+      # Mount xProfile repo (read-write so chezmoi can use it as source)
+      - ../../:/home/zx1986/xProfile:rw
+      # Mount offline-packages bundle if it exists (for offline testing)
+      - ../../offline-packages:/home/zx1986/.local/share/offline-packages:ro
+    # For offline simulation: disconnect after build by overriding network
+    # Use 'make verify-online' (with network) or 'make verify-offline' (network disabled)
+    tty: true
+    stdin_open: true

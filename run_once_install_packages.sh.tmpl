@@ -29,32 +29,46 @@ if [ -f "$HOME/.tool-versions" ]; then
 fi
 
 {{ else -}}
-# === Linux: Offline-capable Install ===
-# This script assumes packages are pre-bundled in $HOME/.local/share/offline-packages
-# by the prepare_offline_bundle.sh script (run on a machine with internet).
+# === Linux (Ubuntu 22.04): Offline-capable Install ===
+# Packages are pre-bundled in $OFFLINE_DIR by prepare_offline_bundle.sh,
+# OR installed via apt if internet is available.
 
 OFFLINE_DIR="$HOME/.local/share/offline-packages"
 
-if [ -d "$OFFLINE_DIR/debs" ]; then
-    echo "Installing offline .deb packages..."
-    sudo dpkg -i "$OFFLINE_DIR/debs/"*.deb 2>/dev/null || true
-    sudo apt-get install -f -y 2>/dev/null || true
+# --- Install core .deb packages (offline bundle) ---
+if [ -d "$OFFLINE_DIR/debs" ] && ls "$OFFLINE_DIR/debs/"*.deb >/dev/null 2>&1; then
+  echo "Installing core .deb packages from offline bundle..."
+  sudo dpkg -i "$OFFLINE_DIR/debs/"*.deb 2>/dev/null || true
+  sudo apt-get install -f -y 2>/dev/null || true
+elif command -v apt-get >/dev/null; then
+  echo "Installing core packages via apt..."
+  sudo apt-get update -qq
+  sudo apt-get install -y zsh tmux git curl wget unzip build-essential
 fi
 
-# Install chezmoi binary if not already available
-if ! command -v chezmoi >/dev/null; then
-    if [ -f "$OFFLINE_DIR/bin/chezmoi" ]; then
-        echo "Installing chezmoi from offline bundle..."
-        sudo install -m 755 "$OFFLINE_DIR/bin/chezmoi" /usr/local/bin/chezmoi
-    fi
-fi
-
-# Install additional binaries from offline bundle
-for bin in tig fd fzf eza bat; do
-    if ! command -v "$bin" >/dev/null && [ -f "$OFFLINE_DIR/bin/$bin" ]; then
-        echo "Installing $bin from offline bundle..."
-        sudo install -m 755 "$OFFLINE_DIR/bin/$bin" /usr/local/bin/"$bin"
-    fi
+# --- Install standalone binaries from offline bundle ---
+for bin in chezmoi fd fzf eza bat tig; do
+  if ! command -v "$bin" >/dev/null && [ -f "$OFFLINE_DIR/bin/$bin" ]; then
+    echo "Installing $bin from offline bundle..."
+    sudo install -m 755 "$OFFLINE_DIR/bin/$bin" /usr/local/bin/"$bin"
+  fi
 done
+
+# --- Install asdf ---
+if ! command -v asdf >/dev/null; then
+  # Try offline bundle first
+  ASDF_TGZ=$(ls "$OFFLINE_DIR/asdf/"*.tar.gz 2>/dev/null | head -1 || true)
+  if [ -n "$ASDF_TGZ" ]; then
+    echo "Installing asdf from offline bundle..."
+    tar xzf "$ASDF_TGZ" -C "$HOME/.local/bin/" asdf 2>/dev/null \
+      || tar xzf "$ASDF_TGZ" -C /tmp && sudo install -m 755 /tmp/asdf /usr/local/bin/asdf
+  elif command -v git >/dev/null; then
+    echo "Installing asdf from GitHub..."
+    ASDF_VERSION=$(curl -fsS https://api.github.com/repos/asdf-vm/asdf/releases/latest \
+      | grep '"tag_name"' | cut -d'"' -f4)
+    git clone --depth=1 --branch "${ASDF_VERSION}" \
+      https://github.com/asdf-vm/asdf.git "$HOME/.asdf"
+  fi
+fi
 
 {{ end -}}
