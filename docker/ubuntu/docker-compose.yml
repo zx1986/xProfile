@@ -1,13 +1,13 @@
 services:
-  dotfiles-verify:
+  foobar:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: dotfiles_ubuntu_verify
+    container_name: xprofile_test
     platform: linux/amd64
-    hostname: ubuntu-verify
+    hostname: foobar
     volumes:
-      - ../../:/home/zx1986/xProfile:rw
-      - ../../offline-packages:/home/zx1986/.local/share/offline-packages:ro
+      - ../../:/home/testuser/xProfile:rw
+      - ../../offline-packages:/home/testuser/.local/share/offline-packages:ro
     tty: true
     stdin_open: true
