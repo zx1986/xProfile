@@ -1,5 +1,11 @@
 # Custom environment variables
-[ -f ~/.env ] && export $(grep -v '^#' ~/.env | xargs)
+if [ -f ~/.env ]; then
+  while IFS= read -r line; do
+    if [[ ! "$line" =~ ^\s*# && -n "$line" ]]; then
+      export "$line"
+    fi
+  done < ~/.env
+fi
 
 # asdf
 {{ if eq .chezmoi.os "darwin" -}}
