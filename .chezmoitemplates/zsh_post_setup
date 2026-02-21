@@ -49,7 +49,7 @@ if [ $commands[awless] ]; then
 fi
 
 function agp() {
-  echo $AWS_PROFILE
+  echo "$AWS_PROFILE"
 }
 
 function asp() {
@@ -81,7 +81,7 @@ function _aws_profiles() {
   reply=($(aws_profiles))
 }
 
-compctl -K _aws_profiles asp
+compdef _aws_profiles asp
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
