@@ -1,0 +1,13 @@
+services:
+  foobar:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: xprofile_test
+    platform: linux/amd64
+    hostname: foobar
+    volumes:
+      - ../../:/home/testuser/xProfile:rw
+      - ../../offline-packages:/home/testuser/.local/share/offline-packages:ro
+    tty: true
+    stdin_open: true

@@ -1,0 +1,39 @@
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+
+# Pre-setup (environment variables, paths, theme config)
+{{ template "zsh_pre_setup" . }}
+
+# --- Bundled plugins (from ~/.config/zsh/parts) ---
+
+# OMZ git helpers
+source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-git.zsh
+source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-git.plugin.zsh
+
+# Kubernetes
+source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-kube-ps1.plugin.zsh
+source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-kubectl.plugin.zsh
+
+# AWS (OMZ aws plugin)
+[[ -f {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-aws.plugin.zsh ]] && \
+  source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-aws.plugin.zsh
+
+# Terraform aliases (OMZ terraform plugin)
+[[ -f {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-terraform.plugin.zsh ]] && \
+  source {{ .chezmoi.homeDir }}/.config/zsh/parts/omz-terraform.plugin.zsh
+
+# MySQL colorized output (zpm-zsh/mysql-colorize)
+[[ -f {{ .chezmoi.homeDir }}/.config/zsh/parts/mysql-colorize.plugin.zsh ]] && \
+  source {{ .chezmoi.homeDir }}/.config/zsh/parts/mysql-colorize.plugin.zsh
+
+# Colorized man pages (zlsun/solarized-man)
+[[ -f {{ .chezmoi.homeDir }}/.config/zsh/parts/solarized-man.plugin.zsh ]] && \
+  source {{ .chezmoi.homeDir }}/.config/zsh/parts/solarized-man.plugin.zsh
+
+# Post-setup (tool lazy-loading, custom functions, aliases)
+{{ template "zsh_post_setup" . }}

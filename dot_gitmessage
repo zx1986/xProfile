@@ -1,0 +1,20 @@
+# Subject: 50 chars max, no period at end, imperative mood
+# Example: feat(api): add a new endpoint
+
+# Body: 72 chars max per line. Explain 'what' and 'why' (not 'how').
+# Multiple paragraphs are allowed, separated by a blank line.
+
+# Footer: Optional metadata like issue references or breaking changes.
+# Example: Closes #123
+# Example: BREAKING CHANGE: <description>
+
+# feat: A new feature.
+# fix: A bug fix.
+# docs: Documentation only changes.
+# style: Changes that do not affect code logic (whitespace, formatting, etc.).
+# refactor: A code change that neither fixes a bug nor adds a feature.
+# perf: A code change that improves performance.
+# test: Adding missing tests or correcting existing tests.
+# build: Changes that affect build components or dependencies.
+# chore: Miscellaneous tasks or maintenance commits (e.g., modifying .gitignore).
+# ops: Operational changes (infrastructure, deployment, CI/CD).
