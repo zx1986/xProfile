@@ -62,6 +62,7 @@ check "~/.tmux.conf.local"       "[[ -f ~/.tmux.conf.local ]]"
 
 # Prezto
 check "~/.zprezto installed"     "[[ -d ~/.zprezto ]]"
+check "Prezto Contrib installed" "[[ -d ~/.zprezto/contrib ]]"
 check "_eza completion present"  "[[ -f ~/.zprezto/modules/completion/external/src/_eza ]]"
 
 # Binaries

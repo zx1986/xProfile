@@ -147,6 +147,16 @@ tar czf "$BUNDLE_DIR/prezto.tar.gz" -C "$PREZTO_TEMP" .zprezto
 rm -rf "$PREZTO_TEMP"
 
 # ---------------------------------------------------------------------------
+# Prezto Contrib
+# ---------------------------------------------------------------------------
+echo ""
+echo "--- Downloading Prezto Contrib ---"
+PREZTO_CONTRIB_TEMP=$(mktemp -d)
+git clone --depth 1 https://github.com/belak/prezto-contrib.git "$PREZTO_CONTRIB_TEMP/contrib"
+tar czf "$BUNDLE_DIR/prezto-contrib.tar.gz" -C "$PREZTO_CONTRIB_TEMP" contrib
+rm -rf "$PREZTO_CONTRIB_TEMP"
+
+# ---------------------------------------------------------------------------
 # Oh My Tmux
 # ---------------------------------------------------------------------------
 echo ""

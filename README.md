@@ -97,6 +97,7 @@ xProfile/
 | `debs/*.deb` | Core: zsh, tmux, git, curl, build-essential |
 | `asdf/*.tar.gz` | github.com/asdf-vm/asdf |
 | `prezto.tar.gz` | github.com/sorin-ionescu/prezto (recursive) |
+| `prezto-contrib.tar.gz` | github.com/belak/prezto-contrib |
 | `oh-my-tmux.tar.gz` | github.com/gpakosz/.tmux |
 | `tpm.tar.gz` | github.com/tmux-plugins/tpm |
 
