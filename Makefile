@@ -1,3 +1,5 @@
+KREW=./krew-"`uname | tr '[:upper:]' '[:lower:]'`_amd64"
+
 .PHONY: init
 init: ## Auto-detect environment and initialize dotfiles via chezmoi
 	@echo "Detected OS: $$(uname -s)"
@@ -62,6 +64,46 @@ clean: ## Remove files managed by chezmoi and clean up third-party directories
 	@echo "Cleaning up third-party tool directories..."
 	rm -rf "$(HOME)/.zprezto" "$(HOME)/.tmux" "$(HOME)/.asdf" "$(HOME)/.local/share/offline-packages"
 	@echo "Cleanup completed."
+
+.PHONY: krew
+krew: ## 配置 Kubernetes kubectl 外掛管理器
+	set -x; cd "$$(mktemp -d)" && \
+	curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}" && \
+	tar zxvf krew.tar.gz && \
+	"$$(KREW)" install --manifest=krew.yaml --archive=krew.tar.gz && \
+	"$$(KREW)" update
+	kubectl krew install access-matrix
+	kubectl krew install cssh
+	kubectl krew install pod-logs
+	kubectl krew install pod-shell
+	kubectl krew install rbac-lookup
+	kubectl krew install rbac-view
+	kubectl krew install trace
+	kubectl krew install view-secret
+	kubectl krew install view-utilization
+	kubectl krew install warp
+
+.PHONY: helm
+helm: ## 配置 kubernetes helm
+	asdf plugin add helm && asdf install helm latest
+	helm plugin install https://github.com/technosophos/helm-template
+	helm plugin install https://github.com/maorfr/helm-backup
+	helm plugin install https://github.com/maorfr/helm-restore
+	helm plugin install https://github.com/maorfr/helm-inject
+	helm plugin install https://github.com/maorfr/helm-logs
+	helm plugin install https://github.com/mstrzele/helm-edit
+	helm plugin install https://github.com/adamreese/helm-env
+	helm plugin install https://github.com/adamreese/helm-last
+	helm plugin install https://github.com/ContainerSolutions/helm-monitor
+	helm plugin install https://github.com/databus23/helm-diff
+	helm plugin install https://github.com/futuresimple/helm-secrets
+
+.PHONY: iterm
+iterm: ## 配置 iTerm
+	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
+	curl -L https://iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
+	curl -L https://iterm2.com/utilities/imgls -o /usr/local/bin/imgls
+	chmod a+x /usr/local/bin/*
 
 # Absolutely awesome: http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .PHONY: help
