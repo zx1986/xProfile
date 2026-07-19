@@ -4,3 +4,4 @@ check "APT commands in install script" "grep -q 'apt-get install' \$TMP_HOME/00_
 check "gh in apt install list" "grep -E -q 'apt-get install.*\bgh\b' \$TMP_HOME/00_install_packages.sh"
 check "Font installation script rendered" "grep -q 'JetBrainsMono' \$TMP_HOME/after_install_fonts.sh"
 check "Font version is correct" "grep -q 'version=\"v3.2.1\"' \$TMP_HOME/after_install_fonts.sh"
+check "antigravity installation script is empty when offline" "[[ -z \$(chezmoi execute-template -f --source . --override-data-file .chezmoidata.yaml --override-data '{\"is_offline\": true, \"chezmoi\": {\"os\": \"linux\"}}' run_once_before_06_install_antigravity.sh.tmpl | tr -d '[:space:]') ]]"
